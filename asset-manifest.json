@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/pro-movie-searcher/static/css/main.aa2b745c.css",
+    "main.js": "/pro-movie-searcher/static/js/main.5024eb4f.js",
+    "static/css/881.6fa09f83.chunk.css": "/pro-movie-searcher/static/css/881.6fa09f83.chunk.css",
+    "static/js/881.39b627d4.chunk.js": "/pro-movie-searcher/static/js/881.39b627d4.chunk.js",
+    "static/css/561.43eabd77.chunk.css": "/pro-movie-searcher/static/css/561.43eabd77.chunk.css",
+    "static/js/561.7a2c94c4.chunk.js": "/pro-movie-searcher/static/js/561.7a2c94c4.chunk.js",
+    "static/css/76.95453a26.chunk.css": "/pro-movie-searcher/static/css/76.95453a26.chunk.css",
+    "static/js/76.47eced2d.chunk.js": "/pro-movie-searcher/static/js/76.47eced2d.chunk.js",
+    "static/css/168.8eac1d62.chunk.css": "/pro-movie-searcher/static/css/168.8eac1d62.chunk.css",
+    "static/js/168.c055ca97.chunk.js": "/pro-movie-searcher/static/js/168.c055ca97.chunk.js",
+    "static/js/943.28a49a74.chunk.js": "/pro-movie-searcher/static/js/943.28a49a74.chunk.js",
+    "static/js/373.8c9c4715.chunk.js": "/pro-movie-searcher/static/js/373.8c9c4715.chunk.js",
+    "static/js/126.5e5fa6d3.chunk.js": "/pro-movie-searcher/static/js/126.5e5fa6d3.chunk.js",
+    "static/media/fon.jpg": "/pro-movie-searcher/static/media/fon.9e2adef20f1a7ad210c8.jpg",
+    "static/media/noimage2.jpg": "/pro-movie-searcher/static/media/noimage2.d6863c531721152fea3b.jpg",
+    "static/media/noimage1.jpg": "/pro-movie-searcher/static/media/noimage1.b6fb5b38193071098e5a.jpg",
+    "index.html": "/pro-movie-searcher/index.html",
+    "static/media/avengers.m3u8": "/pro-movie-searcher/static/media/avengers.e43305dee8dcac721279.m3u8",
+    "main.aa2b745c.css.map": "/pro-movie-searcher/static/css/main.aa2b745c.css.map",
+    "main.5024eb4f.js.map": "/pro-movie-searcher/static/js/main.5024eb4f.js.map",
+    "881.6fa09f83.chunk.css.map": "/pro-movie-searcher/static/css/881.6fa09f83.chunk.css.map",
+    "881.39b627d4.chunk.js.map": "/pro-movie-searcher/static/js/881.39b627d4.chunk.js.map",
+    "561.43eabd77.chunk.css.map": "/pro-movie-searcher/static/css/561.43eabd77.chunk.css.map",
+    "561.7a2c94c4.chunk.js.map": "/pro-movie-searcher/static/js/561.7a2c94c4.chunk.js.map",
+    "76.95453a26.chunk.css.map": "/pro-movie-searcher/static/css/76.95453a26.chunk.css.map",
+    "76.47eced2d.chunk.js.map": "/pro-movie-searcher/static/js/76.47eced2d.chunk.js.map",
+    "168.8eac1d62.chunk.css.map": "/pro-movie-searcher/static/css/168.8eac1d62.chunk.css.map",
+    "168.c055ca97.chunk.js.map": "/pro-movie-searcher/static/js/168.c055ca97.chunk.js.map",
+    "943.28a49a74.chunk.js.map": "/pro-movie-searcher/static/js/943.28a49a74.chunk.js.map",
+    "373.8c9c4715.chunk.js.map": "/pro-movie-searcher/static/js/373.8c9c4715.chunk.js.map",
+    "126.5e5fa6d3.chunk.js.map": "/pro-movie-searcher/static/js/126.5e5fa6d3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aa2b745c.css",
+    "static/js/main.5024eb4f.js"
+  ]
+}

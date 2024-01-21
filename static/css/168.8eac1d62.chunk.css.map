@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/168.8eac1d62.chunk.css","mappings":"AAAA,oCACI,sBACI,cACJ,CAEA,4BACI,cACJ,CACJ","sources":["components/Reviews/Reviews.module.css"],"sourcesContent":["@media screen and (max-width: 450px) {\n    .Title {\n        font-size: 20px;\n    }\n\n    .Description {\n        font-size: 12px;\n    }\n}"],"names":[],"sourceRoot":""}
