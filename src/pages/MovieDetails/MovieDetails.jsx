@@ -5,6 +5,7 @@ import css from './MovieDetails.module.css';
 import { Loader } from 'components/Loader/Loader';
 import { IconContext } from 'react-icons';
 import { IoMdArrowRoundBack } from 'react-icons/io';
+import avengers from 'images/avengers.m3u8';
 
 const MovieDetails = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -103,6 +104,9 @@ const MovieDetails = () => {
               )}
               <h3>Release date: {movieDetails.release_date}</h3>
             </div>
+            <video width="640" height="360" controls>
+              <source src={avengers} />
+            </video>
           </div>
           <div className={css.LinkButton}>
             <h3>Additional information</h3>
