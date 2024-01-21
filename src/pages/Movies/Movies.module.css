@@ -1,0 +1,61 @@
+.Wrapper {
+    padding: 20px 30px 30px 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.Container>h2 {
+    margin: 0
+}
+
+.Container>form {
+    display: flex;
+    align-items: center;
+}
+
+.Container>form>input {
+    border: none;
+    border-bottom: 2px solid #be4040;
+    font-size: 16px;
+    padding: 8px 10px;
+}
+
+.Container>form>input:focus {
+    outline: none;
+    border-bottom: 2px solid #313131;
+}
+
+.Container>form>button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 450px) {
+    .Wrapper {
+        padding: 10px 20px 20px 20px;
+    }
+
+    .Wrapper>h2 {
+        font-size: 16px;
+    }
+
+    .Container>h2 {
+        font-size: 18px;
+    }
+
+    .Container>form>input {
+        font-size: 14px;
+        padding: 4px 6px;
+    }
+
+
+}

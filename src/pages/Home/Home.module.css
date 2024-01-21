@@ -1,0 +1,17 @@
+.Container {
+    padding: 20px 30px 30px 30px;
+}
+
+.Container>h2 {
+    margin: 0
+}
+
+@media screen and (max-width: 450px) {
+    .Container {
+        padding: 10px 20px 50px 20px;
+    }
+
+    .Container>h2 {
+        font-size: 18px;
+    }
+}

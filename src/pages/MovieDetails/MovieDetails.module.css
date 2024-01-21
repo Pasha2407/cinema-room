@@ -1,0 +1,140 @@
+.Background {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.BackgroundFilter {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+}
+
+.Wrapper {
+    padding: 15px 30px 60px 30px;
+}
+
+.Wrapper>a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.Container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px
+}
+
+.Container>aside>img {
+    width: 240px;
+}
+
+.Title>h2 {
+    margin-top: 0;
+    margin-bottom: 15px
+}
+
+.Title>h3 {
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.Title>p {
+    margin: 0;
+}
+
+.Title>section {
+    padding: 6px 15px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    gap: 10px;
+}
+
+.Companies>img {
+    height: 30px;
+    max-width: 80px;
+}
+
+.Companies>div {
+    height: 30px;
+    max-width: 80px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.Companies>div>p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.LinkButton>a {
+    background-color: #be4040;
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+    margin-right: 10px;
+}
+
+.LinkButton>a:hover {
+    background-color: #913131
+}
+
+@media screen and (max-width: 450px) {
+    .Background {
+        background-size: cover;
+        background-repeat: repeat;
+        background-attachment: fixed;
+    }
+
+    .Wrapper {
+        padding: 10px 15px 50px 15px;
+    }
+
+    .Container>aside>img {
+        width: 120px;
+    }
+
+    .Title>h2 {
+        font-size: 16px;
+    }
+
+    .Title>h3 {
+        font-size: 14px;
+    }
+
+    .Title>p {
+        font-size: 12px;
+    }
+
+    .Title>b {
+        font-size: 14px;
+    }
+
+    .Title>section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 6px 0;
+        row-gap: 10px;
+    }
+
+    .Companies {
+        display: flex;
+        justify-content: center;
+    }
+
+    .Companies>img {
+        height: 20px;
+        max-width: 60px;
+    }
+
+    .LinkButton>h3 {
+        font-size: 18px;
+    }
+}

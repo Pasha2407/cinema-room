@@ -1,0 +1,39 @@
+.List {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    row-gap: 20px;
+    column-gap: 20px;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.List>li>img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.ActorName {
+    min-height: 45px;
+}
+
+.ActorName>p {
+    margin: 2px 0;
+    text-align: center;
+    font-size: 17px;
+}
+
+@media screen and (max-width: 450px) {
+    .Title {
+        font-size: 20px;
+    }
+
+    .List {
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 15px;
+        column-gap: 10px;
+    }
+
+    .ActorName>p {
+        font-size: 14px;
+    }
+}
