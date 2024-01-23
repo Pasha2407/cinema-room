@@ -1,27 +1,26 @@
 import { Link, useLocation } from 'react-router-dom';
 import css from './MovieList.module.css';
 
-export const MovieList = ({ movies }) => {
+export const MovieList = ({ data, path }) => {
   const location = useLocation();
+  const selectedId = [414906, 872585, 286217, 299534, 51497];
 
   return (
     <div>
       <ul className={css.List}>
-        {movies.map(item => (
-          <li key={item.id}>
-            <Link to={`/movies/${item.id}`} state={{ from: location }}>
-              <img
-                className={css.Image}
-                src={
-                  item.backdrop_path
-                    ? `https://image.tmdb.org/t/p/w500${item.backdrop_path}`
-                    : require('../../images/noimage1.jpg')
-                }
-                alt=""
-              ></img>
-              <div className={css.Title}>
-                <p>{item.title}</p>
-              </div>
+        {data.map(item => (
+          <li
+            key={item.id}
+            style={{
+              backgroundImage: item.poster_path
+                ? `url(https://image.tmdb.org/t/p/w500${item.poster_path})`
+                : `url(${require(`images/noimage2.jpg`)})`,
+            }}
+          >
+            <Link to={`/${path}/${item.id}`} state={{ from: location }}>
+              {selectedId.includes(item.id) && (
+                <div className={css.qu}>Full HD</div>
+              )}
             </Link>
           </li>
         ))}

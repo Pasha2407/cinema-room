@@ -2,23 +2,23 @@ import { useEffect, useState, useRef } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 
 import { Loader } from 'components/Loader/Loader';
-import { fetchMovieDetails } from 'service/API';
+import { fetchSerialDetails } from 'service/API';
 
 import { Details } from 'components/Details/Details';
 
-const MovieDetails = () => {
+const SerialDetails = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [movieDetails, setMovieDetails] = useState([]);
+  const [serialDetails, setSerialDetails] = useState([]);
 
   const { id } = useParams();
   const location = useLocation();
   const back = useRef(location.state?.from || '/');
 
   useEffect(() => {
-    const movieDetails = async () => {
+    const serialDetails = async () => {
       try {
-        const movie = await fetchMovieDetails(id);
-        setMovieDetails(movie);
+        const serial = await fetchSerialDetails(id);
+        setSerialDetails(serial);
       } catch (error) {
         console.error(error);
       } finally {
@@ -27,14 +27,14 @@ const MovieDetails = () => {
         }, 700);
       }
     };
-    movieDetails();
+    serialDetails();
   }, [id]);
 
   return isLoading ? (
     <Loader />
   ) : (
-    <Details data={movieDetails} back={back} id={id} />
+    <Details data={serialDetails} back={back} id={id} />
   );
 };
 
-export default MovieDetails;
+export default SerialDetails;

@@ -1,32 +1,28 @@
-.Wrapper {
-  background-image: url('../../images/fon.jpg');
-  background-size: 100%;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Montserrat', sans-serif;
-}
-
 .Container {
-  width: 1000px;
-  background-color: white;
+  width: 1100px;
+  background-color: #414141;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0 auto;
+  min-height: 100vh;
 }
 
 .Container>header {
   width: 100%;
-  background-color: #bcbcbc;
+  /* background-color: #bcbcbc; */
+  background: rgb(49, 49, 49);
+  background: linear-gradient(180deg, rgba(49, 49, 49, 1) 90%, rgba(190, 64, 64, 1) 100%);
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 
+/* 
 .Container>header>h2 {
   background-color: #313131;
   margin: 0;
   color: #bcbcbc;
   text-align: center;
   padding: 5px 0;
-}
+} */
 
 .Container>header>nav {
   font-size: 1.5em;
@@ -41,14 +37,11 @@
   padding: 5px;
   text-decoration: none;
   border-radius: 8px;
+  color: white;
 }
 
 .Container>main {
   width: 100%;
-  height: 550px;
-  position: relative;
-  overflow-y: scroll;
-  overflow-x: hidden;
 }
 
 @media screen and (max-width: 450px) {

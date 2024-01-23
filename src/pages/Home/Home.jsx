@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { fetchTrendingMovies } from 'service/api';
+import { fetchTrendingMovies } from 'service/API';
 import { MovieList } from 'components/MovieList/MovieList';
 import css from './Home.module.css';
 
 export const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
+  const path = 'movies';
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -21,7 +22,7 @@ export const Home = () => {
   return (
     <div className={css.Container}>
       <h2>Trending movies today</h2>
-      <MovieList movies={trendingMovies} />
+      <MovieList data={trendingMovies} path={path} />
     </div>
   );
 };

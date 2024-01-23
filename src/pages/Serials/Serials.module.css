@@ -1,10 +1,21 @@
 .Container {
     padding: 20px 30px 30px 30px;
+
 }
 
 .Container>h2 {
     margin: 0;
     color: white
+}
+
+.ControlPanel {
+    box-sizing: border-box;
+    width: 100%;
+    height: 200px;
+    background-color: #515151;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    padding: 20px;
 }
 
 @media screen and (max-width: 450px) {
