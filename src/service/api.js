@@ -6,51 +6,50 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 const params = {
     params: {
         api_key: apiKey,
-        language: 'uk-UA',
     },
 };
 
 // MOVIES
-export const fetchTrendingMovies = async () => {
-    const response = await axios.get(`trending/movie/day`, params);
+export const fetchTrendingMovies = async (language) => {
+    const response = await axios.get(`trending/movie/day?${language}`, params);
     return response.data.results;
 };
-export const fetchMovieDetails = async id => {
-    const response = await axios.get(`/movie/${id}`, params);
+export const fetchMovieDetails = async (id, language) => {
+    const response = await axios.get(`/movie/${id}?${language}`, params);
     return response.data;
 };
 export const fetchMovieCast = async id => {
-    const response = await axios.get(`movie/${id}/credits?`, params);
+    const response = await axios.get(`movie/${id}/credits?language=en-US`, params);
     return response.data.cast;
 };
 export const fetchMovieReviews = async id => {
-    const response = await axios.get(`movie/${id}/reviews?`, params);
+    const response = await axios.get(`movie/${id}/reviews?language=en-US`, params);
     return response.data.results;
 };
-export const searchMovies = async name => {
-    const response = await axios.get(`/search/movie?query=${name}`, params);
+export const searchMovies = async (name, language) => {
+    const response = await axios.get(`/search/movie?query=${name}&${language}`, params);
     return response.data.results;
 };
 
 // SERIALS
-export const fetchTrendingSerials = async () => {
-    const response = await axios.get(`trending/tv/day`, params);
+export const fetchTrendingSerials = async (language) => {
+    const response = await axios.get(`trending/tv/day?${language}`, params);
     return response.data.results;
 };
-export const fetchSerialDetails = async id => {
-    const response = await axios.get(`/tv/${id}`, params);
+export const fetchSerialDetails = async (id, language) => {
+    const response = await axios.get(`/tv/${id}?${language}`, params);
     return response.data;
 };
 export const fetchSerialCast = async id => {
-    const response = await axios.get(`tv/${id}/credits?`, params);
+    const response = await axios.get(`tv/${id}/credits?language=en-US`, params);
     return response.data.cast;
 };
 export const fetchSerialReviews = async id => {
-    const response = await axios.get(`tv/${id}/reviews?`, params);
+    const response = await axios.get(`tv/${id}/reviews?language=en-US`, params);
     return response.data.results;
 };
-export const fetchPopularSerials = async () => {
-    const response = await axios.get(`/tv/popular`, params);
-    return response.data.results;
-};
+// export const fetchPopularSerials = async (language) => {
+//     const response = await axios.get(`/tv/popular?${language}`, params);
+//     return response.data.results;
+// };
 

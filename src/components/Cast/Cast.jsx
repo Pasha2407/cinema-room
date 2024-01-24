@@ -1,27 +1,6 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { fetchMovieCast } from 'service/API';
 import css from './Cast.module.css';
 
-const Cast = () => {
-  const [cast, setCast] = useState([]);
-  const [found, setFound] = useState(false);
-  const { id } = useParams();
-
-  useEffect(() => {
-    const movieCast = async () => {
-      try {
-        const response = await fetchMovieCast(id);
-        setCast(response);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setFound(true);
-      }
-    };
-    movieCast();
-  }, [id]);
-
+export const Cast = ({ cast, found }) => {
   return (
     <div>
       <h2 className={css.Title}>Movie Cast 👇</h2>
@@ -33,7 +12,7 @@ const Cast = () => {
                 src={
                   item.profile_path
                     ? `https://image.tmdb.org/t/p/w300${item.profile_path}`
-                    : require('../../images/noimage2.jpg')
+                    : require('data/images/noimage.jpg')
                 }
                 alt=""
               ></img>
@@ -48,5 +27,3 @@ const Cast = () => {
     </div>
   );
 };
-
-export default Cast;

@@ -1,9 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
-import css from './MovieList.module.css';
+import css from './List.module.css';
 
-export const MovieList = ({ data, path }) => {
+import availableMovies from 'data/availableMovies.json';
+import availableSerials from 'data/availableSerials.json';
+
+export const List = ({ data, path }) => {
   const location = useLocation();
-  const selectedId = [414906, 872585, 286217, 299534, 51497];
 
   return (
     <div>
@@ -14,11 +16,14 @@ export const MovieList = ({ data, path }) => {
             style={{
               backgroundImage: item.poster_path
                 ? `url(https://image.tmdb.org/t/p/w500${item.poster_path})`
-                : `url(${require(`images/noimage2.jpg`)})`,
+                : `url(${require(`data/images/noimage.jpg`)})`,
             }}
           >
             <Link to={`/${path}/${item.id}`} state={{ from: location }}>
-              {selectedId.includes(item.id) && (
+              {path === 'movies' && availableMovies.includes(item.id) && (
+                <div className={css.qu}>Full HD</div>
+              )}
+              {path === 'serials' && availableSerials.includes(item.id) && (
                 <div className={css.qu}>Full HD</div>
               )}
             </Link>

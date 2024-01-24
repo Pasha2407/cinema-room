@@ -4,10 +4,9 @@ import { IconContext } from 'react-icons';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 
 import css from './Details.module.css';
-import { VideoPleyer } from 'components/VideoPleyer/VideoPleyer';
-const selectedId = [414906, 872585, 286217, 299534, 51497];
+import { VideoPlayer } from 'components/VideoPlayer/VideoPlayer';
 
-export const Details = ({ data, back, id }) => {
+export const Details = ({ data, back, id, availableId }) => {
   return (
     <div
       className={css.Background}
@@ -28,7 +27,7 @@ export const Details = ({ data, back, id }) => {
               style={{
                 backgroundImage: data.poster_path
                   ? `url(https://image.tmdb.org/t/p/w500${data.poster_path})`
-                  : `url(${require(`images/noimage2.jpg`)})`,
+                  : `url(${require(`data/images/noimage.jpg`)})`,
               }}
             ></aside>
             <div className={css.Title}>
@@ -75,8 +74,8 @@ export const Details = ({ data, back, id }) => {
               <h3>Release date: {data.release_date}</h3>
             </div>
           </div>
-          {selectedId.toString().includes(id) ? (
-            <VideoPleyer id={id} />
+          {availableId.toString().includes(id) ? (
+            <VideoPlayer id={id} />
           ) : (
             <i>Фільму не має</i>
           )}

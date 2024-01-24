@@ -5,8 +5,9 @@ import { Loader } from 'components/Loader/Loader';
 import { fetchSerialDetails } from 'service/API';
 
 import { Details } from 'components/Details/Details';
+import availableSerials from 'data/availableSerials.json';
 
-const SerialDetails = () => {
+const SerialDetails = ({ language }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [serialDetails, setSerialDetails] = useState([]);
 
@@ -17,7 +18,7 @@ const SerialDetails = () => {
   useEffect(() => {
     const serialDetails = async () => {
       try {
-        const serial = await fetchSerialDetails(id);
+        const serial = await fetchSerialDetails(id, language);
         setSerialDetails(serial);
       } catch (error) {
         console.error(error);
@@ -28,12 +29,17 @@ const SerialDetails = () => {
       }
     };
     serialDetails();
-  }, [id]);
+  }, [id, language]);
 
   return isLoading ? (
     <Loader />
   ) : (
-    <Details data={serialDetails} back={back} id={id} />
+    <Details
+      data={serialDetails}
+      back={back}
+      id={id}
+      availableId={availableSerials}
+    />
   );
 };
 

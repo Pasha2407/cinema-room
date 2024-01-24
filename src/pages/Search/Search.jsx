@@ -1,19 +1,18 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { searchMovies } from 'service/API';
-import { MovieList } from 'components/MovieList/MovieList';
+import { List } from 'components/List/List';
 import { Loader } from 'components/Loader/Loader';
 import css from './Search.module.css';
 import { BsSearch } from 'react-icons/bs';
 import { IconContext } from 'react-icons';
 
-const Search = () => {
+const Search = ({ language, path }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [foundMovies, setFoundMovies] = useState([]);
   const [isLoading, setIsLoading] = useState();
   const [found, setFound] = useState(false);
   const movieName = searchParams.get('query') || '';
-  const path = 'movies';
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -28,7 +27,7 @@ const Search = () => {
     const search = async () => {
       try {
         setIsLoading(true);
-        const movies = await searchMovies(movieName);
+        const movies = await searchMovies(movieName, language);
         setFoundMovies(movies);
       } catch (error) {
         console.error(error);
@@ -42,7 +41,7 @@ const Search = () => {
       }
     };
     search();
-  }, [movieName]);
+  }, [movieName, language]);
 
   return (
     <div className={css.Wrapper}>
@@ -60,7 +59,7 @@ const Search = () => {
       {isLoading && movieName ? (
         <Loader />
       ) : (
-        <MovieList data={foundMovies} path={path} />
+        <List data={foundMovies} path={path} />
       )}
       {found && !isLoading && foundMovies.length === 0 && movieName && (
         <h2>No movie found for the request "{movieName}"</h2>
