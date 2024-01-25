@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchMovieReviews } from 'service/api';
+import { fetchMovieReviews } from 'service/TmdbAPI';
 import { Reviews } from './Reviews';
 
 const MovieReviews = () => {

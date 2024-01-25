@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { searchMovies } from 'service/api';
+import { searchMovies } from 'service/TmdbAPI';
 import { List } from 'components/List/List';
 import { Loader } from 'components/Loader/Loader';
 import css from './Search.module.css';

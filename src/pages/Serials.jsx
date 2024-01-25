@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchTrendingSerials } from 'service/api';
+import { fetchTrendingSerials } from 'service/TmdbAPI';
 import { Page } from 'components/Page/Page';
 
 export const Serials = ({ language, path }) => {

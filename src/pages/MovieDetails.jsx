@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 
 import { Loader } from 'components/Loader/Loader';
-import { fetchMovieDetails } from 'service/api';
+import { fetchMovieDetails } from 'service/TmdbAPI';
 
 import { Details } from 'components/Details/Details';
 import availableMovies from 'data/availableMovies.json';

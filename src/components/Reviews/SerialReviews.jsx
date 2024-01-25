@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchSerialReviews } from 'service/api';
+import { fetchSerialReviews } from 'service/TmdbAPI';
 import { Reviews } from './Reviews';
 
 const SerialReviews = () => {
