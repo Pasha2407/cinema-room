@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchTrendingSerials } from '../service/API';
+import { fetchTrendingSerials } from 'service/api';
 import { Page } from 'components/Page/Page';
 
 export const Serials = ({ language, path }) => {
