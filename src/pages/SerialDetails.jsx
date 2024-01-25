@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 
 import { Loader } from 'components/Loader/Loader';
-import { fetchSerialDetails } from 'service/API';
+import { fetchSerialDetails } from '../service/API';
 
 import { Details } from 'components/Details/Details';
 import availableSerials from 'data/availableSerials.json';

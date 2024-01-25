@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchTrendingMovies } from 'service/API';
+import { fetchTrendingMovies } from '../service/API';
 import { Page } from 'components/Page/Page';
 
 export const Movies = ({ language, path }) => {

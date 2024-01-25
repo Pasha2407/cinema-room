@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchSerialCast } from 'service/API';
+import { fetchSerialCast } from '../../service/API';
 import { Cast } from 'components/Cast/Cast';
 
 const SerialCast = ({ language }) => {
