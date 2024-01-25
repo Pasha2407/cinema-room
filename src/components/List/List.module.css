@@ -11,7 +11,6 @@
 .List>li {
     list-style-type: none;
     background-color: #525252;
-    /* border: 3px solid #be4040; */
     border-radius: 10px;
     transition: transform 0.4s;
     width: 180px;
@@ -80,6 +79,13 @@
 @media screen and (max-width: 450px) {
     .List {
         grid-template-columns: repeat(2, 1fr);
+        row-gap: 15px;
+        column-gap: 10px;
+    }
+
+    .List>li {
+        width: 160px;
+        height: 240px;
     }
 
     .Title {

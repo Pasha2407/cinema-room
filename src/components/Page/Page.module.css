@@ -9,7 +9,7 @@
 
 @media screen and (max-width: 450px) {
     .Container {
-        padding: 10px 20px 50px 20px;
+        padding: 10px 10px 50px 10px;
     }
 
     .Container>h2 {

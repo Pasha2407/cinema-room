@@ -8,21 +8,11 @@
 
 .Container>header {
   width: 100%;
-  /* background-color: #bcbcbc; */
   background: rgb(49, 49, 49);
   background: linear-gradient(180deg, rgba(49, 49, 49, 1) 90%, rgba(190, 64, 64, 1) 100%);
   padding-top: 20px;
   padding-bottom: 10px;
 }
-
-/* 
-.Container>header>h2 {
-  background-color: #313131;
-  margin: 0;
-  color: #bcbcbc;
-  text-align: center;
-  padding: 5px 0;
-} */
 
 .Container>header>nav {
   font-size: 1.5em;
@@ -40,8 +30,19 @@
   color: white;
 }
 
+.Language>button {
+  font-size: 10px;
+  padding: 5px 2px;
+}
+
 .Container>main {
   width: 100%;
+}
+
+@media screen and (max-width: 1100px) {
+  .Container {
+    width: 100vw;
+  }
 }
 
 @media screen and (max-width: 450px) {
@@ -66,13 +67,13 @@
     height: 100%;
   }
 
-  .Container>header>h2 {
-    font-size: 20px;
-  }
-
   .Container>header>nav {
     font-size: 1.2em;
     gap: 10px;
     margin-left: 20px;
+  }
+
+  .Container>header>nav>a {
+    font-size: 12px
   }
 }
