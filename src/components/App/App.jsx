@@ -61,7 +61,6 @@ export const App = () => {
           <section className={css.Language}>
             <button onClick={() => setLanguage(languages.UA)}>UA</button>
             <button onClick={() => setLanguage(languages.EN)}>EN</button>
-            <button onClick={() => setLanguage(languages.CZ)}>CZ</button>
             <button onClick={() => setLanguage(languages.RU)}>RU</button>
           </section>
         </nav>

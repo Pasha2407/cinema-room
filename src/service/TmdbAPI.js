@@ -48,6 +48,10 @@ export const fetchSerialReviews = async id => {
     const response = await axios.get(`tv/${id}/reviews?language=en-US`, params);
     return response.data.results;
 };
+export const searchSerials = async (name, language) => {
+    const response = await axios.get(`/search/tv?query=${name}&${language}`, params);
+    return response.data.results;
+};
 // export const fetchPopularSerials = async (language) => {
 //     const response = await axios.get(`/tv/popular?${language}`, params);
 //     return response.data.results;

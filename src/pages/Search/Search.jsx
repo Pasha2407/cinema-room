@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { searchMovies } from 'service/TmdbAPI';
+import { searchMovies, searchSerials } from 'service/TmdbAPI';
 import { List } from 'components/List/List';
 import { Loader } from 'components/Loader/Loader';
 import css from './Search.module.css';
@@ -10,6 +10,7 @@ import { IconContext } from 'react-icons';
 const Search = ({ language, path }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [foundMovies, setFoundMovies] = useState([]);
+  const [foundSerials, setFoundSerials] = useState([]);
   const [isLoading, setIsLoading] = useState();
   const [found, setFound] = useState(false);
   const movieName = searchParams.get('query') || '';
@@ -29,6 +30,8 @@ const Search = ({ language, path }) => {
         setIsLoading(true);
         const movies = await searchMovies(movieName, language);
         setFoundMovies(movies);
+        const serials = await searchSerials(movieName, language);
+        setFoundSerials(serials);
       } catch (error) {
         console.error(error);
       } finally {
@@ -55,11 +58,23 @@ const Search = ({ language, path }) => {
             </IconContext.Provider>
           </button>
         </form>
+        <h2>Serial Search</h2>
+        <form onSubmit={handleSubmit}>
+          <input type="text" placeholder="type here" name="search" />
+          <button type="submit">
+            <IconContext.Provider value={{ size: 20 }}>
+              <BsSearch />
+            </IconContext.Provider>
+          </button>
+        </form>
       </div>
       {isLoading && movieName ? (
         <Loader />
       ) : (
-        <List data={foundMovies} path={path} />
+        <>
+          <List data={foundMovies} path="movies" />
+          <List data={foundSerials} path="serials" />
+        </>
       )}
       {found && !isLoading && foundMovies.length === 0 && movieName && (
         <h2>No movie found for the request "{movieName}"</h2>

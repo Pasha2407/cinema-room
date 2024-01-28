@@ -1,0 +1,24 @@
+.Container {
+    display: flex;
+    flex-direction: row;
+    height: 450px;
+    border-radius: 15px;
+}
+
+.Container>aside {
+    width: 30%;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+@media screen and (max-width: 450px) {
+    .Container {
+        height: 240px;
+    }
+
+    .Container>aside {
+        width: 40%;
+    }
+}

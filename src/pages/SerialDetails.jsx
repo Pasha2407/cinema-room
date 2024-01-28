@@ -35,6 +35,7 @@ const SerialDetails = ({ language }) => {
     <Loader />
   ) : (
     <Details
+      serialData={serialDetails}
       data={serialDetails}
       back={back}
       id={id}

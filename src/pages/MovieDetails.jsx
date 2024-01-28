@@ -35,6 +35,7 @@ const MovieDetails = ({ language }) => {
     <Loader />
   ) : (
     <Details
+      movieData={movieDetails}
       data={movieDetails}
       back={back}
       id={id}
