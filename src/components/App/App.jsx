@@ -8,8 +8,9 @@ import { Serials } from 'pages/Serials';
 import { Movies } from 'pages/Movies';
 
 import languages from 'data/languages.json';
+import { Information } from 'pages/Information';
 
-const Search = lazy(() => import('../../pages/Search/Search'));
+// const Search = lazy(() => import('../../pages/Search/Search'));
 
 const MovieDetails = lazy(() => import('../../pages/MovieDetails'));
 const SerialDetails = lazy(() => import('../../pages/SerialDetails'));
@@ -40,7 +41,7 @@ export const App = () => {
               background: isActive ? '#be4040' : '',
             })}
           >
-            Movies
+            Фільми
           </NavLink>
           <NavLink
             to="/serials"
@@ -48,15 +49,15 @@ export const App = () => {
               background: isActive ? '#be4040' : '',
             })}
           >
-            Serials
+            Серіали
           </NavLink>
           <NavLink
-            to="/search"
+            to="/information"
             style={({ isActive }) => ({
               background: isActive ? '#be4040' : '',
             })}
           >
-            Search
+            Довідка
           </NavLink>
           <section className={css.Language}>
             <button onClick={() => setLanguage(languages.UA)}>UA</button>
@@ -85,8 +86,8 @@ export const App = () => {
               element={<Serials language={language} path="serials" />}
             />
             <Route
-              path="/search"
-              element={<Search language={language} path="movies" />}
+              path="/information"
+              element={<Information language={language} />}
             />
 
             <Route

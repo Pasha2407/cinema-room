@@ -1,11 +1,18 @@
+import { FilterSection } from './FilterSection/FilterSection';
 import css from './Page.module.css';
-import { List } from 'components/List/List';
+import MovieSearch from './Search/MovieSearch';
+import SerialSearch from './Search/SerialSearch';
 
-export const Page = ({ data, path }) => {
+export const Page = ({ movieData, serialData, language }) => {
   return (
     <div className={css.Container}>
-      <h2>Trending movies today</h2>
-      <List data={data} path={path} />
+      <FilterSection />
+      {movieData !== undefined && (
+        <MovieSearch data={movieData} path="movies" language={language} />
+      )}
+      {serialData !== undefined && (
+        <SerialSearch data={serialData} path="serials" language={language} />
+      )}
     </div>
   );
 };

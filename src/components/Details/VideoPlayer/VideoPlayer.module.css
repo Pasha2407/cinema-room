@@ -1,0 +1,35 @@
+.Play {
+    background-color: #313131;
+    padding: 10px;
+    width: 100%;
+    position: relative;
+    left: -10px;
+    margin-top: 10px;
+}
+
+.Play>h3 {
+    margin: 0;
+}
+
+.Play>button {
+    background-color: #be4040;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+    margin-right: 10px;
+    cursor: pointer;
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+.Play>button:hover {
+    background-color: #913131
+}
+
+@media screen and (max-width: 450px) {
+    .Play>h3 {
+        font-size: 14px;
+    }
+}

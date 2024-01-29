@@ -52,6 +52,19 @@
     background-color: #913131
 }
 
+.NotFilm {
+    background-color: #313131;
+    padding: 10px;
+    width: calc(100% + 20px);
+    position: relative;
+    left: -10px;
+    margin-top: 10px;
+}
+
+.NotFilm>i {
+    margin-left: 20px;
+}
+
 
 @media screen and (min-width: 450px) {
     .Background {
@@ -68,9 +81,22 @@
 }
 
 @media screen and (max-width: 450px) {
+    .Background {
+        background-size: 180%;
+        background-position: top;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+    }
+
+    .BackgroundFilter {
+        background-color: rgba(82, 82, 82, 0.7);
+        backdrop-filter: blur(5px);
+        height: 380px;
+    }
+
     .Wrapper {
         padding: 10px 10px 50px 10px;
-        background-color: #414141;
+        /* background-color: #414141; */
     }
 
     .Companies {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchTrendingMovies } from 'service/TmdbAPI';
 import { Page } from 'components/Page/Page';
 
-export const Movies = ({ language, path }) => {
+export const Movies = ({ language }) => {
   const [trendingMovies, setTrendingMovies] = useState([]);
 
   useEffect(() => {
@@ -17,5 +17,5 @@ export const Movies = ({ language, path }) => {
     fetchMovies();
   }, [language]);
 
-  return <Page data={trendingMovies} path={path} />;
+  return <Page movieData={trendingMovies} language={language} />;
 };

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchTrendingSerials } from 'service/TmdbAPI';
 import { Page } from 'components/Page/Page';
 
-export const Serials = ({ language, path }) => {
+export const Serials = ({ language }) => {
   const [trendingSerials, setTrendingSerials] = useState([]);
 
   useEffect(() => {
@@ -17,5 +17,5 @@ export const Serials = ({ language, path }) => {
     fetchSerials();
   }, [language]);
 
-  return <Page data={trendingSerials} path={path} />;
+  return <Page serialData={trendingSerials} language={language} />;
 };

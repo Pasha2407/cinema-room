@@ -1,0 +1,102 @@
+.SearchForm {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.SearchForm>h3 {
+    margin: 0;
+}
+
+.SearchForm>form {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.SearchForm>form>input {
+    border: none;
+    border-bottom: 3px solid #be4040;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 16px;
+    padding: 8px 10px;
+    background-color: #313131;
+    width: 270px;
+    color: white;
+}
+
+.SearchForm>form>input::placeholder {
+    text-align: center;
+}
+
+.SearchForm>form>input:focus {
+    outline: none;
+    background-color: #282828;
+}
+
+.SearchForm>form>button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.ListHeader {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.CancelButton {
+    margin-bottom: 15px;
+}
+
+.CancelButton>a {
+    background-color: #be4040;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.CancelButton>a:hover {
+    background-color: #913131
+}
+
+.NotFound {
+    font-size: 16px;
+}
+
+@media screen and (max-width: 450px) {
+    .SearchForm {
+        gap: 10px;
+        margin: 10px 0;
+    }
+
+    .SearchForm>h3 {
+        font-size: 12px;
+    }
+
+    .SearchForm>form>input {
+        font-size: 11px;
+        padding: 5px 8px;
+        width: 180px;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+    }
+
+    .ListHeader {
+        font-size: 16px;
+    }
+
+    .CancelButton>a {
+        font-size: 13px;
+    }
+
+    .NotFound {
+        font-size: 12px;
+    }
+
+}
