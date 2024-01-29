@@ -1,13 +1,11 @@
 {
   "files": {
-    "main.css": "/pro-movie-searcher/static/css/main.9ce373bf.css",
-    "main.js": "/pro-movie-searcher/static/js/main.730c8e08.js",
-    "static/css/140.fb41d0e2.chunk.css": "/pro-movie-searcher/static/css/140.fb41d0e2.chunk.css",
-    "static/js/140.4aaf0e83.chunk.js": "/pro-movie-searcher/static/js/140.4aaf0e83.chunk.js",
-    "static/css/884.551c5623.chunk.css": "/pro-movie-searcher/static/css/884.551c5623.chunk.css",
-    "static/js/884.89060a0a.chunk.js": "/pro-movie-searcher/static/js/884.89060a0a.chunk.js",
-    "static/css/538.551c5623.chunk.css": "/pro-movie-searcher/static/css/538.551c5623.chunk.css",
-    "static/js/538.b73223a4.chunk.js": "/pro-movie-searcher/static/js/538.b73223a4.chunk.js",
+    "main.css": "/pro-movie-searcher/static/css/main.fa64994a.css",
+    "main.js": "/pro-movie-searcher/static/js/main.4b4dbd72.js",
+    "static/css/884.96005d52.chunk.css": "/pro-movie-searcher/static/css/884.96005d52.chunk.css",
+    "static/js/884.95ec2ea3.chunk.js": "/pro-movie-searcher/static/js/884.95ec2ea3.chunk.js",
+    "static/css/538.96005d52.chunk.css": "/pro-movie-searcher/static/css/538.96005d52.chunk.css",
+    "static/js/538.26b5396a.chunk.js": "/pro-movie-searcher/static/js/538.26b5396a.chunk.js",
     "static/css/805.a446a263.chunk.css": "/pro-movie-searcher/static/css/805.a446a263.chunk.css",
     "static/js/805.a933258d.chunk.js": "/pro-movie-searcher/static/js/805.a933258d.chunk.js",
     "static/css/573.fd3b35c8.chunk.css": "/pro-movie-searcher/static/css/573.fd3b35c8.chunk.css",
@@ -29,20 +27,16 @@
     "reactPlayerKaltura.js": "/pro-movie-searcher/static/js/reactPlayerKaltura.0a988abb.chunk.js",
     "reactPlayerFilePlayer.js": "/pro-movie-searcher/static/js/reactPlayerFilePlayer.3a384114.chunk.js",
     "reactPlayerPreview.js": "/pro-movie-searcher/static/js/reactPlayerPreview.b2222094.chunk.js",
-    "static/js/943.1e60f51e.chunk.js": "/pro-movie-searcher/static/js/943.1e60f51e.chunk.js",
     "static/js/348.a0d542d4.chunk.js": "/pro-movie-searcher/static/js/348.a0d542d4.chunk.js",
-    "static/js/126.2ea314d7.chunk.js": "/pro-movie-searcher/static/js/126.2ea314d7.chunk.js",
     "static/media/fon.jpg": "/pro-movie-searcher/static/media/fon.9e2adef20f1a7ad210c8.jpg",
     "static/media/noimage.jpg": "/pro-movie-searcher/static/media/noimage.d6863c531721152fea3b.jpg",
     "index.html": "/pro-movie-searcher/index.html",
-    "main.9ce373bf.css.map": "/pro-movie-searcher/static/css/main.9ce373bf.css.map",
-    "main.730c8e08.js.map": "/pro-movie-searcher/static/js/main.730c8e08.js.map",
-    "140.fb41d0e2.chunk.css.map": "/pro-movie-searcher/static/css/140.fb41d0e2.chunk.css.map",
-    "140.4aaf0e83.chunk.js.map": "/pro-movie-searcher/static/js/140.4aaf0e83.chunk.js.map",
-    "884.551c5623.chunk.css.map": "/pro-movie-searcher/static/css/884.551c5623.chunk.css.map",
-    "884.89060a0a.chunk.js.map": "/pro-movie-searcher/static/js/884.89060a0a.chunk.js.map",
-    "538.551c5623.chunk.css.map": "/pro-movie-searcher/static/css/538.551c5623.chunk.css.map",
-    "538.b73223a4.chunk.js.map": "/pro-movie-searcher/static/js/538.b73223a4.chunk.js.map",
+    "main.fa64994a.css.map": "/pro-movie-searcher/static/css/main.fa64994a.css.map",
+    "main.4b4dbd72.js.map": "/pro-movie-searcher/static/js/main.4b4dbd72.js.map",
+    "884.96005d52.chunk.css.map": "/pro-movie-searcher/static/css/884.96005d52.chunk.css.map",
+    "884.95ec2ea3.chunk.js.map": "/pro-movie-searcher/static/js/884.95ec2ea3.chunk.js.map",
+    "538.96005d52.chunk.css.map": "/pro-movie-searcher/static/css/538.96005d52.chunk.css.map",
+    "538.26b5396a.chunk.js.map": "/pro-movie-searcher/static/js/538.26b5396a.chunk.js.map",
     "805.a446a263.chunk.css.map": "/pro-movie-searcher/static/css/805.a446a263.chunk.css.map",
     "805.a933258d.chunk.js.map": "/pro-movie-searcher/static/js/805.a933258d.chunk.js.map",
     "573.fd3b35c8.chunk.css.map": "/pro-movie-searcher/static/css/573.fd3b35c8.chunk.css.map",
@@ -64,12 +58,10 @@
     "reactPlayerKaltura.0a988abb.chunk.js.map": "/pro-movie-searcher/static/js/reactPlayerKaltura.0a988abb.chunk.js.map",
     "reactPlayerFilePlayer.3a384114.chunk.js.map": "/pro-movie-searcher/static/js/reactPlayerFilePlayer.3a384114.chunk.js.map",
     "reactPlayerPreview.b2222094.chunk.js.map": "/pro-movie-searcher/static/js/reactPlayerPreview.b2222094.chunk.js.map",
-    "943.1e60f51e.chunk.js.map": "/pro-movie-searcher/static/js/943.1e60f51e.chunk.js.map",
-    "348.a0d542d4.chunk.js.map": "/pro-movie-searcher/static/js/348.a0d542d4.chunk.js.map",
-    "126.2ea314d7.chunk.js.map": "/pro-movie-searcher/static/js/126.2ea314d7.chunk.js.map"
+    "348.a0d542d4.chunk.js.map": "/pro-movie-searcher/static/js/348.a0d542d4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9ce373bf.css",
-    "static/js/main.730c8e08.js"
+    "static/css/main.fa64994a.css",
+    "static/js/main.4b4dbd72.js"
   ]
 }
