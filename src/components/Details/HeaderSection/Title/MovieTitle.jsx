@@ -1,21 +1,38 @@
 import css from './Title.module.css';
 
 export const MovieTitle = ({ data }) => {
-  const rating = Math.round(data.vote_average * 10);
+  const rating = data.vote_average.toFixed(1);
 
   const budget =
-    data.budget !== 0 &&
+    data.budget > 0 &&
     data.budget.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
   const revenue =
-    data.budget !== 0 &&
+    data.revenue > 0 &&
     data.revenue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 
-  const hour = data.runtime && Math.floor(data.runtime / 60);
+  let hour = data.runtime && Math.floor(data.runtime / 60);
   let hourString;
   if (hour === 1) hourString = 'година';
   else if (hour > 1) hourString = 'години';
-  else hourString = 'годин';
+  else {
+    hourString = '';
+    hour = '';
+  }
   const minute = data.runtime && data.runtime % 60;
+
+  let color;
+  if (rating < 4) color = `rgb(200, 0, 0)`;
+  else if (rating >= 4 && rating < 6) color = `rgb(200, 130, 0)`;
+  else if (rating >= 6 && rating < 7) color = `rgb(250, 220, 0)`;
+  else if (rating >= 7 && rating < 8) color = `rgb(140, 220, 0)`;
+  else if (rating > 8) color = `rgb(20, 220, 0)`;
+  else color = 'unset';
+  const backg = {
+    backgroundColor: color,
+    color: 'black',
+    borderRadius: '5px',
+    padding: '3px',
+  };
 
   return (
     <div className={css.Title}>
@@ -23,7 +40,7 @@ export const MovieTitle = ({ data }) => {
 
       <h2>
         <span>Оцінка корисутвачів: </span>
-        {rating ? `${rating}%` : <i>невідома</i>}
+        {rating ? <span style={backg}>{rating}</span> : <i>невідома</i>}
       </h2>
 
       <h2>
@@ -37,7 +54,7 @@ export const MovieTitle = ({ data }) => {
       {data.genres.length > 0 ? (
         <section>
           {data.genres?.map(item => (
-            <div key={item.name}>{item.name}</div>
+            <b key={item.name}>{item.name}</b>
           ))}
         </section>
       ) : (
@@ -50,7 +67,7 @@ export const MovieTitle = ({ data }) => {
       {data.production_countries.length > 0 ? (
         <section>
           {data.production_countries?.map(item => (
-            <div key={item.name}>{item.name}</div>
+            <b key={item.name}>{item.name}</b>
           ))}
         </section>
       ) : (

@@ -26,7 +26,7 @@ export const SerialTitle = ({ data }) => {
       {data.genres.length > 0 ? (
         <section>
           {data.genres?.map(item => (
-            <div key={item.name}>{item.name}</div>
+            <b key={item.name}>{item.name}</b>
           ))}
         </section>
       ) : (
@@ -39,7 +39,7 @@ export const SerialTitle = ({ data }) => {
       {data.production_countries.length > 0 ? (
         <section>
           {data.production_countries?.map(item => (
-            <div key={item.name}>{item.name}</div>
+            <b key={item.name}>{item.name}</b>
           ))}
         </section>
       ) : (

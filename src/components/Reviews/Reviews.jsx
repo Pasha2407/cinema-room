@@ -14,7 +14,7 @@ export const Reviews = ({ reviews, found }) => {
           ))}
         </div>
       )}
-      {found && reviews.length === 0 && <i>No reviews found</i>}
+      {found && reviews.length === 0 && <i>Відгуків немає</i>}
     </div>
   );
 };

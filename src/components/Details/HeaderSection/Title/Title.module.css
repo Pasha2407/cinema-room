@@ -27,19 +27,16 @@
     font-size: 16px;
 }
 
-.Title>section {
-    display: flex;
-    gap: 15px;
+.Title>section>b {
+    margin: 0;
+    font-weight: normal;
+    font-size: 18px;
+    margin-right: 12px;
+    background-color: #be4040;
+    border-radius: 8px;
+    padding: 3px 6px;
 }
 
-.Title>section>div {
-    margin: 0;
-    background-color: #be4040;
-    border-radius: 5px;
-    font-size: 14px;
-    color: rgb(230, 230, 230);
-    padding: 3px 5px;
-}
 
 @media screen and (max-width: 450px) {
     .Title {
@@ -63,16 +60,17 @@
     }
 
     .Title>section {
-        gap: 8px;
+        margin-top: -5px;
     }
 
-    .Title>section>div {
-        border-radius: 3px;
-        font-size: 9px;
-        padding: 2px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
+    .Title>section>b {
+        margin: 0;
+        font-size: 10px;
+        margin-right: 9px;
+        border-bottom: 2px solid #be4040;
+        background-color: unset;
+        border-radius: 0;
+        padding: 0;
     }
+
 }

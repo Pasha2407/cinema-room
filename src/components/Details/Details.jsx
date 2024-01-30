@@ -45,7 +45,7 @@ export const Details = ({
           <h3>Компанії</h3>
           {data.production_companies.length > 0 && (
             <section className={css.Companies}>
-              {data.production_companies?.slice(0, 6).map(item => (
+              {data.production_companies?.slice(0, 5).map(item => (
                 <article key={item.id}>
                   {item.logo_path ? (
                     <img
@@ -61,9 +61,7 @@ export const Details = ({
               ))}
             </section>
           )}
-          {data.production_companies.length === 0 && (
-            <i>Компанії не знайдено</i>
-          )}
+          {data.production_companies.length === 0 && <i>Компанії невідомі</i>}
 
           {availableId.toString().includes(id) ? (
             <VideoPlayer id={id} searchLink={searchLink} />

@@ -23,7 +23,7 @@ export const Cast = ({ cast, found }) => {
           ))}
         </ul>
       )}
-      {found && cast.length === 0 && <i>No cast found</i>}
+      {found && cast.length === 0 && <i>Акторський склад невідомий</i>}
     </div>
   );
 };
