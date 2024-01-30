@@ -1,3 +1,7 @@
+.Title {
+    margin: 20px 30px;
+}
+
 .List {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -5,6 +9,8 @@
     column-gap: 20px;
     list-style-type: none;
     padding-left: 0;
+    padding: 0 30px;
+    margin: 0;
 }
 
 .List>li>img {
@@ -25,15 +31,18 @@
 @media screen and (max-width: 450px) {
     .Title {
         font-size: 20px;
+        margin: 20px 0 0 10px;
     }
 
     .List {
         grid-template-columns: repeat(3, 1fr);
         row-gap: 15px;
         column-gap: 10px;
+        background-color: #414141;
+        padding: 20px 10px 70px 10px;
     }
 
     .ActorName>p {
-        font-size: 14px;
+        font-size: 12px;
     }
 }

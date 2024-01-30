@@ -21,6 +21,8 @@
   display: flex;
   flex-direction: row;
   gap: 20px;
+  box-sizing: border-box;
+  width: 90%;
 }
 
 .Container>header>nav>a {
@@ -63,8 +65,9 @@
     padding-bottom: 50px;
   }
 
-  .Container>main {
-    height: 100%;
+  .Container>header {
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   .Container>header>nav {
@@ -74,6 +77,11 @@
   }
 
   .Container>header>nav>a {
-    font-size: 12px
+    font-size: 15px
   }
+
+  .Language>button {
+    display: none;
+  }
+
 }

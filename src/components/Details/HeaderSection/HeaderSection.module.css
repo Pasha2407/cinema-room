@@ -3,6 +3,7 @@
     flex-direction: row;
     height: 450px;
     border-radius: 15px;
+    margin: 15px 30px;
 }
 
 .Container>aside {
@@ -15,10 +16,12 @@
 
 @media screen and (max-width: 450px) {
     .Container {
-        height: 240px;
+        height: 250px;
+        border-radius: 10px;
+        margin: 10px;
     }
 
     .Container>aside {
-        width: 40%;
+        width: 45%;
     }
 }

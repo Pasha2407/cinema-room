@@ -1,9 +1,10 @@
 .Title {
-    background-color: rgba(42, 42, 42, 0.7);
+    background-color: rgba(42, 42, 42, 0.75);
     padding: 15px 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     width: 70%;
+    box-sizing: border-box;
 }
 
 .Title h1 {
@@ -42,7 +43,7 @@
 
 @media screen and (max-width: 450px) {
     .Title {
-        width: 60%;
+        width: 55%;
         padding: 8px 5px 8px 10px
     }
 

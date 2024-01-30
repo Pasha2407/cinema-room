@@ -2,8 +2,8 @@ import css from './Reviews.module.css';
 
 export const Reviews = ({ reviews, found }) => {
   return (
-    <div>
-      <h2 className={css.Title}>Reviews 👇</h2>
+    <div className={css.Container}>
+      <h2>Відгуки 👇</h2>
       {reviews.length > 0 && (
         <div>
           {reviews.map(item => (

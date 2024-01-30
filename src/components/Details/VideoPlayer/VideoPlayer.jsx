@@ -2,8 +2,12 @@ import { useState } from 'react';
 import ReactPlayer from 'react-player';
 import { URLMovies } from 'service/URLMovies';
 import css from './VideoPlayer.module.css';
+import { useMediaQuery } from 'react-responsive';
 
-export const VideoPlayer = ({ id }) => {
+export const VideoPlayer = ({ id, searchLink }) => {
+  const playerWidth = useMediaQuery({ maxWidth: 450 }) ? 320 : 768;
+  const playerHeight = useMediaQuery({ maxWidth: 450 }) ? 180 : 432;
+
   const [quality, setQuality] = useState('720');
 
   const videoUrl = URLMovies(id, quality);
@@ -15,7 +19,7 @@ export const VideoPlayer = ({ id }) => {
   };
 
   return (
-    <div>
+    <div className={css.Container}>
       <section className={css.Play}>
         <h3>Дивитись онлайн українською</h3>
         <button onClick={() => handlePlay('480')}>P SD 480</button>
@@ -23,7 +27,25 @@ export const VideoPlayer = ({ id }) => {
         <button onClick={() => handlePlay('1080')}>P Full HD 1080</button>
       </section>
 
-      {play && <ReactPlayer url={videoUrl} controls width={640} height={360} />}
+      {play && (
+        <div className={css.Player}>
+          <ReactPlayer
+            url={videoUrl}
+            controls
+            width={playerWidth}
+            height={playerHeight}
+          />
+        </div>
+      )}
+      {play && (
+        <i>
+          Якщо вас цікавлять інші озвучки, ви можете подивитись на сайті
+          <a href={searchLink} target="blank">
+            {' '}
+            HDrezka
+          </a>
+        </i>
+      )}
     </div>
   );
 };

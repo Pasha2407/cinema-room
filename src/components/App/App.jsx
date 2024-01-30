@@ -10,8 +10,6 @@ import { Movies } from 'pages/Movies';
 import languages from 'data/languages.json';
 import { Information } from 'pages/Information';
 
-// const Search = lazy(() => import('../../pages/Search/Search'));
-
 const MovieDetails = lazy(() => import('../../pages/MovieDetails'));
 const SerialDetails = lazy(() => import('../../pages/SerialDetails'));
 
@@ -33,7 +31,7 @@ export const App = () => {
               background: isActive ? '#be4040' : '',
             })}
           >
-            Home
+            CR
           </NavLink>
           <NavLink
             to="/movies"

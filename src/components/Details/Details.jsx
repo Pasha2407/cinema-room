@@ -15,6 +15,11 @@ export const Details = ({
   id,
   availableId,
 }) => {
+  const searchLink = movieData
+    ? `https://rezka.ag/search/?do=search&subaction=search&q=${data.title}`
+    : `https://rezka.ag/search/?do=search&subaction=search&q=${data.name}`;
+  const iName = movieData ? 'фільму' : 'серіалу';
+
   return (
     <div
       className={css.Background}
@@ -25,7 +30,7 @@ export const Details = ({
       <div className={css.BackgroundFilter}>
         <div className={css.Wrapper}>
           <Link to={back.current}>
-            <IconContext.Provider value={{ color: '#be4040', size: 30 }}>
+            <IconContext.Provider value={{ color: '#be4040', size: 35 }}>
               <IoMdArrowRoundBack />
             </IconContext.Provider>
             Назад
@@ -61,10 +66,13 @@ export const Details = ({
           )}
 
           {availableId.toString().includes(id) ? (
-            <VideoPlayer id={id} />
+            <VideoPlayer id={id} searchLink={searchLink} />
           ) : (
             <div className={css.NotFilm}>
-              <i>Фільму не має</i>
+              <i>Цього {iName} не має для перегляду</i>
+              <a href={searchLink} target="blank">
+                Знайти на HDrezka
+              </a>
             </div>
           )}
 
@@ -76,9 +84,9 @@ export const Details = ({
           )}
 
           <div className={css.LinkButton}>
-            <h3>Additional information</h3>
-            <Link to="cast">Cast</Link>
-            <Link to="reviews">Reviews</Link>
+            <h3>Додаткова інформація</h3>
+            <Link to="cast">Акторський склад</Link>
+            <Link to="reviews">Відгуки</Link>
           </div>
 
           <Suspense

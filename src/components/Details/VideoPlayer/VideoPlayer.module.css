@@ -1,10 +1,12 @@
-.Play {
-    background-color: #313131;
-    padding: 10px;
-    width: 100%;
-    position: relative;
-    left: -10px;
-    margin-top: 10px;
+.Container {
+    background-color: rgba(42, 42, 42, 0.75);
+    padding: 15px 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 20px;
+    margin: 0 30px
 }
 
 .Play>h3 {
@@ -14,22 +16,60 @@
 .Play>button {
     background-color: #be4040;
     color: white;
-    padding: 5px;
+    padding: 8px 15px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     transition: background-color 0.2s;
-    margin-right: 10px;
+    margin-right: 20px;
     cursor: pointer;
     margin-top: 8px;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .Play>button:hover {
     background-color: #913131
 }
 
+.Player {
+    background-color: black;
+    margin: 0 auto;
+    width: 768px;
+}
+
+.Container>i {
+    font-size: 13px;
+}
+
+.Container>i>a {
+    color: rgb(149, 190, 255);
+}
+
 @media screen and (max-width: 450px) {
+    .Container {
+        background-color: #313131;
+        padding: 10px;
+        gap: 10px;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .Play>button {
+        padding: 4px 10px;
+        border-radius: 8px;
+        margin-right: 10px;
+        margin-top: 8px;
+        font-size: 12px;
+    }
+
     .Play>h3 {
         font-size: 14px;
+    }
+
+    .Player {
+        width: 320px;
+    }
+
+    .Container>i {
+        font-size: 9px;
     }
 }
