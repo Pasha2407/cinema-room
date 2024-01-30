@@ -38,7 +38,6 @@
         grid-template-columns: repeat(3, 1fr);
         row-gap: 15px;
         column-gap: 10px;
-        background-color: #414141;
         padding: 20px 10px 70px 10px;
     }
 

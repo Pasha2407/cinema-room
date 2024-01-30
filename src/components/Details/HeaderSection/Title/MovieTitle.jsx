@@ -1,7 +1,8 @@
 import css from './Title.module.css';
+import { ratingColor } from 'service/ratingColor';
 
 export const MovieTitle = ({ data }) => {
-  const rating = data.vote_average.toFixed(1);
+  const rating = data.vote_average > 0 && data.vote_average.toFixed(1);
 
   const budget =
     data.budget > 0 &&
@@ -10,7 +11,7 @@ export const MovieTitle = ({ data }) => {
     data.revenue > 0 &&
     data.revenue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 
-  let hour = data.runtime && Math.floor(data.runtime / 60);
+  let hour = data.runtime > 0 && Math.floor(data.runtime / 60);
   let hourString;
   if (hour === 1) hourString = 'година';
   else if (hour > 1) hourString = 'години';
@@ -20,27 +21,19 @@ export const MovieTitle = ({ data }) => {
   }
   const minute = data.runtime && data.runtime % 60;
 
-  let color;
-  if (rating < 4) color = `rgb(200, 0, 0)`;
-  else if (rating >= 4 && rating < 6) color = `rgb(200, 130, 0)`;
-  else if (rating >= 6 && rating < 7) color = `rgb(250, 220, 0)`;
-  else if (rating >= 7 && rating < 8) color = `rgb(140, 220, 0)`;
-  else if (rating > 8) color = `rgb(20, 220, 0)`;
-  else color = 'unset';
-  const backg = {
-    backgroundColor: color,
-    color: 'black',
-    borderRadius: '5px',
-    padding: '3px',
-  };
-
   return (
     <div className={css.Title}>
       {data.title && <h1>{data.title}</h1>}
 
       <h2>
         <span>Оцінка корисутвачів: </span>
-        {rating ? <span style={backg}>{rating}</span> : <i>невідома</i>}
+        {rating ? (
+          <span className={css.Rating} style={ratingColor(rating)}>
+            {rating}
+          </span>
+        ) : (
+          <i>невідома</i>
+        )}
       </h2>
 
       <h2>
@@ -91,7 +84,7 @@ export const MovieTitle = ({ data }) => {
         </h2>
       )}
 
-      {data.runtime && (
+      {data.runtime > 0 && (
         <h2>
           <span>Тривалість: </span>
           {hour} {hourString} {minute} хв

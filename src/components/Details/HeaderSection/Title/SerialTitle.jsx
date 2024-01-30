@@ -1,7 +1,8 @@
 import css from './Title.module.css';
+import { ratingColor } from 'service/ratingColor';
 
 export const SerialTitle = ({ data }) => {
-  const rating = Math.round(data.vote_average * 10);
+  const rating = data.vote_average > 0 && data.vote_average.toFixed(1);
 
   const firstDate = data.first_air_date && data.first_air_date.slice(0, 4);
   const lastDate = data.last_air_date && data.last_air_date.slice(0, 4);
@@ -12,7 +13,13 @@ export const SerialTitle = ({ data }) => {
 
       <h2>
         <span>Оцінка корисутвачів: </span>
-        {rating ? `${rating}%` : <i>невідома</i>}
+        {rating ? (
+          <span className={css.Rating} style={ratingColor(rating)}>
+            {rating}
+          </span>
+        ) : (
+          <i>невідома</i>
+        )}
       </h2>
 
       <h2>
