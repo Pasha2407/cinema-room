@@ -4,6 +4,7 @@ import { Page } from 'components/Page/Page';
 
 export const Serials = ({ language }) => {
   const [trendingSerials, setTrendingSerials] = useState([]);
+  console.log(trendingSerials);
 
   useEffect(() => {
     const fetchSerials = async () => {
