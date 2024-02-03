@@ -11,7 +11,7 @@ const params = {
 
 // MOVIES
 export const fetchTrendingMovies = async (language) => {
-    const response = await axios.get(`trending/movie/day?${language}`, params);
+    const response = await axios.get(`trending/movie/week?${language}`, params);
     return response.data.results;
 };
 export const fetchMovieDetails = async (id, language) => {
@@ -30,10 +30,15 @@ export const searchMovies = async (name, language) => {
     const response = await axios.get(`/search/movie?query=${name}&${language}`, params);
     return response.data.results;
 };
+// export const fetchMovieVideos = async id => {
+//     const response = await axios.get(`/movie/${id}/videos?language=uk-UA`, params);
+//     console.log(response.data.results)
+//     return response.data.results;
+// };
 
 // SERIALS
 export const fetchTrendingSerials = async (language) => {
-    const response = await axios.get(`trending/tv/day?${language}`, params);
+    const response = await axios.get(`trending/tv/week?${language}`, params);
     return response.data.results;
 };
 export const fetchSerialDetails = async (id, language) => {

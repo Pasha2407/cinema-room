@@ -1,5 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import css from './List.module.css';
+import { IconContext } from 'react-icons';
+import { VscGraph } from 'react-icons/vsc';
 
 import availableMovies from 'data/availableMovies.json';
 import availableSerials from 'data/availableSerials.json';
@@ -38,7 +40,11 @@ export const List = ({ data, path }) => {
                   <section className={css.Mark}>
                     {item.vote_average > 0 && (
                       <div className={css.Rating}>
-                        <span>TMDB</span>
+                        <IconContext.Provider
+                          value={{ color: 'white', size: 17 }}
+                        >
+                          <VscGraph />
+                        </IconContext.Provider>
                         <div style={ratingColor(item.vote_average)}>
                           {item.vote_average.toFixed(1)}
                         </div>

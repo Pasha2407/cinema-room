@@ -4,7 +4,6 @@ import { Page } from 'components/Page/Page';
 
 export const Movies = ({ language }) => {
   const [trendingMovies, setTrendingMovies] = useState([]);
-  console.log(trendingMovies);
 
   useEffect(() => {
     const fetchMovies = async () => {

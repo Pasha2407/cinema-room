@@ -52,40 +52,32 @@
 }
 
 .Mark {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
     margin-top: 10px;
     margin-left: -12px;
     gap: 8px;
 }
 
 .Rating {
-    background-color: #03214a;
-    max-width: 40%;
+    background-color: #212121;
     display: flex;
     align-items: center;
-    padding: 3px 5px;
+    padding: 5px 5px;
     gap: 5px;
-}
-
-.Rating>span {
-    background: rgb(0, 255, 179);
-    background: linear-gradient(90deg, rgba(0, 255, 179, 1) 0%, rgba(0, 155, 255, 1) 100%);
-    color: transparent;
-    background-clip: text;
-    font-weight: bold;
+    width: 27%;
 }
 
 .Rating>div {
     padding: 1px 4px;
     font-size: 14px;
     font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
 }
 
 .Year {
-    max-width: 20%;
+    margin-top: 8px;
     background-color: #212121;
+    display: inline-block;
     color: white;
     text-align: center;
     padding: 3px 5px;
