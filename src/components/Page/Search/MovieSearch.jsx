@@ -1,57 +1,24 @@
 import { useState, useEffect } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
-import { searchMovies } from 'service/TmdbAPI';
+import { useSearchParams } from 'react-router-dom';
+import { searchMovies } from 'service/tmdbAPI';
 import { List } from 'components/List/List';
 import { Loader } from 'components/Loader/Loader';
 import css from './Search.module.css';
 import { BsSearch } from 'react-icons/bs';
 import { IconContext } from 'react-icons';
 
-const MovieSearch = ({
-  data,
-  path,
-  language,
-  totalPagesPopular,
-  pagePopular,
-  setPagePopular,
-  totalPagesTopRated,
-  pageTopRated,
-  setPageTopRated,
-}) => {
+const MovieSearch = ({ language }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const movieName = searchParams.get('query') || '';
   const [isLoading, setIsLoading] = useState();
 
   const [foundMovies, setFoundMovies] = useState([]);
 
-  const [searchTotalPages, setSearchTotalPages] = useState(0);
-  const [searchTotalResults, setSearchTotalResults] = useState(0);
-  const [searchPage, setSearchPage] = useState(1);
-  if (searchTotalResults > 200) setSearchTotalResults('500+');
+  const [totalPages, setTotalPages] = useState(0);
+  const [totalResults, setTotalResults] = useState(0);
+  const [page, setPage] = useState(1);
 
-  const [trending, setTrending] = useState(true);
-  const [popular, setPopular] = useState(false);
-  const [topRated, setTopRated] = useState(false);
-
-  const choiceTrending = () => {
-    setTrending(true);
-    setPopular(false);
-    setTopRated(false);
-  };
-  const choicePopular = () => {
-    setTrending(false);
-    setPopular(true);
-    setTopRated(false);
-  };
-  const choiceTopRated = () => {
-    setTrending(false);
-    setPopular(false);
-    setTopRated(true);
-  };
-
-  useEffect(() => {
-    window.scrollTo({ top: 320, behavior: 'smooth' });
-  }, [pagePopular, pageTopRated]);
+  if (totalResults > 200) setTotalResults('500+');
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -66,10 +33,10 @@ const MovieSearch = ({
     const search = async () => {
       try {
         setIsLoading(true);
-        const movies = await searchMovies(movieName, language, searchPage);
+        const movies = await searchMovies(movieName, language, page);
         setFoundMovies(movies.results);
-        setSearchTotalPages(movies.total_pages);
-        setSearchTotalResults(movies.total_results);
+        setTotalPages(movies.total_pages);
+        setTotalResults(movies.total_results);
       } catch (error) {
         console.error(error);
       } finally {
@@ -79,7 +46,7 @@ const MovieSearch = ({
       }
     };
     search();
-  }, [movieName, language, searchPage]);
+  }, [movieName, language, page]);
 
   return (
     <div>
@@ -91,7 +58,7 @@ const MovieSearch = ({
             placeholder="напишіть щось для пошуку"
             name="search"
           />
-          <button type="submit" onClick={() => setSearchPage(1)}>
+          <button type="submit" onClick={() => setPage(1)}>
             <IconContext.Provider value={{ size: 25, color: '#be4040' }}>
               <BsSearch />
             </IconContext.Provider>
@@ -102,93 +69,22 @@ const MovieSearch = ({
 
       {!isLoading && foundMovies.length > 0 && (
         <>
-          <div className={css.CancelButton}>
-            <Link to="/movies" onClick={() => setSearchPage(1)}>
-              Скинути
-            </Link>
-          </div>
           <h2 className={css.ListHeader}>Фільми по запиту " {movieName} "</h2>
-          <span>Знайдено фільмів {searchTotalResults}</span>
-          <List data={foundMovies} path={path} />
+          <span>Знайдено фільмів {totalResults}</span>
+          <List data={foundMovies} path="movies" />
           <div>
             <span>Сторінка</span>
-            {Array.from(
-              { length: Math.min(searchTotalPages, 25) },
-              (_, index) => (
-                <button
-                  style={{
-                    backgroundColor: searchPage === index + 1 ? 'red' : 'white',
-                  }}
-                  key={index + 1}
-                  onClick={() => setSearchPage(index + 1)}
-                >
-                  {index + 1}
-                </button>
-              )
-            )}
-          </div>
-        </>
-      )}
-
-      {!movieName && trending && (
-        <>
-          <h2 className={css.ListHeader}>Зараз в тренді</h2>
-          <button onClick={choicePopular}>Популярні</button>
-          <button onClick={choiceTopRated}>Топ рейтинга</button>
-          <List data={data.trendingMovies} path={path} />
-        </>
-      )}
-
-      {!movieName && popular && (
-        <>
-          <h2 className={css.ListHeader}>Популярні</h2>
-          <button onClick={choiceTopRated}>Топ рейтинга</button>
-          <button onClick={choiceTrending}>Зараз в тренді</button>
-          <List data={data.popularMovies} path={path} />
-          <div>
-            <span>Сторінка</span>
-            {Array.from(
-              { length: Math.min(totalPagesPopular, 25) },
-              (_, index) => (
-                <button
-                  style={{
-                    backgroundColor:
-                      pagePopular === index + 1 ? 'red' : 'white',
-                  }}
-                  key={index + 1}
-                  onClick={() => setPagePopular(index + 1)}
-                >
-                  {index + 1}
-                </button>
-              )
-            )}
-          </div>
-        </>
-      )}
-
-      {!movieName && topRated && (
-        <>
-          <h2 className={css.ListHeader}>Топ рейтинга</h2>
-          <button onClick={choiceTrending}>Зараз в тренді</button>
-          <button onClick={choicePopular}>Популярні</button>
-          <List data={data.topRatedMovies} path={path} />
-          <div>
-            <span>Сторінка</span>
-            {Array.from(
-              { length: Math.min(totalPagesTopRated, 25) },
-              (_, index) => (
-                <button
-                  style={{
-                    backgroundColor:
-                      pageTopRated === index + 1 ? 'red' : 'white',
-                  }}
-                  key={index + 1}
-                  onClick={() => setPageTopRated(index + 1)}
-                >
-                  {index + 1}
-                </button>
-              )
-            )}
+            {Array.from({ length: Math.min(totalPages, 25) }, (_, index) => (
+              <button
+                style={{
+                  backgroundColor: page === index + 1 ? 'red' : 'white',
+                }}
+                key={index + 1}
+                onClick={() => setPage(index + 1)}
+              >
+                {index + 1}
+              </button>
+            ))}
           </div>
         </>
       )}

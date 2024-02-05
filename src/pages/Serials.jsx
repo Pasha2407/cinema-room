@@ -1,6 +1,6 @@
+import { List } from 'components/List/List';
 import React, { useEffect, useState } from 'react';
-import { fetchTrendingSerials } from 'service/TmdbAPI';
-import { Page } from 'components/Page/Page';
+import { fetchTrendingSerials } from 'service/tmdbAPI';
 
 export const Serials = ({ language }) => {
   const [trendingSerials, setTrendingSerials] = useState([]);
@@ -17,5 +17,9 @@ export const Serials = ({ language }) => {
     fetchSerials();
   }, [language]);
 
-  return <Page serialData={trendingSerials} language={language} />;
+  return (
+    <div>
+      <List data={trendingSerials} path="serials" />
+    </div>
+  );
 };

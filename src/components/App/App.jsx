@@ -1,5 +1,5 @@
 import { Suspense, lazy, useState } from 'react';
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route, NavLink, useLocation } from 'react-router-dom';
 
 import css from './App.module.css';
 
@@ -8,6 +8,11 @@ import { Serials } from 'pages/Serials';
 import { Movies } from 'pages/Movies';
 
 import { Information } from 'pages/Information';
+import { TrendingMovies } from 'components/Page/Trending/TrendingMovies';
+import { PopularMovies } from 'components/Page/Popular/PopularMovies';
+import MovieSearch from 'components/Page/Search/MovieSearch';
+import { FilterSection } from 'components/Page/FilterSection/FilterSection';
+import { TopRatedMovies } from 'components/Page/TopRated/TopRatedMovies';
 
 const MovieDetails = lazy(() => import('../../pages/MovieDetails'));
 const SerialDetails = lazy(() => import('../../pages/SerialDetails'));
@@ -19,6 +24,12 @@ const SerialReviews = lazy(() => import('../Reviews/SerialReviews'));
 
 export const App = () => {
   const [language, setLanguage] = useState('uk-UA');
+
+  const location = useLocation();
+  let lock;
+  if (location.pathname.startsWith('/movies')) {
+    lock = true;
+  }
 
   return (
     <div className={css.Container}>
@@ -33,10 +44,10 @@ export const App = () => {
             CR
           </NavLink>
           <NavLink
-            to="/movies"
-            style={({ isActive }) => ({
-              background: isActive ? '#be4040' : '',
-            })}
+            to="/movies/trending"
+            style={{
+              background: lock ? '#be4040' : '',
+            }}
           >
             Фільми
           </NavLink>
@@ -73,10 +84,29 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Home language={language} />} />
 
-            <Route
-              path="/movies"
-              element={<Movies language={language} path="movies" />}
-            />
+            <Route path="/movies" element={<Movies language={language} />}>
+              <Route
+                path="filter"
+                element={<FilterSection language={language} />}
+              />
+              <Route
+                path="search"
+                element={<MovieSearch language={language} />}
+              />
+              <Route
+                path="trending"
+                element={<TrendingMovies language={language} />}
+              />
+              <Route
+                path="popular"
+                element={<PopularMovies language={language} />}
+              />
+              <Route
+                path="top-rated"
+                element={<TopRatedMovies language={language} />}
+              />
+            </Route>
+
             <Route
               path="/serials"
               element={<Serials language={language} path="serials" />}

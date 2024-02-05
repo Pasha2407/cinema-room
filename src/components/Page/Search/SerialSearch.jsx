@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { searchSerials } from 'service/TmdbAPI';
+import { searchSerials } from 'service/tmdbAPI';
 import { List } from 'components/List/List';
 import { Loader } from 'components/Loader/Loader';
 import css from './Search.module.css';
