@@ -19,6 +19,10 @@ export const Details = ({
     ? `https://rezka.ag/search/?do=search&subaction=search&q=${data.title}`
     : `https://rezka.ag/search/?do=search&subaction=search&q=${data.name}`;
   const iName = movieData ? 'фільму' : 'серіалу';
+
+  // const bottomScroll = () => {
+  //   window.scrollTo({ top: 800, behavior: 'smooth' });
+  // };
   return (
     <div
       style={{

@@ -15,7 +15,7 @@ const MovieDetails = ({ language }) => {
 
   const { id } = useParams();
   const location = useLocation();
-  const back = useRef(location.state?.from || '/');
+  const back = useRef(location.state?.from || '/movies');
 
   useEffect(() => {
     const movieDetails = async () => {
