@@ -7,7 +7,6 @@ import { Home } from 'pages/Home';
 import { Serials } from 'pages/Serials';
 import { Movies } from 'pages/Movies';
 
-import languages from 'data/languages.json';
 import { Information } from 'pages/Information';
 
 const MovieDetails = lazy(() => import('../../pages/MovieDetails'));
@@ -19,7 +18,7 @@ const SerialCast = lazy(() => import('../Cast/SerialCast'));
 const SerialReviews = lazy(() => import('../Reviews/SerialReviews'));
 
 export const App = () => {
-  const [language, setLanguage] = useState(languages.UA);
+  const [language, setLanguage] = useState('uk-UA');
 
   return (
     <div className={css.Container}>
@@ -58,9 +57,8 @@ export const App = () => {
             Довідка
           </NavLink>
           <section className={css.Language}>
-            <button onClick={() => setLanguage(languages.UA)}>UA</button>
-            <button onClick={() => setLanguage(languages.EN)}>EN</button>
-            <button onClick={() => setLanguage(languages.RU)}>RU</button>
+            <button onClick={() => setLanguage('uk-UA')}>UA</button>
+            <button onClick={() => setLanguage('en-US')}>EN</button>
           </section>
         </nav>
       </header>
