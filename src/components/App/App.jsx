@@ -11,7 +11,7 @@ import { Information } from 'pages/Information';
 import { TrendingMovies } from 'components/Page/Trending/TrendingMovies';
 import { PopularMovies } from 'components/Page/Popular/PopularMovies';
 import MovieSearch from 'components/Page/Search/MovieSearch';
-import { FilterSection } from 'components/Page/FilterSection/FilterSection';
+import { FilterSection } from 'components/Page/Filter/Filter';
 import { TopRatedMovies } from 'components/Page/TopRated/TopRatedMovies';
 
 const MovieDetails = lazy(() => import('../../pages/MovieDetails'));

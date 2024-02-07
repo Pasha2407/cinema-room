@@ -25,6 +25,7 @@ export const fetchTopRatedMovies = async (language, page) => {
 
 export const fetchMovieDetails = async (id, language) => {
     const response = await axios.get(`/movie/${id}?language=${language}`, params);
+    console.log(response.data)
     return response.data;
 };
 export const fetchMovieVideos = async (id, language) => {
@@ -44,10 +45,19 @@ export const searchMovies = async (name, language, page) => {
     const response = await axios.get(`/search/movie?query=${name}&language=${language}&page=${page}`, params);
     return response.data;
 };
-export const MovieDiscover = async () => {
-    const response = await axios.get(`discover/movie?language=en-US`, params);
-    return response.data.results;
+
+export const fetchMovieGenres = async (language) => {
+    const response = await axios.get(`genre/movie/list?language=${language}`, params);
+    return response.data.genres;
+
 };
+export const MovieDiscover = async (language, genreParam, countryParam, companyParam, yearParam, ratingParam, page) => {
+    const response = await axios.get(
+        `discover/movie?language=${language}${genreParam}${countryParam}${companyParam}${yearParam}${ratingParam}&page=${page}`, params);
+    return response.data;
+};
+
+
 
 
 // SERIALS
@@ -62,6 +72,7 @@ export const fetchPopularSerials = async (language) => {
 
 export const fetchSerialDetails = async (id, language) => {
     const response = await axios.get(`/tv/${id}?language=${language}`, params);
+    console.log('api serials det', response.data)
     return response.data;
 };
 export const fetchSerialCast = async id => {
