@@ -6,6 +6,7 @@ import countries from 'data/countries.json';
 import companies from 'data/companies.json';
 import years from 'data/years.json';
 import ratings from 'data/ratings.json';
+import sorting from 'data/sorting.json';
 import { MovieDiscover } from 'service/tmdbAPI';
 import { List } from 'components/List/List';
 import { PageNumber } from '../PageNumber/PageNumber';
@@ -31,6 +32,9 @@ export const FilterSection = ({ language }) => {
   const [rating2, setRating2] = useState('f');
   const ratingParam = `&vote_average.gte=${rating1}&vote_average.lte=${rating2}`;
 
+  const [sort, setSort] = useState('0');
+  const sortParam = `&sort_by=${sort}`;
+
   const [totalResults, setTotalResults] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [page, setPage] = useState(1);
@@ -47,6 +51,7 @@ export const FilterSection = ({ language }) => {
     if (year2 === 'f') setYear2('');
     if (rating1 === 'f') setRating1('');
     if (rating2 === 'f') setRating2('');
+    if (sort === '0') setSort('');
   };
 
   const choiceCountry = item => {
@@ -59,6 +64,7 @@ export const FilterSection = ({ language }) => {
     if (year2 === 'f') setYear2('');
     if (rating1 === 'f') setRating1('');
     if (rating2 === 'f') setRating2('');
+    if (sort === '0') setSort('');
   };
 
   const choiceCompany = item => {
@@ -71,6 +77,7 @@ export const FilterSection = ({ language }) => {
     if (year2 === 'f') setYear2('');
     if (rating1 === 'f') setRating1('');
     if (rating2 === 'f') setRating2('');
+    if (sort === '0') setSort('');
   };
 
   const choiceYear = (item1, item2) => {
@@ -85,6 +92,7 @@ export const FilterSection = ({ language }) => {
     if (company === '0') setCompany('');
     if (rating1 === 'f') setRating1('');
     if (rating2 === 'f') setRating2('');
+    if (sort === '0') setSort('');
   };
 
   const choiceRating = (item1, item2) => {
@@ -99,6 +107,20 @@ export const FilterSection = ({ language }) => {
     if (company === '0') setCompany('');
     if (year1 === 'f') setYear1('');
     if (year2 === 'f') setYear2('');
+    if (sort === '0') setSort('');
+  };
+
+  const choiceSort = item => {
+    if (item === sort) setSort('');
+    else setSort(item);
+
+    if (genre === '0') setGenre('');
+    if (country === '0') setCountry('');
+    if (company === '0') setCompany('');
+    if (year1 === 'f') setYear1('');
+    if (year2 === 'f') setYear2('');
+    if (rating1 === 'f') setRating1('');
+    if (rating2 === 'f') setRating2('');
   };
 
   useEffect(() => {
@@ -114,6 +136,7 @@ export const FilterSection = ({ language }) => {
           companyParam,
           yearParam,
           ratingParam,
+          sortParam,
           page
         );
         setData(movies.results);
@@ -131,11 +154,21 @@ export const FilterSection = ({ language }) => {
     companyParam,
     yearParam,
     ratingParam,
+    sortParam,
     page,
   ]);
 
   let selected = false;
-  if (genre || country || company || year1 || year2 || rating1 || rating2)
+  if (
+    genre ||
+    country ||
+    company ||
+    year1 ||
+    year2 ||
+    rating1 ||
+    rating2 ||
+    sort
+  )
     selected = true;
 
   return (
@@ -200,6 +233,19 @@ export const FilterSection = ({ language }) => {
               onClick={() => choiceRating(item.param1, item.param2)}
               style={{
                 backgroundColor: rating1 === item.param1 && '#be4040',
+              }}
+            >
+              {item.name}
+            </li>
+          ))}
+        </ul>
+        <ul>
+          {sorting.map(item => (
+            <li
+              key={item.id}
+              onClick={() => choiceSort(item.param)}
+              style={{
+                backgroundColor: sort === item.param && '#be4040',
               }}
             >
               {item.name}
