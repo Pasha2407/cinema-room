@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import css from './Filter.module.css';
 
 import { fetchMovieGenres } from 'service/tmdbAPI';
@@ -7,32 +8,41 @@ import companies from 'data/companies.json';
 import years from 'data/years.json';
 import ratings from 'data/ratings.json';
 import sorting from 'data/sorting.json';
+
 import { MovieDiscover } from 'service/tmdbAPI';
+
 import { List } from 'components/List/List';
+import { FilterItemId, FilterItemParam, FilterItemParams } from './FilterItem';
 import { PageNumber } from '../PageNumber/PageNumber';
 
 export const FilterSection = ({ language }) => {
   const [genres, setGenres] = useState([]);
   const [data, setData] = useState([]);
 
-  const [genre, setGenre] = useState('0');
+  const [genre, setGenre] = useState('');
+  const [genreName, setGenreName] = useState('');
   const genreParam = `&with_genres=${genre}`;
 
-  const [country, setCountry] = useState('0');
+  const [country, setCountry] = useState('');
+  const [countryName, setCountryName] = useState('');
   const countryParam = `&with_origin_country=${country}`;
 
-  const [company, setCompany] = useState('0');
+  const [company, setCompany] = useState('');
+  const [companyName, setCompanyName] = useState('');
   const companyParam = `&with_companies=${company}`;
 
-  const [year1, setYear1] = useState('f');
-  const [year2, setYear2] = useState('f');
+  const [year1, setYear1] = useState('');
+  const [year2, setYear2] = useState('');
+  const [yearName, setYearName] = useState('');
   const yearParam = `&primary_release_date.gte=${year1}&primary_release_date.lte=${year2}`;
 
-  const [rating1, setRating1] = useState('f');
-  const [rating2, setRating2] = useState('f');
+  const [rating1, setRating1] = useState('');
+  const [rating2, setRating2] = useState('');
+  const [ratingName, setRatingName] = useState('');
   const ratingParam = `&vote_average.gte=${rating1}&vote_average.lte=${rating2}`;
 
-  const [sort, setSort] = useState('0');
+  const [sort, setSort] = useState('');
+  const [sortName, setSortName] = useState('');
   const sortParam = `&sort_by=${sort}`;
 
   const [totalResults, setTotalResults] = useState(0);
@@ -41,94 +51,38 @@ export const FilterSection = ({ language }) => {
 
   if (totalResults > 200) setTotalResults('500+');
 
-  const choiceGenre = item => {
-    if (item === genre) setGenre('');
-    else setGenre(item);
-
-    if (country === '0') setCountry('');
-    if (company === '0') setCompany('');
-    if (year1 === 'f') setYear1('');
-    if (year2 === 'f') setYear2('');
-    if (rating1 === 'f') setRating1('');
-    if (rating2 === 'f') setRating2('');
-    if (sort === '0') setSort('');
+  const choiceFilter = (item, name, setFilter, setFilterName) => {
+    setFilter(item);
+    setFilterName(name);
   };
 
-  const choiceCountry = item => {
-    if (item === country) setCountry('');
-    else setCountry(item);
+  const choiceGenre = (item, name) =>
+    choiceFilter(item, name, setGenre, setGenreName);
 
-    if (genre === '0') setGenre('');
-    if (company === '0') setCompany('');
-    if (year1 === 'f') setYear1('');
-    if (year2 === 'f') setYear2('');
-    if (rating1 === 'f') setRating1('');
-    if (rating2 === 'f') setRating2('');
-    if (sort === '0') setSort('');
+  const choiceCountry = (item, name) =>
+    choiceFilter(item, name, setCountry, setCountryName);
+
+  const choiceCompany = (item, name) =>
+    choiceFilter(item, name, setCompany, setCompanyName);
+
+  const choiceYear = (item1, item2, name) => {
+    choiceFilter(item1, name, setYear1, setYearName);
+    choiceFilter(item2, name, setYear2, setYearName);
   };
 
-  const choiceCompany = item => {
-    if (item === company) setCompany('');
-    else setCompany(item);
-
-    if (genre === '0') setGenre('');
-    if (country === '0') setCountry('');
-    if (year1 === 'f') setYear1('');
-    if (year2 === 'f') setYear2('');
-    if (rating1 === 'f') setRating1('');
-    if (rating2 === 'f') setRating2('');
-    if (sort === '0') setSort('');
+  const choiceRating = (item1, item2, name) => {
+    choiceFilter(item1, name, setRating1, setRatingName);
+    choiceFilter(item2, name, setRating2, setRatingName);
   };
 
-  const choiceYear = (item1, item2) => {
-    if (item1 === year1) setYear1('');
-    else setYear1(item1);
-
-    if (item2 === year2) setYear2('');
-    else setYear2(item2);
-
-    if (genre === '0') setGenre('');
-    if (country === '0') setCountry('');
-    if (company === '0') setCompany('');
-    if (rating1 === 'f') setRating1('');
-    if (rating2 === 'f') setRating2('');
-    if (sort === '0') setSort('');
-  };
-
-  const choiceRating = (item1, item2) => {
-    if (item1 === rating1) setRating1('');
-    else setRating1(item1);
-
-    if (item2 === rating2) setRating2('');
-    else setRating2(item2);
-
-    if (genre === '0') setGenre('');
-    if (country === '0') setCountry('');
-    if (company === '0') setCompany('');
-    if (year1 === 'f') setYear1('');
-    if (year2 === 'f') setYear2('');
-    if (sort === '0') setSort('');
-  };
-
-  const choiceSort = item => {
-    if (item === sort) setSort('');
-    else setSort(item);
-
-    if (genre === '0') setGenre('');
-    if (country === '0') setCountry('');
-    if (company === '0') setCompany('');
-    if (year1 === 'f') setYear1('');
-    if (year2 === 'f') setYear2('');
-    if (rating1 === 'f') setRating1('');
-    if (rating2 === 'f') setRating2('');
-  };
+  const choiceSort = (item, name) =>
+    choiceFilter(item, name, setSort, setSortName);
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
         const result = await fetchMovieGenres(language);
         setGenres(result);
-
         const movies = await MovieDiscover(
           language,
           genreParam,
@@ -158,6 +112,27 @@ export const FilterSection = ({ language }) => {
     page,
   ]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 200, behavior: 'smooth' });
+  }, [
+    genreParam,
+    countryParam,
+    companyParam,
+    yearParam,
+    ratingParam,
+    sortParam,
+  ]);
+
+  useEffect(() => {
+    window.scrollTo({ top: 540, behavior: 'smooth' });
+  }, [page]);
+
+  const deleteFilter = (setFilterName, setFilter, setFilter2) => {
+    setFilterName('');
+    setFilter('');
+    if (setFilter2) setFilter2('');
+  };
+
   let selected = false;
   if (
     genre ||
@@ -174,90 +149,130 @@ export const FilterSection = ({ language }) => {
   return (
     <div>
       <section className={css.Container}>
-        <ul>
-          {genres.map(item => (
-            <li
-              key={item.id}
-              onClick={() => choiceGenre(item.id)}
-              style={{
-                backgroundColor: genre === item.id && '#be4040',
-              }}
-            >
-              {item.name}
-            </li>
-          ))}
-        </ul>
-        <ul>
-          {countries.map(item => (
-            <li
-              key={item.id}
-              onClick={() => choiceCountry(item.param)}
-              style={{
-                backgroundColor: country === item.param && '#be4040',
-              }}
-            >
-              {item.name}
-            </li>
-          ))}
-        </ul>
-        <ul>
-          {companies.map(item => (
-            <li
-              key={item.id}
-              onClick={() => choiceCompany(item.param)}
-              style={{
-                backgroundColor: company === item.param && '#be4040',
-              }}
-            >
-              {item.name}
-            </li>
-          ))}
-        </ul>
-        <ul>
-          {years.map(item => (
-            <li
-              key={item.id}
-              onClick={() => choiceYear(item.param1, item.param2)}
-              style={{
-                backgroundColor: year1 === item.param1 && '#be4040',
-              }}
-            >
-              {item.name}
-            </li>
-          ))}
-        </ul>
-        <ul>
-          {ratings.map(item => (
-            <li
-              key={item.id}
-              onClick={() => choiceRating(item.param1, item.param2)}
-              style={{
-                backgroundColor: rating1 === item.param1 && '#be4040',
-              }}
-            >
-              {item.name}
-            </li>
-          ))}
-        </ul>
-        <ul>
-          {sorting.map(item => (
-            <li
-              key={item.id}
-              onClick={() => choiceSort(item.param)}
-              style={{
-                backgroundColor: sort === item.param && '#be4040',
-              }}
-            >
-              {item.name}
-            </li>
-          ))}
-        </ul>
+        <div>
+          <header className={css.Title}>
+            <h2>Жанр</h2>
+            {genreName && (
+              <span>
+                {genreName}
+                <button onClick={() => deleteFilter(setGenreName, setGenre)}>
+                  X
+                </button>
+              </span>
+            )}
+          </header>
+          <FilterItemId
+            data={genres}
+            choiceFilter={choiceGenre}
+            filter={genre}
+          />
+        </div>
+        <div>
+          <header className={css.Title}>
+            <h2>Рік</h2>
+            {yearName && (
+              <span>
+                {yearName}
+                <button
+                  onClick={() => deleteFilter(setYearName, setYear1, setYear2)}
+                >
+                  X
+                </button>
+              </span>
+            )}
+          </header>
+          <FilterItemParams
+            data={years}
+            choiceFilter={choiceYear}
+            filter1={year1}
+          />
+        </div>
+        <div>
+          <header className={css.Title}>
+            <h2>Компанія</h2>
+            {companyName && (
+              <span>
+                {companyName}
+                <button
+                  onClick={() => deleteFilter(setCompanyName, setCompany)}
+                >
+                  X
+                </button>
+              </span>
+            )}
+          </header>
+          <FilterItemParam
+            data={companies}
+            choiceFilter={choiceCompany}
+            filter={company}
+          />
+        </div>
+        <div>
+          <header className={css.Title}>
+            <h2>Країна</h2>
+            {countryName && (
+              <span>
+                {countryName}
+                <button
+                  onClick={() => deleteFilter(setCountryName, setCountry)}
+                >
+                  X
+                </button>
+              </span>
+            )}
+          </header>
+          <FilterItemParam
+            data={countries}
+            choiceFilter={choiceCountry}
+            filter={country}
+          />
+        </div>
+        <div>
+          <header className={css.Title}>
+            <h2>Рейтинг</h2>
+            {ratingName && (
+              <span>
+                {ratingName}
+                <button
+                  onClick={() =>
+                    deleteFilter(setRatingName, setRating1, setRating2)
+                  }
+                >
+                  X
+                </button>
+              </span>
+            )}
+          </header>
+          <FilterItemParams
+            data={ratings}
+            choiceFilter={choiceRating}
+            filter1={rating1}
+          />
+        </div>
+        <div>
+          <header className={css.Title}>
+            <h2>Сортувати</h2>
+            {sortName && (
+              <span>
+                {sortName}
+                <button onClick={() => deleteFilter(setSortName, setSort)}>
+                  X
+                </button>
+              </span>
+            )}
+          </header>
+          <FilterItemParam
+            data={sorting}
+            choiceFilter={choiceSort}
+            filter={sort}
+          />
+        </div>
       </section>
 
       {selected && data.length > 0 && (
         <>
           <span>Знайдено фільмів {totalResults}</span>
-          <List header="Фільми за жанром і країною" data={data} path="movies" />
+          <List data={data} path="movies" />
           <PageNumber totalPages={totalPages} page={page} setPage={setPage} />
         </>
       )}

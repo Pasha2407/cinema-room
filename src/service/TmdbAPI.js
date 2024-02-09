@@ -25,7 +25,6 @@ export const fetchTopRatedMovies = async (language, page) => {
 
 export const fetchMovieDetails = async (id, language) => {
     const response = await axios.get(`/movie/${id}?language=${language}`, params);
-    console.log(response.data)
     return response.data;
 };
 export const fetchMovieVideos = async (id, language) => {
