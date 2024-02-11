@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import { fetchPopularMovies } from 'service/tmdbAPI';
 import { List } from 'components/List/List';
 import { PageNumber } from '../PageNumber/PageNumber';
 
 export const PopularMovies = ({ language }) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentPage = parseInt(searchParams.get('page')) || 1;
+
   const [data, setData] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(currentPage);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -21,7 +25,9 @@ export const PopularMovies = ({ language }) => {
       }
     };
     fetchMovies();
-  }, [language, page]);
+    searchParams.set('page', page);
+    setSearchParams(searchParams);
+  }, [language, page, searchParams, setSearchParams]);
 
   return (
     <div>

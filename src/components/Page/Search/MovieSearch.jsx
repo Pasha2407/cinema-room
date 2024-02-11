@@ -6,10 +6,12 @@ import { Loader } from 'components/Loader/Loader';
 import css from './Search.module.css';
 import { BsSearch } from 'react-icons/bs';
 import { IconContext } from 'react-icons';
+import { PageNumber } from '../PageNumber/PageNumber';
 
 const MovieSearch = ({ language }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const movieName = searchParams.get('query') || '';
+
   const [isLoading, setIsLoading] = useState();
 
   const [foundMovies, setFoundMovies] = useState([]);
@@ -72,20 +74,7 @@ const MovieSearch = ({ language }) => {
           <h2 className={css.ListHeader}>Фільми по запиту " {movieName} "</h2>
           <span>Знайдено фільмів {totalResults}</span>
           <List data={foundMovies} path="movies" />
-          <div>
-            <span>Сторінка</span>
-            {Array.from({ length: Math.min(totalPages, 25) }, (_, index) => (
-              <button
-                style={{
-                  backgroundColor: page === index + 1 ? 'red' : 'white',
-                }}
-                key={index + 1}
-                onClick={() => setPage(index + 1)}
-              >
-                {index + 1}
-              </button>
-            ))}
-          </div>
+          <PageNumber totalPages={totalPages} page={page} setPage={setPage} />
         </>
       )}
 
