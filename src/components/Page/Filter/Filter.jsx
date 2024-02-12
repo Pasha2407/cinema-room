@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import css from './Filter.module.css';
 
-import { fetchMovieGenres } from 'service/tmdbAPI';
+import genres from 'data/genres.json';
 import countries from 'data/countries.json';
 import companies from 'data/companies.json';
 import years from 'data/years.json';
@@ -12,47 +13,62 @@ import sorting from 'data/sorting.json';
 import { MovieDiscover } from 'service/tmdbAPI';
 
 import { List } from 'components/List/List';
-import { FilterItemId, FilterItemParam, FilterItemParams } from './FilterItem';
+import { FilterItemParam, FilterItemParams } from './FilterItem';
 import { PageNumber } from '../PageNumber/PageNumber';
 
 export const FilterSection = ({ language }) => {
-  const [genres, setGenres] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const [data, setData] = useState([]);
 
-  const [genre, setGenre] = useState('');
-  const [genreName, setGenreName] = useState('');
+  const currentGenre = searchParams.get('g') || '';
+  const [genre, setGenre] = useState(currentGenre);
+  const currentGenreName = searchParams.get('gn') || '';
+  const [genreName, setGenreName] = useState(currentGenreName);
   const genreParam = `&with_genres=${genre}`;
 
-  const [country, setCountry] = useState('');
-  const [countryName, setCountryName] = useState('');
+  const currentCountry = searchParams.get('ct') || '';
+  const [country, setCountry] = useState(currentCountry);
+  const currentCountryName = searchParams.get('ctn') || '';
+  const [countryName, setCountryName] = useState(currentCountryName);
   const countryParam = `&with_origin_country=${country}`;
 
-  const [company, setCompany] = useState('');
-  const [companyName, setCompanyName] = useState('');
+  const currentCompany = searchParams.get('c') || '';
+  const [company, setCompany] = useState(currentCompany);
+  const currentCompanyName = searchParams.get('cn') || '';
+  const [companyName, setCompanyName] = useState(currentCompanyName);
   const companyParam = `&with_companies=${company}`;
 
-  const [year1, setYear1] = useState('');
-  const [year2, setYear2] = useState('');
-  const [yearName, setYearName] = useState('');
+  const currentYear1 = searchParams.get('y1') || '';
+  const [year1, setYear1] = useState(currentYear1);
+  const currentYear2 = searchParams.get('y2') || '';
+  const [year2, setYear2] = useState(currentYear2);
+  const currentYearName = searchParams.get('yn') || '';
+  const [yearName, setYearName] = useState(currentYearName);
   const yearParam = `&primary_release_date.gte=${year1}&primary_release_date.lte=${year2}`;
 
-  const [rating1, setRating1] = useState('');
-  const [rating2, setRating2] = useState('');
-  const [ratingName, setRatingName] = useState('');
+  const currentRating1 = searchParams.get('r1') || '';
+  const [rating1, setRating1] = useState(currentRating1);
+  const currentRating2 = searchParams.get('r2') || '';
+  const [rating2, setRating2] = useState(currentRating2);
+  const currentRatingName = searchParams.get('rn') || '';
+  const [ratingName, setRatingName] = useState(currentRatingName);
   const ratingParam = `&vote_average.gte=${rating1}&vote_average.lte=${rating2}`;
 
-  const [sort, setSort] = useState('');
-  const [sortName, setSortName] = useState('');
+  const currentSort = searchParams.get('s') || '';
+  const [sort, setSort] = useState(currentSort);
+  const currentSortName = searchParams.get('sn') || '';
+  const [sortName, setSortName] = useState(currentSortName);
   const sortParam = `&sort_by=${sort}`;
 
   const [totalResults, setTotalResults] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
-  const [page, setPage] = useState(1);
-
-  if (totalResults > 200) setTotalResults('500+');
+  const currentPage = parseInt(searchParams.get('page')) || 1;
+  const [page, setPage] = useState(currentPage);
 
   const choiceFilter = (item, name, setFilter, setFilterName) => {
     setFilter(item);
+    setPage(1);
     setFilterName(name);
   };
 
@@ -81,8 +97,6 @@ export const FilterSection = ({ language }) => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const result = await fetchMovieGenres(language);
-        setGenres(result);
         const movies = await MovieDiscover(
           language,
           genreParam,
@@ -110,6 +124,43 @@ export const FilterSection = ({ language }) => {
     ratingParam,
     sortParam,
     page,
+  ]);
+
+  useEffect(() => {
+    searchParams.set('page', page);
+    searchParams.set('g', genre);
+    searchParams.set('y1', year1);
+    searchParams.set('y2', year2);
+    searchParams.set('c', company);
+    searchParams.set('ct', country);
+    searchParams.set('r1', rating1);
+    searchParams.set('r2', rating2);
+    searchParams.set('s', sort);
+    searchParams.set('gn', genreName);
+    searchParams.set('yn', yearName);
+    searchParams.set('cn', companyName);
+    searchParams.set('ctn', countryName);
+    searchParams.set('rn', ratingName);
+    searchParams.set('sn', sortName);
+    setSearchParams(searchParams);
+  }, [
+    page,
+    genre,
+    year1,
+    year2,
+    company,
+    country,
+    rating1,
+    rating2,
+    sort,
+    genreName,
+    yearName,
+    companyName,
+    countryName,
+    ratingName,
+    sortName,
+    searchParams,
+    setSearchParams,
   ]);
 
   useEffect(() => {
@@ -149,129 +200,78 @@ export const FilterSection = ({ language }) => {
   return (
     <div>
       <section className={css.Container}>
-        <div>
-          <header className={css.Title}>
-            <h2>Жанр</h2>
-            {genreName && (
-              <span>
-                {genreName}
-                <button onClick={() => deleteFilter(setGenreName, setGenre)}>
-                  X
-                </button>
-              </span>
-            )}
-          </header>
-          <FilterItemId
-            data={genres}
-            choiceFilter={choiceGenre}
-            filter={genre}
-          />
-        </div>
-        <div>
-          <header className={css.Title}>
-            <h2>Рік</h2>
-            {yearName && (
-              <span>
-                {yearName}
-                <button
-                  onClick={() => deleteFilter(setYearName, setYear1, setYear2)}
-                >
-                  X
-                </button>
-              </span>
-            )}
-          </header>
-          <FilterItemParams
-            data={years}
-            choiceFilter={choiceYear}
-            filter1={year1}
-          />
-        </div>
-        <div>
-          <header className={css.Title}>
-            <h2>Компанія</h2>
-            {companyName && (
-              <span>
-                {companyName}
-                <button
-                  onClick={() => deleteFilter(setCompanyName, setCompany)}
-                >
-                  X
-                </button>
-              </span>
-            )}
-          </header>
-          <FilterItemParam
-            data={companies}
-            choiceFilter={choiceCompany}
-            filter={company}
-          />
-        </div>
-        <div>
-          <header className={css.Title}>
-            <h2>Країна</h2>
-            {countryName && (
-              <span>
-                {countryName}
-                <button
-                  onClick={() => deleteFilter(setCountryName, setCountry)}
-                >
-                  X
-                </button>
-              </span>
-            )}
-          </header>
-          <FilterItemParam
-            data={countries}
-            choiceFilter={choiceCountry}
-            filter={country}
-          />
-        </div>
-        <div>
-          <header className={css.Title}>
-            <h2>Рейтинг</h2>
-            {ratingName && (
-              <span>
-                {ratingName}
-                <button
-                  onClick={() =>
-                    deleteFilter(setRatingName, setRating1, setRating2)
-                  }
-                >
-                  X
-                </button>
-              </span>
-            )}
-          </header>
-          <FilterItemParams
-            data={ratings}
-            choiceFilter={choiceRating}
-            filter1={rating1}
-          />
-        </div>
-        <div>
-          <header className={css.Title}>
-            <h2>Сортувати</h2>
-            {sortName && (
-              <span>
-                {sortName}
-                <button onClick={() => deleteFilter(setSortName, setSort)}>
-                  X
-                </button>
-              </span>
-            )}
-          </header>
-          <FilterItemParam
-            data={sorting}
-            choiceFilter={choiceSort}
-            filter={sort}
-          />
-        </div>
+        <FilterItemParam
+          header="Жанр"
+          filterName={genreName}
+          deleteFilter={deleteFilter}
+          setFilterName={setGenreName}
+          setFilter={setGenre}
+          data={genres}
+          choiceFilter={choiceGenre}
+          filter={genre}
+        />
+        <FilterItemParams
+          header="Рік"
+          filterName={yearName}
+          deleteFilter={deleteFilter}
+          setFilterName={setYearName}
+          setFilter1={setYear1}
+          setFilter2={setYear2}
+          data={years}
+          choiceFilter={choiceYear}
+          filter={year1}
+        />
+        <FilterItemParam
+          header="Компанія"
+          filterName={companyName}
+          deleteFilter={deleteFilter}
+          setFilterName={setCompanyName}
+          setFilter={setCompany}
+          data={companies}
+          choiceFilter={choiceCompany}
+          filter={company}
+        />
+        <FilterItemParam
+          header="Країна"
+          filterName={countryName}
+          deleteFilter={deleteFilter}
+          setFilterName={setCountryName}
+          setFilter={setCountry}
+          data={countries}
+          choiceFilter={choiceCountry}
+          filter={country}
+        />
+        <FilterItemParams
+          header="Рейтинг"
+          filterName={ratingName}
+          deleteFilter={deleteFilter}
+          setFilterName={setRatingName}
+          setFilter1={setRating1}
+          setFilter2={setRating2}
+          data={ratings}
+          choiceFilter={choiceRating}
+          filter={rating1}
+        />
+        <FilterItemParam
+          header="Сортувати"
+          filterName={sortName}
+          deleteFilter={deleteFilter}
+          setFilterName={setSortName}
+          setFilter={setSort}
+          data={sorting}
+          choiceFilter={choiceSort}
+          filter={sort}
+        />
       </section>
 
-      {selected && data.length > 0 && (
+      {data.length > 0 && (
         <>
-          <span>Знайдено фільмів {totalResults}</span>
+          {selected ? (
+            <span>Знайдено фільмів {totalResults}</span>
+          ) : (
+            <span>Всього фільмів {totalResults}</span>
+          )}
+
           <List data={data} path="movies" />
           <PageNumber totalPages={totalPages} page={page} setPage={setPage} />
         </>

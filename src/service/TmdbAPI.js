@@ -45,11 +45,6 @@ export const searchMovies = async (name, language, page) => {
     return response.data;
 };
 
-export const fetchMovieGenres = async (language) => {
-    const response = await axios.get(`genre/movie/list?language=${language}`, params);
-    return response.data.genres;
-
-};
 export const MovieDiscover = async (language, genreParam, countryParam, companyParam, yearParam, ratingParam, sortParam, page) => {
     const response = await axios.get(
         `discover/movie?language=${language}${genreParam}${countryParam}${companyParam}${yearParam}${ratingParam}${sortParam}&page=${page}`, params);

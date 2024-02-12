@@ -18,9 +18,8 @@ const MovieSearch = ({ language }) => {
 
   const [totalPages, setTotalPages] = useState(0);
   const [totalResults, setTotalResults] = useState(0);
-  const [page, setPage] = useState(1);
-
-  if (totalResults > 200) setTotalResults('500+');
+  const currentPage = parseInt(searchParams.get('page')) || 1;
+  const [page, setPage] = useState(currentPage);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -48,7 +47,9 @@ const MovieSearch = ({ language }) => {
       }
     };
     search();
-  }, [movieName, language, page]);
+    searchParams.set('page', page);
+    setSearchParams(searchParams);
+  }, [movieName, language, page, searchParams, setSearchParams]);
 
   return (
     <div>

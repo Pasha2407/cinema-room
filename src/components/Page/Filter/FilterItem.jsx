@@ -1,53 +1,84 @@
-export const FilterItemId = ({ data, choiceFilter, filter }) => {
+export const FilterItemParam = ({
+  header,
+  filterName,
+  deleteFilter,
+  setFilterName,
+  setFilter,
+  data,
+  choiceFilter,
+  filter,
+}) => {
   return (
-    <ul>
-      {data.map(item => (
-        <li
-          key={item.id}
-          onClick={() => choiceFilter(item.id, item.name)}
-          style={{
-            backgroundColor: filter === item.id && '#be4040',
-          }}
-        >
-          {item.name}
-        </li>
-      ))}
-    </ul>
+    <div>
+      <header>
+        <h2>{header}</h2>
+        {filterName && (
+          <span>
+            {filterName}
+            <button onClick={() => deleteFilter(setFilterName, setFilter)}>
+              X
+            </button>
+          </span>
+        )}
+      </header>
+      <ul>
+        {data.map(item => (
+          <li
+            key={item.id}
+            onClick={() => choiceFilter(item.param, item.name)}
+            style={{
+              backgroundColor: filter === item.param && '#be4040',
+            }}
+          >
+            {item.name}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
-export const FilterItemParam = ({ data, choiceFilter, filter }) => {
+export const FilterItemParams = ({
+  header,
+  filterName,
+  deleteFilter,
+  setFilterName,
+  setFilter1,
+  setFilter2,
+  data,
+  choiceFilter,
+  filter,
+}) => {
   return (
-    <ul>
-      {data.map(item => (
-        <li
-          key={item.id}
-          onClick={() => choiceFilter(item.param, item.name)}
-          style={{
-            backgroundColor: filter === item.param && '#be4040',
-          }}
-        >
-          {item.name}
-        </li>
-      ))}
-    </ul>
-  );
-};
-
-export const FilterItemParams = ({ data, choiceFilter, filter1 }) => {
-  return (
-    <ul>
-      {data.map(item => (
-        <li
-          key={item.id}
-          onClick={() => choiceFilter(item.param1, item.param2, item.name)}
-          style={{
-            backgroundColor: filter1 === item.param1 && '#be4040',
-          }}
-        >
-          {item.name}
-        </li>
-      ))}
-    </ul>
+    <div>
+      <header>
+        <h2>{header}</h2>
+        {filterName && (
+          <span>
+            {filterName}
+            <button
+              onClick={() =>
+                deleteFilter(setFilterName, setFilter1, setFilter2)
+              }
+            >
+              X
+            </button>
+          </span>
+        )}
+      </header>
+      <ul>
+        {data.map(item => (
+          <li
+            key={item.id}
+            onClick={() => choiceFilter(item.param1, item.param2, item.name)}
+            style={{
+              backgroundColor: filter === item.param1 && '#be4040',
+            }}
+          >
+            {item.name}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
