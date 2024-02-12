@@ -11,8 +11,11 @@ import { Information } from 'pages/Information';
 import { TrendingMovies } from 'components/Page/Trending/TrendingMovies';
 import { PopularMovies } from 'components/Page/Popular/PopularMovies';
 import MovieSearch from 'components/Page/Search/MovieSearch';
-import { FilterSection } from 'components/Page/Filter/Filter';
+import { Filter } from 'components/Page/Filter/Filter';
 import { TopRatedMovies } from 'components/Page/TopRated/TopRatedMovies';
+import { TrendingSerials } from 'components/Page/Trending/TrendingSerials';
+import { PopularSerials } from 'components/Page/Popular/PopularSerials';
+import { TopRatedSerials } from 'components/Page/TopRated/TopRatedSerials';
 
 const MovieDetails = lazy(() => import('../../pages/MovieDetails'));
 const SerialDetails = lazy(() => import('../../pages/SerialDetails'));
@@ -85,10 +88,7 @@ export const App = () => {
             <Route path="/" element={<Home language={language} />} />
 
             <Route path="/movies" element={<Movies language={language} />}>
-              <Route
-                path="filter"
-                element={<FilterSection language={language} />}
-              />
+              <Route path="filter" element={<Filter language={language} />} />
               <Route
                 path="search"
                 element={<MovieSearch language={language} />}
@@ -107,10 +107,26 @@ export const App = () => {
               />
             </Route>
 
-            <Route
-              path="/serials"
-              element={<Serials language={language} path="serials" />}
-            />
+            <Route path="/serials" element={<Serials language={language} />}>
+              {/* <Route path="filter" element={<Filter language={language} />} />
+              <Route
+                path="search"
+                element={<MovieSearch language={language} />}
+              /> */}
+              <Route
+                path="trending"
+                element={<TrendingSerials language={language} />}
+              />
+              <Route
+                path="popular"
+                element={<PopularSerials language={language} />}
+              />
+              <Route
+                path="top-rated"
+                element={<TopRatedSerials language={language} />}
+              />
+            </Route>
+
             <Route
               path="/information"
               element={<Information language={language} />}

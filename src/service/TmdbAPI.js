@@ -59,14 +59,17 @@ export const fetchTrendingSerials = async (language) => {
     const response = await axios.get(`trending/tv/week?language=${language}`, params);
     return response.data.results;
 };
-export const fetchPopularSerials = async (language) => {
-    const response = await axios.get(`/tv/popular?language=${language}`, params);
-    return response.data.results;
+export const fetchPopularSerials = async (language, page) => {
+    const response = await axios.get(`/tv/popular?language=${language}&page=${page}`, params);
+    return response.data;
+};
+export const fetchTopRatedSerials = async (language, page) => {
+    const response = await axios.get(`tv/top_rated?language=${language}&page=${page}`, params);
+    return response.data;
 };
 
 export const fetchSerialDetails = async (id, language) => {
     const response = await axios.get(`/tv/${id}?language=${language}`, params);
-    console.log('api serials det', response.data)
     return response.data;
 };
 export const fetchSerialCast = async id => {
