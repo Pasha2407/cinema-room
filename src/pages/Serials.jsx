@@ -1,21 +1,38 @@
-import React, { useEffect, useState } from 'react';
-import { fetchTrendingSerials } from 'service/TmdbAPI';
-import { Page } from 'components/Page/Page';
+import { Suspense } from 'react';
+import { Link, Outlet } from 'react-router-dom';
 
-export const Serials = ({ language }) => {
-  const [trendingSerials, setTrendingSerials] = useState([]);
+import css from '../components/Page/Page.module.css';
 
-  useEffect(() => {
-    const fetchSerials = async () => {
-      try {
-        const data = await fetchTrendingSerials(language);
-        setTrendingSerials(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchSerials();
-  }, [language]);
+export const Serials = () => {
+  return (
+    <div className={css.Container}>
+      <div className={css.Buttons}>
+        <section>
+          <h2>Категорії:</h2>
+          <div>
+            <Link to="trending">Зараз в тренді</Link>
+            <Link to="popular">Популярні</Link>
+            <Link to="top-rated">Топ рейтинга</Link>
+          </div>
+        </section>
+        <section>
+          <h2>Управління:</h2>
+          <div>
+            <Link to="search">Пошук</Link>
+            <Link to="filter">Фільтер</Link>
+          </div>
+        </section>
+      </div>
 
-  return <Page serialData={trendingSerials} language={language} />;
+      <Suspense
+        fallback={
+          <p style={{ paddingLeft: 30 }}>
+            <i>Loading...</i>
+          </p>
+        }
+      >
+        <Outlet />
+      </Suspense>
+    </div>
+  );
 };

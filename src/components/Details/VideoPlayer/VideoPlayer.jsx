@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ReactPlayer from 'react-player';
-import { URLMovies } from 'service/URLMovies';
+import { URLMovies } from 'service/moviesURL';
 import css from './VideoPlayer.module.css';
 import { useMediaQuery } from 'react-responsive';
 

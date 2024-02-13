@@ -66,7 +66,7 @@ export const SerialTitle = ({ data }) => {
       </h2>
 
       <h2>
-        <span>Кількість серій: </span>
+        <span>Кількість всіх серій: </span>
         {data.number_of_episodes ? data.number_of_episodes : <i>невідомо</i>}
       </h2>
     </div>

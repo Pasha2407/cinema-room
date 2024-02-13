@@ -2,7 +2,7 @@
   "name": "pro-movie-searcher",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://pasha2407.github.io/pro-movie-searcher/",
+  "homepage": "https://pasha2407.github.io/cinema-room/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",

@@ -1,52 +1,38 @@
-import React, { useEffect, useState } from 'react';
-import { fetchTrendingMovies } from 'service/TmdbAPI';
-import { fetchPopularMovies } from 'service/TmdbAPI';
-import { fetchTopRatedMovies } from 'service/TmdbAPI';
-import { Page } from 'components/Page/Page';
+import { Suspense } from 'react';
+import { Link, Outlet } from 'react-router-dom';
 
-export const Movies = ({ language }) => {
-  const [trendingMovies, setTrendingMovies] = useState([]);
-  const [popularMovies, setPopularMovies] = useState([]);
-  const [topRatedMovies, setTopRatedMovies] = useState([]);
+import css from '../components/Page/Page.module.css';
 
-  const [totalPagesPopular, setTotalPagesPopular] = useState(0);
-  const [pagePopular, setPagePopular] = useState(1);
-
-  const [totalPagesTopRated, setTotalPagesTopRated] = useState(0);
-  const [pageTopRated, setPageTopRated] = useState(1);
-
-  const movieData = { trendingMovies, popularMovies, topRatedMovies };
-
-  useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const trendingData = await fetchTrendingMovies(language);
-        setTrendingMovies(trendingData);
-
-        const popularData = await fetchPopularMovies(language, pagePopular);
-        setPopularMovies(popularData.results);
-        setTotalPagesPopular(popularData.total_pages);
-
-        const topRatedData = await fetchTopRatedMovies(language, pageTopRated);
-        setTopRatedMovies(topRatedData.results);
-        setTotalPagesTopRated(topRatedData.total_pages);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchMovies();
-  }, [language, pagePopular, pageTopRated]);
-
+export const Movies = () => {
   return (
-    <Page
-      movieData={movieData}
-      language={language}
-      movieTotalPagesPopular={totalPagesPopular}
-      moviePagePopular={pagePopular}
-      movieSetPagePopular={setPagePopular}
-      movieTotalPagesTopRated={totalPagesTopRated}
-      moviePageTopRated={pageTopRated}
-      movieSetPageTopRated={setPageTopRated}
-    />
+    <div className={css.Container}>
+      <div className={css.Buttons}>
+        <section>
+          <h2>Категорії:</h2>
+          <div>
+            <Link to="trending">Зараз в тренді</Link>
+            <Link to="popular">Популярні</Link>
+            <Link to="top-rated">Топ рейтинга</Link>
+          </div>
+        </section>
+        <section>
+          <h2>Управління:</h2>
+          <div>
+            <Link to="search">Пошук</Link>
+            <Link to="filter">Фільтер</Link>
+          </div>
+        </section>
+      </div>
+
+      <Suspense
+        fallback={
+          <p style={{ paddingLeft: 30 }}>
+            <i>Loading...</i>
+          </p>
+        }
+      >
+        <Outlet />
+      </Suspense>
+    </div>
   );
 };

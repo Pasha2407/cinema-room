@@ -47,24 +47,6 @@
     margin-bottom: 20px;
 }
 
-.CancelButton {
-    margin-bottom: 15px;
-}
-
-.CancelButton>a {
-    background-color: #be4040;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 8px;
-    transition: background-color 0.2s;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.CancelButton>a:hover {
-    background-color: #913131
-}
-
 .NotFound {
     font-size: 16px;
 }
@@ -89,10 +71,6 @@
 
     .ListHeader {
         font-size: 16px;
-    }
-
-    .CancelButton>a {
-        font-size: 13px;
     }
 
     .NotFound {

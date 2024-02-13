@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchMovieCast } from 'service/TmdbAPI';
+import { fetchMovieCast } from 'service/tmdbAPI';
 import { Cast } from 'components/Cast/Cast';
 
 const MovieCast = ({ language }) => {

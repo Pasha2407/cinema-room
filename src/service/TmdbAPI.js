@@ -44,10 +44,14 @@ export const searchMovies = async (name, language, page) => {
     const response = await axios.get(`/search/movie?query=${name}&language=${language}&page=${page}`, params);
     return response.data;
 };
-export const MovieDiscover = async () => {
-    const response = await axios.get(`discover/movie?language=en-US`, params);
-    return response.data.results;
+
+export const MovieDiscover = async (language, genreParam, countryParam, companyParam, yearParam, ratingParam, sortParam, page) => {
+    const response = await axios.get(
+        `discover/movie?language=${language}${genreParam}${countryParam}${companyParam}${yearParam}${ratingParam}${sortParam}&page=${page}`, params);
+    return response.data;
 };
+
+
 
 
 // SERIALS
@@ -55,9 +59,13 @@ export const fetchTrendingSerials = async (language) => {
     const response = await axios.get(`trending/tv/week?language=${language}`, params);
     return response.data.results;
 };
-export const fetchPopularSerials = async (language) => {
-    const response = await axios.get(`/tv/popular?language=${language}`, params);
-    return response.data.results;
+export const fetchPopularSerials = async (language, page) => {
+    const response = await axios.get(`/tv/popular?language=${language}&page=${page}`, params);
+    return response.data;
+};
+export const fetchTopRatedSerials = async (language, page) => {
+    const response = await axios.get(`tv/top_rated?language=${language}&page=${page}`, params);
+    return response.data;
 };
 
 export const fetchSerialDetails = async (id, language) => {
@@ -73,9 +81,13 @@ export const fetchSerialReviews = async id => {
     return response.data.results;
 };
 
-export const searchSerials = async (name, language) => {
-    const response = await axios.get(`/search/tv?query=${name}&language=${language}`, params);
-    return response.data.results;
+export const searchSerials = async (name, language, page) => {
+    const response = await axios.get(`/search/tv?query=${name}&language=${language}&page=${page}`, params);
+    return response.data;
 };
 
-
+export const SerialDiscover = async (language, genreParam, countryParam, companyParam, yearParam, ratingParam, sortParam, page) => {
+    const response = await axios.get(
+        `discover/tv?language=${language}${genreParam}${countryParam}${companyParam}${yearParam}${ratingParam}${sortParam}&page=${page}`, params);
+    return response.data;
+};

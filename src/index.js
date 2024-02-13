@@ -5,7 +5,7 @@ import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter basename="/pro-movie-searcher">
+  <BrowserRouter basename="/cinema-room">
     <React.StrictMode>
       <App />
     </React.StrictMode>

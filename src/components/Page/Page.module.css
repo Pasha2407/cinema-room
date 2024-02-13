@@ -2,17 +2,40 @@
     padding: 20px 30px 50px 30px;
 }
 
-.Container>h2 {
+.Buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 10px 0 20px 0;
+}
+
+.Buttons>section {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.Buttons>section>h2 {
     margin: 0;
-    color: white
+    font-size: 16px;
+}
+
+.Buttons>section>div>a {
+    background-color: #be4040;
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+    margin-right: 15px;
+}
+
+.Container>section>a:hover {
+    background-color: #913131
 }
 
 @media screen and (max-width: 450px) {
     .Container {
         padding: 10px 10px 50px 10px;
-    }
-
-    .Container>h2 {
-        font-size: 18px;
     }
 }
