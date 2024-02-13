@@ -1,17 +1,25 @@
 import { useState, useEffect } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { searchSerials } from 'service/tmdbAPI';
 import { List } from 'components/List/List';
 import { Loader } from 'components/Loader/Loader';
 import css from './Search.module.css';
 import { BsSearch } from 'react-icons/bs';
 import { IconContext } from 'react-icons';
+import { PageNumber } from '../PageNumber/PageNumber';
 
-const SerialSearch = ({ data, path, language }) => {
+export const SerialSearch = ({ language }) => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [foundSerials, setFoundSerials] = useState([]);
-  const [isLoading, setIsLoading] = useState();
   const serialName = searchParams.get('query') || '';
+
+  const [isLoading, setIsLoading] = useState();
+
+  const [foundSerials, setFoundSerials] = useState([]);
+
+  const [totalPages, setTotalPages] = useState(0);
+  const [totalResults, setTotalResults] = useState(0);
+  const currentPage = parseInt(searchParams.get('page')) || 1;
+  const [page, setPage] = useState(currentPage);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -26,8 +34,10 @@ const SerialSearch = ({ data, path, language }) => {
     const search = async () => {
       try {
         setIsLoading(true);
-        const serials = await searchSerials(serialName, language);
-        setFoundSerials(serials);
+        const serials = await searchSerials(serialName, language, page);
+        setFoundSerials(serials.results);
+        setTotalPages(serials.total_pages);
+        setTotalResults(serials.total_results);
       } catch (error) {
         console.error(error);
       } finally {
@@ -37,7 +47,9 @@ const SerialSearch = ({ data, path, language }) => {
       }
     };
     search();
-  }, [serialName, language]);
+    searchParams.set('page', page);
+    setSearchParams(searchParams);
+  }, [serialName, language, page, searchParams, setSearchParams]);
 
   return (
     <div>
@@ -46,10 +58,10 @@ const SerialSearch = ({ data, path, language }) => {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="шукайте серіали будь якою мовою"
+            placeholder="напишіть щось для пошуку"
             name="search"
           />
-          <button type="submit">
+          <button type="submit" onClick={() => setPage(1)}>
             <IconContext.Provider value={{ size: 25, color: '#be4040' }}>
               <BsSearch />
             </IconContext.Provider>
@@ -60,20 +72,13 @@ const SerialSearch = ({ data, path, language }) => {
 
       {!isLoading && foundSerials.length > 0 && (
         <>
-          <div className={css.CancelButton}>
-            <Link to="/serials">Скинути</Link>
-          </div>
           <h2 className={css.ListHeader}>Серіали по запиту " {serialName} "</h2>
-          <List data={foundSerials} path={path} />
+          <span>Знайдено серіалів {totalResults}</span>
+          <List data={foundSerials} path="serials" />
+          <PageNumber totalPages={totalPages} page={page} setPage={setPage} />
         </>
       )}
 
-      {!serialName && (
-        <>
-          <h2 className={css.ListHeader}>Зараз в тренді</h2>
-          <List data={data} path={path} />
-        </>
-      )}
       {foundSerials.length === 0 && !isLoading && serialName && (
         <i className={css.NotFound}>
           Серіалів по запиту " {serialName} " не знайдено
@@ -82,5 +87,3 @@ const SerialSearch = ({ data, path, language }) => {
     </div>
   );
 };
-
-export default SerialSearch;

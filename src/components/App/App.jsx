@@ -4,18 +4,20 @@ import { Routes, Route, NavLink, useLocation } from 'react-router-dom';
 import css from './App.module.css';
 
 import { Home } from 'pages/Home';
-import { Serials } from 'pages/Serials';
 import { Movies } from 'pages/Movies';
-
+import { Serials } from 'pages/Serials';
 import { Information } from 'pages/Information';
+
 import { TrendingMovies } from 'components/Page/Trending/TrendingMovies';
 import { PopularMovies } from 'components/Page/Popular/PopularMovies';
-import MovieSearch from 'components/Page/Search/MovieSearch';
-import { Filter } from 'components/Page/Filter/Filter';
+import { MovieSearch } from 'components/Page/Search/MovieSearch';
+import { MovieFilter } from 'components/Page/Filter/MovieFilter';
 import { TopRatedMovies } from 'components/Page/TopRated/TopRatedMovies';
 import { TrendingSerials } from 'components/Page/Trending/TrendingSerials';
 import { PopularSerials } from 'components/Page/Popular/PopularSerials';
 import { TopRatedSerials } from 'components/Page/TopRated/TopRatedSerials';
+import { SerialSearch } from 'components/Page/Search/SerialSearch';
+import { SerialFilter } from 'components/Page/Filter/SerialFilter';
 
 const MovieDetails = lazy(() => import('../../pages/MovieDetails'));
 const SerialDetails = lazy(() => import('../../pages/SerialDetails'));
@@ -88,7 +90,10 @@ export const App = () => {
             <Route path="/" element={<Home language={language} />} />
 
             <Route path="/movies" element={<Movies language={language} />}>
-              <Route path="filter" element={<Filter language={language} />} />
+              <Route
+                path="filter"
+                element={<MovieFilter language={language} />}
+              />
               <Route
                 path="search"
                 element={<MovieSearch language={language} />}
@@ -108,11 +113,14 @@ export const App = () => {
             </Route>
 
             <Route path="/serials" element={<Serials language={language} />}>
-              {/* <Route path="filter" element={<Filter language={language} />} />
+              <Route
+                path="filter"
+                element={<SerialFilter language={language} />}
+              />
               <Route
                 path="search"
-                element={<MovieSearch language={language} />}
-              /> */}
+                element={<SerialSearch language={language} />}
+              />
               <Route
                 path="trending"
                 element={<TrendingSerials language={language} />}

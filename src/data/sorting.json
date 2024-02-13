@@ -2,12 +2,12 @@
     {
         "id": 1,
         "name": "Від новіших до старіших",
-        "param": "primary_release_date.desc"
+        "param": "first_air_date.desc"
     },
     {
         "id": 2,
         "name": "Від старіших до новіших",
-        "param": "primary_release_date.asc"
+        "param": "first_air_date.asc"
     },
     {
         "id": 3,

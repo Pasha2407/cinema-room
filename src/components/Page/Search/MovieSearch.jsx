@@ -8,7 +8,7 @@ import { BsSearch } from 'react-icons/bs';
 import { IconContext } from 'react-icons';
 import { PageNumber } from '../PageNumber/PageNumber';
 
-const MovieSearch = ({ language }) => {
+export const MovieSearch = ({ language }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const movieName = searchParams.get('query') || '';
 
@@ -87,5 +87,3 @@ const MovieSearch = ({ language }) => {
     </div>
   );
 };
-
-export default MovieSearch;

@@ -16,7 +16,7 @@ import { List } from 'components/List/List';
 import { FilterItemParam, FilterItemParams } from './FilterItem';
 import { PageNumber } from '../PageNumber/PageNumber';
 
-export const Filter = ({ language }) => {
+export const MovieFilter = ({ language }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [data, setData] = useState([]);

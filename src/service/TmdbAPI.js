@@ -81,9 +81,13 @@ export const fetchSerialReviews = async id => {
     return response.data.results;
 };
 
-export const searchSerials = async (name, language) => {
-    const response = await axios.get(`/search/tv?query=${name}&language=${language}`, params);
-    return response.data.results;
+export const searchSerials = async (name, language, page) => {
+    const response = await axios.get(`/search/tv?query=${name}&language=${language}&page=${page}`, params);
+    return response.data;
 };
 
-
+export const SerialDiscover = async (language, genreParam, countryParam, companyParam, yearParam, ratingParam, sortParam, page) => {
+    const response = await axios.get(
+        `discover/tv?language=${language}${genreParam}${countryParam}${companyParam}${yearParam}${ratingParam}${sortParam}&page=${page}`, params);
+    return response.data;
+};
