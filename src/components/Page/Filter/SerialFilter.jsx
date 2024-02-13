@@ -10,7 +10,7 @@ import years from 'data/years.json';
 import ratings from 'data/ratings.json';
 import sorting from 'data/sorting.json';
 
-import { SerialDiscover } from 'service/tmdbAPI';
+import { SerialDiscover } from 'service/api';
 
 import { List } from 'components/List/List';
 import { FilterItemParam, FilterItemParams } from './FilterItem';

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { fetchTrendingSerials } from 'service/tmdbAPI';
+import { fetchTrendingSerials } from 'service/api';
 import { List } from 'components/List/List';
 
 export const TrendingSerials = ({ language }) => {

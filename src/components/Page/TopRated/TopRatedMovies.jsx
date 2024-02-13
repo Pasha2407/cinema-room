@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import { fetchTopRatedMovies } from 'service/tmdbAPI';
+import { fetchTopRatedMovies } from 'service/api';
 import { List } from 'components/List/List';
 import { PageNumber } from '../PageNumber/PageNumber';
 

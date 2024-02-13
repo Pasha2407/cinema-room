@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { fetchTrendingMovies } from 'service/tmdbAPI';
+import { fetchTrendingMovies } from 'service/api';
 import { List } from 'components/List/List';
 import { Loader } from 'components/Loader/Loader';
 
