@@ -31,9 +31,13 @@ export const App = () => {
   const [language, setLanguage] = useState('uk-UA');
 
   const location = useLocation();
-  let lock;
+  let movieLock;
   if (location.pathname.startsWith('/movies')) {
-    lock = true;
+    movieLock = true;
+  }
+  let serialLock;
+  if (location.pathname.startsWith('/serials')) {
+    serialLock = true;
   }
 
   return (
@@ -51,16 +55,16 @@ export const App = () => {
           <NavLink
             to="/movies/trending"
             style={{
-              background: lock ? '#be4040' : '',
+              background: movieLock ? '#be4040' : '',
             }}
           >
             Фільми
           </NavLink>
           <NavLink
-            to="/serials"
-            style={({ isActive }) => ({
-              background: isActive ? '#be4040' : '',
-            })}
+            to="/serials/trending"
+            style={{
+              background: serialLock ? '#be4040' : '',
+            }}
           >
             Серіали
           </NavLink>
