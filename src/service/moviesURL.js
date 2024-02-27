@@ -10,7 +10,8 @@ export const URLMovies = (id, quality) => {
         setVideoUrls(`https://s1.ashdi.vip/content/stream/films/the.batman.2022.bdremux.by.hurtom_62197/hls/${quality}${end}`);
         break;
       case '872585':
-        setVideoUrls(`https://s4.ashdi.vip/content/stream/films/oppenheimer_2023_bdrip_1080p_h.265_imax_ukr_eng_hurtom_109925/hls/${quality}${end}`);
+        setVideoUrls(`https://jk29ocmjeoyql3tj.ashdi.vip/content/stream/films/oppenheimer_2023_bdrip_1080p_h.265_imax_ukr_eng_hurtom_109925/hls/${quality}${end}`);
+                                // https://s4.ashdi.vip/content/stream/films/oppenheimer_2023_bdrip_1080p_h.265_imax_ukr_eng_hurtom_109925/hls/
         break;
       case '286217':
         setVideoUrls(`https://s1.ashdi.vip/content/stream/films/marsanin_297/hls/${quality}${end}`);
