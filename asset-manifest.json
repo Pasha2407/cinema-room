@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/cinema-room/static/css/main.b6fc0c94.css",
-    "main.js": "/cinema-room/static/js/main.d01cfc68.js",
+    "main.js": "/cinema-room/static/js/main.7a261be3.js",
     "static/css/884.66d50d17.chunk.css": "/cinema-room/static/css/884.66d50d17.chunk.css",
-    "static/js/884.07417614.chunk.js": "/cinema-room/static/js/884.07417614.chunk.js",
+    "static/js/884.69ea4727.chunk.js": "/cinema-room/static/js/884.69ea4727.chunk.js",
     "static/css/538.66d50d17.chunk.css": "/cinema-room/static/css/538.66d50d17.chunk.css",
-    "static/js/538.d1a6681d.chunk.js": "/cinema-room/static/js/538.d1a6681d.chunk.js",
+    "static/js/538.a0e51802.chunk.js": "/cinema-room/static/js/538.a0e51802.chunk.js",
     "static/css/805.284ad9cc.chunk.css": "/cinema-room/static/css/805.284ad9cc.chunk.css",
     "static/js/805.327eb6fc.chunk.js": "/cinema-room/static/js/805.327eb6fc.chunk.js",
     "static/css/573.cd1ce610.chunk.css": "/cinema-room/static/css/573.cd1ce610.chunk.css",
@@ -32,11 +32,11 @@
     "static/media/noimage.jpg": "/cinema-room/static/media/noimage.d6863c531721152fea3b.jpg",
     "index.html": "/cinema-room/index.html",
     "main.b6fc0c94.css.map": "/cinema-room/static/css/main.b6fc0c94.css.map",
-    "main.d01cfc68.js.map": "/cinema-room/static/js/main.d01cfc68.js.map",
+    "main.7a261be3.js.map": "/cinema-room/static/js/main.7a261be3.js.map",
     "884.66d50d17.chunk.css.map": "/cinema-room/static/css/884.66d50d17.chunk.css.map",
-    "884.07417614.chunk.js.map": "/cinema-room/static/js/884.07417614.chunk.js.map",
+    "884.69ea4727.chunk.js.map": "/cinema-room/static/js/884.69ea4727.chunk.js.map",
     "538.66d50d17.chunk.css.map": "/cinema-room/static/css/538.66d50d17.chunk.css.map",
-    "538.d1a6681d.chunk.js.map": "/cinema-room/static/js/538.d1a6681d.chunk.js.map",
+    "538.a0e51802.chunk.js.map": "/cinema-room/static/js/538.a0e51802.chunk.js.map",
     "805.284ad9cc.chunk.css.map": "/cinema-room/static/css/805.284ad9cc.chunk.css.map",
     "805.327eb6fc.chunk.js.map": "/cinema-room/static/js/805.327eb6fc.chunk.js.map",
     "573.cd1ce610.chunk.css.map": "/cinema-room/static/css/573.cd1ce610.chunk.css.map",
@@ -62,6 +62,6 @@
   },
   "entrypoints": [
     "static/css/main.b6fc0c94.css",
-    "static/js/main.d01cfc68.js"
+    "static/js/main.7a261be3.js"
   ]
 }
