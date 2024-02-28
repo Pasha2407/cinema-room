@@ -43,7 +43,7 @@ export const SerialSearch = ({ language }) => {
       } finally {
         setTimeout(() => {
           setIsLoading(false);
-        }, 700);
+        }, 300);
       }
     };
     search();

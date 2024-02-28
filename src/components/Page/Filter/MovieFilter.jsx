@@ -15,8 +15,10 @@ import { MovieDiscover } from 'service/api';
 import { List } from 'components/List/List';
 import { FilterItemParam, FilterItemParams } from './FilterItem';
 import { PageNumber } from '../PageNumber/PageNumber';
+import { Loader } from 'components/Loader/Loader';
 
 export const MovieFilter = ({ language }) => {
+  const [isLoading, setIsLoading] = useState();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [data, setData] = useState([]);
@@ -95,6 +97,7 @@ export const MovieFilter = ({ language }) => {
     choiceFilter(item, name, setSort, setSortName);
 
   useEffect(() => {
+    setIsLoading(true);
     const fetchMovies = async () => {
       try {
         const movies = await MovieDiscover(
@@ -112,6 +115,10 @@ export const MovieFilter = ({ language }) => {
         setTotalResults(movies.total_results);
       } catch (error) {
         console.error(error);
+      } finally {
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 300);
       }
     };
     fetchMovies();
@@ -162,21 +169,6 @@ export const MovieFilter = ({ language }) => {
     searchParams,
     setSearchParams,
   ]);
-
-  useEffect(() => {
-    window.scrollTo({ top: 200, behavior: 'smooth' });
-  }, [
-    genreParam,
-    countryParam,
-    companyParam,
-    yearParam,
-    ratingParam,
-    sortParam,
-  ]);
-
-  useEffect(() => {
-    window.scrollTo({ top: 540, behavior: 'smooth' });
-  }, [page]);
 
   const deleteFilter = (setFilterName, setFilter, setFilter2) => {
     setFilterName('');
@@ -263,8 +255,8 @@ export const MovieFilter = ({ language }) => {
           filter={sort}
         />
       </section>
-
-      {data.length > 0 && (
+ 
+      {data.length > 0 && !isLoading ? (
         <>
           {selected ? (
             <span>Знайдено фільмів {totalResults}</span>
@@ -275,7 +267,7 @@ export const MovieFilter = ({ language }) => {
           <List data={data} path="movies" />
           <PageNumber totalPages={totalPages} page={page} setPage={setPage} />
         </>
-      )}
+      ) : <Loader />}
     </div>
   );
 };

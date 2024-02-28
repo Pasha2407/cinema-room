@@ -4,8 +4,11 @@ import { useSearchParams } from 'react-router-dom';
 import { fetchPopularMovies } from 'service/api';
 import { List } from 'components/List/List';
 import { PageNumber } from '../PageNumber/PageNumber';
+import { Loader } from 'components/Loader/Loader';
 
 export const PopularMovies = ({ language }) => {
+  const [isLoading, setIsLoading] = useState();
+
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = parseInt(searchParams.get('page')) || 1;
 
@@ -14,7 +17,7 @@ export const PopularMovies = ({ language }) => {
   const [page, setPage] = useState(currentPage);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsLoading(true);
     const fetchMovies = async () => {
       try {
         const result = await fetchPopularMovies(language, page);
@@ -22,14 +25,20 @@ export const PopularMovies = ({ language }) => {
         setTotalPages(result.total_pages);
       } catch (error) {
         console.error(error);
-      }
+      } finally {
+        setTimeout(()=>{
+          setIsLoading(false);
+        }, 300)
+    }
     };
     fetchMovies();
     searchParams.set('page', page);
     setSearchParams(searchParams);
   }, [language, page, searchParams, setSearchParams]);
 
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <div>
       <List header="Популярні" data={data} path="movies" />
       <PageNumber totalPages={totalPages} page={page} setPage={setPage} />

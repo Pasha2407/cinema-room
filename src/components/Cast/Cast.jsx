@@ -3,7 +3,6 @@ import css from './Cast.module.css';
 export const Cast = ({ cast, found }) => {
   return (
     <div>
-      <h2 className={css.Title}>Акторський склад 👇</h2>
       {cast.length > 0 && (
         <ul className={css.List}>
           {cast.map(item => (

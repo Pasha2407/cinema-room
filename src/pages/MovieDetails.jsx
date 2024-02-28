@@ -25,7 +25,7 @@ const MovieDetails = ({ language }) => {
       } finally {
         setTimeout(() => {
           setIsLoading(false);
-        }, 700);
+        }, 500);
       }
     };
     movieDetails();

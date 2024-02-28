@@ -18,9 +18,9 @@ export const TrendingMovies = ({ language }) => {
       } catch (error) {
         console.error(error);
       } finally {
-        setTimeout(() => {
+        setTimeout(()=>{
           setIsLoading(false);
-        }, 700);
+        }, 300)
       }
     };
     fetchMovies();

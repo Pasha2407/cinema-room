@@ -19,13 +19,13 @@ import { TopRatedSerials } from 'components/Page/TopRated/TopRatedSerials';
 import { SerialSearch } from 'components/Page/Search/SerialSearch';
 import { SerialFilter } from 'components/Page/Filter/SerialFilter';
 
+import { MovieCast } from 'components/Cast/MovieCast';
+import { MovieReviews } from 'components/Reviews/MovieReviews';
+import { SerialCast } from 'components/Cast/SerialCast';
+import { SerialReviews } from 'components/Reviews/SerialReviews';
+
 const MovieDetails = lazy(() => import('../../pages/MovieDetails'));
 const SerialDetails = lazy(() => import('../../pages/SerialDetails'));
-
-const MovieCast = lazy(() => import('../Cast/MovieCast'));
-const MovieReviews = lazy(() => import('../Reviews/MovieReviews'));
-const SerialCast = lazy(() => import('../Cast/SerialCast'));
-const SerialReviews = lazy(() => import('../Reviews/SerialReviews'));
 
 export const App = () => {
   const [language, setLanguage] = useState('uk-UA');
@@ -83,13 +83,7 @@ export const App = () => {
         </nav>
       </header>
       <main>
-        <Suspense
-          fallback={
-            <p style={{ paddingLeft: 30 }}>
-              <i>Loading...</i>
-            </p>
-          }
-        >
+        <Suspense>
           <Routes>
             <Route path="/" element={<Home language={language} />} />
 

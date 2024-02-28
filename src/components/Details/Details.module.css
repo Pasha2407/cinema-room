@@ -11,7 +11,7 @@
   }
 
   .Wrapper {
-      padding: 15px 0 50px 0;
+      padding: 15px 0 100px 0;
   }
 
   .Wrapper>i {
@@ -65,15 +65,12 @@
   .LinkButton>a {
       background-color: #be4040;
       color: white;
-      padding: 5px;
+      padding: 8px 15px;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 10px;
       transition: background-color 0.2s;
-      margin-right: 10px;
-  }
-
-  .LinkButton>a:hover {
-      background-color: #913131
+      margin-right: 15px;
+      font-size: 16px;
   }
 
   .NotFilm {

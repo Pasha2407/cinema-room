@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 import css from '../components/Page/Page.module.css';
 
@@ -10,27 +10,56 @@ export const Movies = () => {
         <section>
           <h2>Категорії:</h2>
           <div>
-            <Link to="trending">Зараз в тренді</Link>
-            <Link to="popular">Популярні</Link>
-            <Link to="top-rated">Топ рейтинга</Link>
+            <NavLink
+              to="trending"
+              style={({ isActive }) => ({
+                background: isActive ? '#be4040' : '#313131',
+              })}
+            >
+              Зараз в тренді
+            </NavLink>
+            <NavLink
+              to="popular"
+              style={({ isActive }) => ({
+                background: isActive ? '#be4040' : '#313131',
+              })}
+            >
+              Популярні
+            </NavLink>
+            <NavLink
+              to="top-rated"
+              style={({ isActive }) => ({
+                background: isActive ? '#be4040' : '#313131',
+              })}
+            >
+              Топ рейтинга
+            </NavLink>
           </div>
         </section>
         <section>
           <h2>Управління:</h2>
           <div>
-            <Link to="search">Пошук</Link>
-            <Link to="filter">Фільтер</Link>
+            <NavLink
+              to="search"
+              style={({ isActive }) => ({
+                background: isActive ? '#be4040' : '#313131',
+              })}
+            >
+              Пошук
+            </NavLink>
+            <NavLink
+              to="filter"
+              style={({ isActive }) => ({
+                background: isActive ? '#be4040' : '#313131',
+              })}
+            >
+              Фільтер
+            </NavLink>
           </div>
         </section>
       </div>
 
-      <Suspense
-        fallback={
-          <p style={{ paddingLeft: 30 }}>
-            <i>Loading...</i>
-          </p>
-        }
-      >
+      <Suspense>
         <Outlet />
       </Suspense>
     </div>

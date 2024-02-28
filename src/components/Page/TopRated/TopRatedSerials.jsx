@@ -4,8 +4,11 @@ import { useSearchParams } from 'react-router-dom';
 import { fetchTopRatedSerials } from 'service/api';
 import { List } from 'components/List/List';
 import { PageNumber } from '../PageNumber/PageNumber';
+import { Loader } from 'components/Loader/Loader';
 
 export const TopRatedSerials = ({ language }) => {
+  const [isLoading, setIsLoading] = useState();
+
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = parseInt(searchParams.get('page')) || 1;
 
@@ -14,7 +17,7 @@ export const TopRatedSerials = ({ language }) => {
   const [page, setPage] = useState(currentPage);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsLoading(true);
     const fetchSerials = async () => {
       try {
         const result = await fetchTopRatedSerials(language, page);
@@ -22,14 +25,20 @@ export const TopRatedSerials = ({ language }) => {
         setTotalPages(result.total_pages);
       } catch (error) {
         console.error(error);
-      }
+      } finally {
+        setTimeout(()=>{
+          setIsLoading(false);
+        }, 300)
+    }
     };
     fetchSerials();
     searchParams.set('page', page);
     setSearchParams(searchParams);
   }, [language, page, searchParams, setSearchParams]);
 
-  return (
+  return  isLoading ? (
+    <Loader />
+  ) : (
     <div>
       <List header="Топ рейтинга" data={data} path="serials" />
       <PageNumber totalPages={totalPages} page={page} setPage={setPage} />

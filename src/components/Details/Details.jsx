@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 
@@ -88,17 +88,25 @@ export const Details = ({
 
             <div className={css.LinkButton}>
               <h3>Додаткова інформація</h3>
-              <Link to="cast">Акторський склад</Link>
-              <Link to="reviews">Відгуки</Link>
+              <NavLink
+                to="cast"
+                style={({ isActive }) => ({
+                  background: isActive ? '#be4040' : '#313131',
+                })}
+              >
+                Акторський склад
+              </NavLink>
+              <NavLink
+                to="reviews"
+                style={({ isActive }) => ({
+                  background: isActive ? '#be4040' : '#313131',
+                })}
+              >
+                Відгуки
+              </NavLink>
             </div>
 
-            <Suspense
-              fallback={
-                <p style={{ paddingLeft: 30 }}>
-                  <i>Loading...</i>
-                </p>
-              }
-            >
+            <Suspense>
               <Outlet />
             </Suspense>
           </div>

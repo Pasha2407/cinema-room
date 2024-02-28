@@ -25,7 +25,7 @@ const SerialDetails = ({ language }) => {
       } finally {
         setTimeout(() => {
           setIsLoading(false);
-        }, 700);
+        }, 500);
       }
     };
     serialDetails();

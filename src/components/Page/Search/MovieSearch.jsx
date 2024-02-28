@@ -13,7 +13,6 @@ export const MovieSearch = ({ language }) => {
   const movieName = searchParams.get('query') || '';
 
   const [isLoading, setIsLoading] = useState();
-
   const [foundMovies, setFoundMovies] = useState([]);
 
   const [totalPages, setTotalPages] = useState(0);
@@ -43,7 +42,7 @@ export const MovieSearch = ({ language }) => {
       } finally {
         setTimeout(() => {
           setIsLoading(false);
-        }, 700);
+        }, 300);
       }
     };
     search();
@@ -68,9 +67,9 @@ export const MovieSearch = ({ language }) => {
           </button>
         </form>
       </div>
-      {isLoading && movieName && <Loader />}
+      {movieName && isLoading && <Loader />}
 
-      {!isLoading && foundMovies.length > 0 && (
+      {!isLoading && totalResults > 0 && (
         <>
           <h2 className={css.ListHeader}>Фільми по запиту " {movieName} "</h2>
           <span>Знайдено фільмів {totalResults}</span>
@@ -79,7 +78,7 @@ export const MovieSearch = ({ language }) => {
         </>
       )}
 
-      {foundMovies.length === 0 && !isLoading && movieName && (
+      {movieName && !isLoading && totalResults === 0 && (
         <i className={css.NotFound}>
           Фільмів по запиту " {movieName} " не знайдено
         </i>
