@@ -17,6 +17,8 @@ import { FilterItemParam, FilterItemParams } from './FilterItem';
 import { PageNumber } from '../PageNumber/PageNumber';
 import { Loader } from 'components/Loader/Loader';
 
+import Select from 'react-select';
+
 export const MovieFilter = ({ language }) => {
   const [isLoading, setIsLoading] = useState();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -25,8 +27,8 @@ export const MovieFilter = ({ language }) => {
 
   const currentGenre = searchParams.get('g') || '';
   const [genre, setGenre] = useState(currentGenre);
-  const currentGenreName = searchParams.get('gn') || '';
-  const [genreName, setGenreName] = useState(currentGenreName);
+  // const currentGenreName = searchParams.get('gn') || '';
+  const [genreName, setGenreName] = useState();
   const genreParam = `&with_genres=${genre}`;
 
   const currentCountry = searchParams.get('ct') || '';
@@ -143,7 +145,7 @@ export const MovieFilter = ({ language }) => {
     searchParams.set('r1', rating1);
     searchParams.set('r2', rating2);
     searchParams.set('s', sort);
-    searchParams.set('gn', genreName);
+    // searchParams.set('gn', genreName);
     searchParams.set('yn', yearName);
     searchParams.set('cn', companyName);
     searchParams.set('ctn', countryName);
@@ -189,10 +191,86 @@ export const MovieFilter = ({ language }) => {
   )
     selected = true;
 
+  const handleChangeGenre = event => {
+    if (event) {
+      choiceGenre(event.value, event.name);
+      return;
+    }
+    choiceGenre('');
+  };
+
+  const genresOptions = genres?.map(item => {
+    const option = {
+      value: `${item.param}`,
+      label: `${item.name}`,
+    };
+    return option;
+  });
+
+  const customStyles = {
+    container: provided => ({
+      ...provided,
+      width: '100%',
+    }),
+    control: provided => ({
+      ...provided,
+      border: '1px solid #414141',
+      background: '#212121',
+      borderRadius: '12px',
+      padding: '5px 10px',
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: state.isSelected ? '#414141' : '#212121',
+    }),
+    indicatorSeparator: provided => ({
+      ...provided,
+      display: 'none',
+    }),
+    dropdownIndicator: provided => ({
+      ...provided,
+      padding: '0',
+      width: '20px',
+      height: '20px',
+    }),
+    clearIndicator: provided => ({
+      ...provided,
+      padding: '0',
+      width: '20px',
+      height: '20px',
+    }),
+    menu: provided => ({
+      ...provided,
+      background: '#212121',
+    }),
+    menuList: provided => ({
+      ...provided,
+      overflowY: 'scroll',
+      '&::-webkit-scrollbar': {
+        width: '8px',
+      },
+      '&::-webkit-scrollbar-thumb': {
+        width: '8px',
+        backgroundColor: '#414141',
+      },
+    }),
+    singleValue: provided => ({
+      ...provided,
+      color: 'white',
+    }),
+  };
+
   return (
     <div>
       <section className={css.Container}>
-        <FilterItemParam
+        <Select
+          options={genresOptions}
+          placeholder={'Всі жанри'}
+          isClearable={true}
+          onChange={handleChangeGenre}
+          styles={customStyles}
+        ></Select>
+        {/* <FilterItemParam
           header="Жанр"
           filterName={genreName}
           deleteFilter={deleteFilter}
@@ -201,7 +279,7 @@ export const MovieFilter = ({ language }) => {
           data={genres}
           choiceFilter={choiceGenre}
           filter={genre}
-        />
+        /> */}
         <FilterItemParams
           header="Рік"
           filterName={yearName}
@@ -255,7 +333,7 @@ export const MovieFilter = ({ language }) => {
           filter={sort}
         />
       </section>
- 
+
       {data.length > 0 && !isLoading ? (
         <>
           {selected ? (
@@ -267,7 +345,9 @@ export const MovieFilter = ({ language }) => {
           <List data={data} path="movies" />
           <PageNumber totalPages={totalPages} page={page} setPage={setPage} />
         </>
-      ) : <Loader />}
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 };
