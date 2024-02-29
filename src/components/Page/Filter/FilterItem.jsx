@@ -1,84 +1,45 @@
+import Select from 'react-select';
+import { filterSelectStyles } from 'service/filterSelectStyles';
+
 export const FilterItemParam = ({
   header,
-  filterName,
-  deleteFilter,
-  setFilterName,
-  setFilter,
+  placeholder,
   data,
   choiceFilter,
-  filter,
+  filterName,
 }) => {
-  return (
-    <div>
-      <header>
-        <h2>{header}</h2>
-        {filterName && (
-          <span>
-            {filterName}
-            <button onClick={() => deleteFilter(setFilterName, setFilter)}>
-              X
-            </button>
-          </span>
-        )}
-      </header>
-      <ul>
-        {data.map(item => (
-          <li
-            key={item.id}
-            onClick={() => choiceFilter(item.param, item.name)}
-            style={{
-              backgroundColor: filter === item.param && '#be4040',
-            }}
-          >
-            {item.name}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+  const handleChangeFilter = event => {
+    if (event) {
+      choiceFilter(event.value, event.value2, event.label);
+      return;
+    }
+    choiceFilter('', '', '');
+  };
 
-export const FilterItemParams = ({
-  header,
-  filterName,
-  deleteFilter,
-  setFilterName,
-  setFilter1,
-  setFilter2,
-  data,
-  choiceFilter,
-  filter,
-}) => {
+  const filterOptions = data?.map(item => {
+    const option = {
+      value: `${item.param}`,
+      value2: `${item.param2}`,
+      label: `${item.name}`,
+    };
+    return option;
+  });
+
+  const searchParamOption = filterOptions.find(
+    option => option.label === filterName
+  );
+
   return (
     <div>
-      <header>
-        <h2>{header}</h2>
-        {filterName && (
-          <span>
-            {filterName}
-            <button
-              onClick={() =>
-                deleteFilter(setFilterName, setFilter1, setFilter2)
-              }
-            >
-              X
-            </button>
-          </span>
-        )}
-      </header>
-      <ul>
-        {data.map(item => (
-          <li
-            key={item.id}
-            onClick={() => choiceFilter(item.param1, item.param2, item.name)}
-            style={{
-              backgroundColor: filter === item.param1 && '#be4040',
-            }}
-          >
-            {item.name}
-          </li>
-        ))}
-      </ul>
+      <h2>{header}</h2>
+      <Select
+        options={filterOptions}
+        placeholder={placeholder}
+        isClearable={true}
+        onChange={handleChangeFilter}
+        styles={filterSelectStyles}
+        value={searchParamOption}
+      ></Select>
     </div>
   );
 };

@@ -2,43 +2,43 @@
     {
         "id": 1,
         "name": "10",
-        "param1": "10",
+        "param": "10",
         "param2": "10"
     },
     {
         "id": 2,
         "name": "9",
-        "param1": "9",
+        "param": "9",
         "param2": "9.94"
     },
     {
         "id": 3,
         "name": "8",
-        "param1": "8",
+        "param": "8",
         "param2": "8.94"
     },
     {
         "id": 4,
         "name": "7",
-        "param1": "7",
+        "param": "7",
         "param2": "7.94"
     },
     {
         "id": 5,
         "name": "6",
-        "param1": "6",
+        "param": "6",
         "param2": "6.94"
     },
     {
         "id": 6,
         "name": "5",
-        "param1": "5",
+        "param": "5",
         "param2": "5.94"
     },
     {
         "id": 7,
         "name": "4 та нижче",
-        "param1": "0",
+        "param": "0",
         "param2": "4.94"
     }
 ]

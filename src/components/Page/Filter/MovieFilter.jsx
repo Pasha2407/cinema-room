@@ -13,11 +13,9 @@ import sorting from 'data/sorting.json';
 import { MovieDiscover } from 'service/api';
 
 import { List } from 'components/List/List';
-import { FilterItemParam, FilterItemParams } from './FilterItem';
+import { FilterItemParam } from './FilterItem';
 import { PageNumber } from '../PageNumber/PageNumber';
 import { Loader } from 'components/Loader/Loader';
-
-import Select from 'react-select';
 
 export const MovieFilter = ({ language }) => {
   const [isLoading, setIsLoading] = useState();
@@ -27,8 +25,8 @@ export const MovieFilter = ({ language }) => {
 
   const currentGenre = searchParams.get('g') || '';
   const [genre, setGenre] = useState(currentGenre);
-  // const currentGenreName = searchParams.get('gn') || '';
-  const [genreName, setGenreName] = useState();
+  const currentGenreName = searchParams.get('gn') || '';
+  const [genreName, setGenreName] = useState(currentGenreName);
   const genreParam = `&with_genres=${genre}`;
 
   const currentCountry = searchParams.get('ct') || '';
@@ -76,26 +74,26 @@ export const MovieFilter = ({ language }) => {
     setFilterName(name);
   };
 
-  const choiceGenre = (item, name) =>
+  const choiceGenre = (item, item2, name) =>
     choiceFilter(item, name, setGenre, setGenreName);
 
-  const choiceCountry = (item, name) =>
+  const choiceCountry = (item, item2, name) =>
     choiceFilter(item, name, setCountry, setCountryName);
 
-  const choiceCompany = (item, name) =>
+  const choiceCompany = (item, item2, name) =>
     choiceFilter(item, name, setCompany, setCompanyName);
 
-  const choiceYear = (item1, item2, name) => {
-    choiceFilter(item1, name, setYear1, setYearName);
+  const choiceYear = (item, item2, name) => {
+    choiceFilter(item, name, setYear1, setYearName);
     choiceFilter(item2, name, setYear2, setYearName);
   };
 
-  const choiceRating = (item1, item2, name) => {
-    choiceFilter(item1, name, setRating1, setRatingName);
+  const choiceRating = (item, item2, name) => {
+    choiceFilter(item, name, setRating1, setRatingName);
     choiceFilter(item2, name, setRating2, setRatingName);
   };
 
-  const choiceSort = (item, name) =>
+  const choiceSort = (item, item2, name) =>
     choiceFilter(item, name, setSort, setSortName);
 
   useEffect(() => {
@@ -137,19 +135,25 @@ export const MovieFilter = ({ language }) => {
 
   useEffect(() => {
     searchParams.set('page', page);
+
     searchParams.set('g', genre);
+    searchParams.set('gn', genreName);
+
     searchParams.set('y1', year1);
     searchParams.set('y2', year2);
+    searchParams.set('yn', yearName);
+
     searchParams.set('c', company);
+    searchParams.set('cn', companyName);
+
     searchParams.set('ct', country);
+    searchParams.set('ctn', countryName);
+
     searchParams.set('r1', rating1);
     searchParams.set('r2', rating2);
-    searchParams.set('s', sort);
-    // searchParams.set('gn', genreName);
-    searchParams.set('yn', yearName);
-    searchParams.set('cn', companyName);
-    searchParams.set('ctn', countryName);
     searchParams.set('rn', ratingName);
+
+    searchParams.set('s', sort);
     searchParams.set('sn', sortName);
     setSearchParams(searchParams);
   }, [
@@ -172,12 +176,6 @@ export const MovieFilter = ({ language }) => {
     setSearchParams,
   ]);
 
-  const deleteFilter = (setFilterName, setFilter, setFilter2) => {
-    setFilterName('');
-    setFilter('');
-    if (setFilter2) setFilter2('');
-  };
-
   let selected = false;
   if (
     genre ||
@@ -191,146 +189,50 @@ export const MovieFilter = ({ language }) => {
   )
     selected = true;
 
-  const handleChangeGenre = event => {
-    if (event) {
-      choiceGenre(event.value, event.name);
-      return;
-    }
-    choiceGenre('');
-  };
-
-  const genresOptions = genres?.map(item => {
-    const option = {
-      value: `${item.param}`,
-      label: `${item.name}`,
-    };
-    return option;
-  });
-
-  const customStyles = {
-    container: provided => ({
-      ...provided,
-      width: '100%',
-    }),
-    control: provided => ({
-      ...provided,
-      border: '1px solid #414141',
-      background: '#212121',
-      borderRadius: '12px',
-      padding: '5px 10px',
-    }),
-    option: (provided, state) => ({
-      ...provided,
-      backgroundColor: state.isSelected ? '#414141' : '#212121',
-    }),
-    indicatorSeparator: provided => ({
-      ...provided,
-      display: 'none',
-    }),
-    dropdownIndicator: provided => ({
-      ...provided,
-      padding: '0',
-      width: '20px',
-      height: '20px',
-    }),
-    clearIndicator: provided => ({
-      ...provided,
-      padding: '0',
-      width: '20px',
-      height: '20px',
-    }),
-    menu: provided => ({
-      ...provided,
-      background: '#212121',
-    }),
-    menuList: provided => ({
-      ...provided,
-      overflowY: 'scroll',
-      '&::-webkit-scrollbar': {
-        width: '8px',
-      },
-      '&::-webkit-scrollbar-thumb': {
-        width: '8px',
-        backgroundColor: '#414141',
-      },
-    }),
-    singleValue: provided => ({
-      ...provided,
-      color: 'white',
-    }),
-  };
-
   return (
     <div>
       <section className={css.Container}>
-        <Select
-          options={genresOptions}
-          placeholder={'Всі жанри'}
-          isClearable={true}
-          onChange={handleChangeGenre}
-          styles={customStyles}
-        ></Select>
-        {/* <FilterItemParam
+        <FilterItemParam
           header="Жанр"
-          filterName={genreName}
-          deleteFilter={deleteFilter}
-          setFilterName={setGenreName}
-          setFilter={setGenre}
+          placeholder="Всі жанри"
           data={genres}
           choiceFilter={choiceGenre}
-          filter={genre}
-        /> */}
-        <FilterItemParams
+          filterName={genreName}
+        />
+        <FilterItemParam
           header="Рік"
-          filterName={yearName}
-          deleteFilter={deleteFilter}
-          setFilterName={setYearName}
-          setFilter1={setYear1}
-          setFilter2={setYear2}
+          placeholder="Всі роки"
           data={years}
           choiceFilter={choiceYear}
-          filter={year1}
+          filterName={yearName}
         />
         <FilterItemParam
           header="Компанія"
-          filterName={companyName}
-          deleteFilter={deleteFilter}
-          setFilterName={setCompanyName}
-          setFilter={setCompany}
+          placeholder="Всі компанії"
           data={companies}
           choiceFilter={choiceCompany}
-          filter={company}
+          filterName={companyName}
         />
         <FilterItemParam
           header="Країна"
-          filterName={countryName}
-          deleteFilter={deleteFilter}
-          setFilterName={setCountryName}
-          setFilter={setCountry}
+          placeholder="Всі країни"
           data={countries}
           choiceFilter={choiceCountry}
-          filter={country}
+          filterName={countryName}
         />
-        <FilterItemParams
+        <FilterItemParam
           header="Рейтинг"
-          filterName={ratingName}
-          deleteFilter={deleteFilter}
-          setFilterName={setRatingName}
-          setFilter1={setRating1}
-          setFilter2={setRating2}
+          placeholder="Будь який рейтинг"
           data={ratings}
           choiceFilter={choiceRating}
-          filter={rating1}
+          filterName={ratingName}
         />
         <FilterItemParam
           header="Сортувати"
-          filterName={sortName}
-          deleteFilter={deleteFilter}
-          setFilterName={setSortName}
-          setFilter={setSort}
+          placeholder="Від більшої популярності до меншої"
           data={sorting}
           choiceFilter={choiceSort}
-          filter={sort}
+          filterName={sortName}
         />
       </section>
 

@@ -13,7 +13,7 @@ import sorting from 'data/sorting.json';
 import { SerialDiscover } from 'service/api';
 
 import { List } from 'components/List/List';
-import { FilterItemParam, FilterItemParams } from './FilterItem';
+import { FilterItemParam } from './FilterItem';
 import { PageNumber } from '../PageNumber/PageNumber';
 import { Loader } from 'components/Loader/Loader';
 
@@ -115,7 +115,7 @@ export const SerialFilter = ({ language }) => {
         setTotalResults(serials.total_results);
       } catch (error) {
         console.error(error);
-      }  finally {
+      } finally {
         setTimeout(() => {
           setIsLoading(false);
         }, 300);
@@ -202,7 +202,7 @@ export const SerialFilter = ({ language }) => {
           choiceFilter={choiceGenre}
           filter={genre}
         />
-        <FilterItemParams
+        <FilterItemParam
           header="Рік"
           filterName={yearName}
           deleteFilter={deleteFilter}
@@ -233,7 +233,7 @@ export const SerialFilter = ({ language }) => {
           choiceFilter={choiceCountry}
           filter={country}
         />
-        <FilterItemParams
+        <FilterItemParam
           header="Рейтинг"
           filterName={ratingName}
           deleteFilter={deleteFilter}
@@ -256,7 +256,7 @@ export const SerialFilter = ({ language }) => {
         />
       </section>
 
-      {data.length > 0 && !isLoading ?  (
+      {data.length > 0 && !isLoading ? (
         <>
           {selected ? (
             <span>Знайдено серіалів {totalResults}</span>
@@ -267,7 +267,9 @@ export const SerialFilter = ({ language }) => {
           <List data={data} path="serials" />
           <PageNumber totalPages={totalPages} page={page} setPage={setPage} />
         </>
-      ) : <Loader />}
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 };
