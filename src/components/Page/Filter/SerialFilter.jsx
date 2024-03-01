@@ -236,19 +236,25 @@ export const SerialFilter = ({ language }) => {
         />
       </section>
 
-      {data.length > 0 && !isLoading ? (
+      {isLoading && <Loader />}
+
+      {!isLoading && totalResults > 0 && (
         <>
           {selected ? (
-            <span>Знайдено серіалів {totalResults}</span>
+            <span>
+              Знайдено серіалів: {totalResults}&emsp;Сторінка: {page}
+            </span>
           ) : (
-            <span>Всього серіалів {totalResults}</span>
+            <span>Всього серіалів: {totalResults}</span>
           )}
 
           <List data={data} path="serials" />
           <PageNumber totalPages={totalPages} page={page} setPage={setPage} />
         </>
-      ) : (
-        <Loader />
+      )}
+
+      {!isLoading && totalResults === 0 && (
+        <i className={css.NotFound}>Серіалів не знайдено</i>
       )}
     </div>
   );

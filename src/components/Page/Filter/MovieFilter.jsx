@@ -236,19 +236,25 @@ export const MovieFilter = ({ language }) => {
         />
       </section>
 
-      {data.length > 0 && !isLoading ? (
+      {isLoading && <Loader />}
+
+      {!isLoading && totalResults > 0 && (
         <>
           {selected ? (
-            <span>Знайдено фільмів {totalResults}</span>
+            <span>
+              Знайдено фільмів: {totalResults}&emsp;Сторінка: {page}
+            </span>
           ) : (
-            <span>Всього фільмів {totalResults}</span>
+            <span>Всього фільмів: {totalResults}</span>
           )}
 
           <List data={data} path="movies" />
           <PageNumber totalPages={totalPages} page={page} setPage={setPage} />
         </>
-      ) : (
-        <Loader />
+      )}
+
+      {!isLoading && totalResults === 0 && (
+        <i className={css.NotFound}>Фільмів не знайдено</i>
       )}
     </div>
   );

@@ -31,6 +31,10 @@
     margin: 0;
 }
 
+.NotFound {
+    font-size: 16px;
+}
+
 @media screen and (max-width: 450px) {
     .Container {
         grid-template-columns: 1fr 1.2fr;
@@ -43,6 +47,6 @@
     }
 
     .Container>div>h2 {
-        font-size: 13px;
+        font-size: 12px;
     }
 }
