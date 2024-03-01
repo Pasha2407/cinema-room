@@ -13,7 +13,7 @@ import sorting from 'data/sorting.json';
 import { MovieDiscover } from 'service/api';
 
 import { List } from 'components/List/List';
-import { FilterItemParam } from './FilterItem';
+import { FilterItem } from './FilterItem';
 import { PageNumber } from '../PageNumber/PageNumber';
 import { Loader } from 'components/Loader/Loader';
 
@@ -192,42 +192,42 @@ export const MovieFilter = ({ language }) => {
   return (
     <div>
       <section className={css.Container}>
-        <FilterItemParam
+        <FilterItem
           header="Жанр"
           placeholder="Всі жанри"
           data={genres}
           choiceFilter={choiceGenre}
           filterName={genreName}
         />
-        <FilterItemParam
+        <FilterItem
           header="Рік"
           placeholder="Всі роки"
           data={years}
           choiceFilter={choiceYear}
           filterName={yearName}
         />
-        <FilterItemParam
+        <FilterItem
           header="Компанія"
           placeholder="Всі компанії"
           data={companies}
           choiceFilter={choiceCompany}
           filterName={companyName}
         />
-        <FilterItemParam
+        <FilterItem
           header="Країна"
           placeholder="Всі країни"
           data={countries}
           choiceFilter={choiceCountry}
           filterName={countryName}
         />
-        <FilterItemParam
+        <FilterItem
           header="Рейтинг"
           placeholder="Будь який рейтинг"
           data={ratings}
           choiceFilter={choiceRating}
           filterName={ratingName}
         />
-        <FilterItemParam
+        <FilterItem
           header="Сортувати"
           placeholder="Від більшої популярності до меншої"
           data={sorting}

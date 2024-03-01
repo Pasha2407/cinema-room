@@ -1,7 +1,7 @@
 import Select from 'react-select';
 import { filterSelectStyles } from 'service/filterSelectStyles';
 
-export const FilterItemParam = ({
+export const FilterItem = ({
   header,
   placeholder,
   data,
