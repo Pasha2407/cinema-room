@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "Universal Pictures",
+        "param": "33"
+    },
+    {
+        "id": 2,
+        "name": "Paramount Pictures",
+        "param": "4"
+    },
+    {
+        "id": 3,
+        "name": "Warner Bros. Pictures",
+        "param": "174"
+    },
+    {
+        "id": 4,
+        "name": "Walt Disney Studios",
+        "param": "2"
+    },
+    {
+        "id": 5,
+        "name": "Marvel Entertainment",
+        "param": "420|19551|7505"
+    },
+    {
+        "id": 6,
+        "name": "Marvel Studios",
+        "param": "420"
+    },
+    {
+        "id": 7,
+        "name": "DC Films",
+        "param": "128064|9993"
+    },
+    {
+        "id": 8,
+        "name": "Columbia Pictures",
+        "param": "5"
+    },
+    {
+        "id": 9,
+        "name": "20th Century Fox",
+        "param": "25"
+    },
+    {
+        "id": 10,
+        "name": "DreamWorks Pictures",
+        "param": "521"
+    },
+    {
+        "id": 11,
+        "name": "New Line Cinema",
+        "param": "12"
+    },
+    {
+        "id": 12,
+        "name": "Metro Goldwyn Mayer Studios",
+        "param": "21"
+    },
+    {
+        "id": 13,
+        "name": "Blumhouse Productions",
+        "param": "3172"
+    },
+    {
+        "id": 14,
+        "name": "Lionsgate Films",
+        "param": "1632"
+    },
+    {
+        "id": 15,
+        "name": "Legendary Entertainment",
+        "param": "923"
+    },
+    {
+        "id": 16,
+        "name": "Focus Features",
+        "param": "10146"
+    }
+]

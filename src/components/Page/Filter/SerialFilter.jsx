@@ -3,12 +3,12 @@ import { useSearchParams } from 'react-router-dom';
 
 import css from './Filter.module.css';
 
-import serialGenres from 'data/serialGenres.json';
-import countries from 'data/countries.json';
-import companies from 'data/companies.json';
-import years from 'data/years.json';
-import ratings from 'data/ratings.json';
-import serialSorting from 'data/serialSorting.json';
+import serialGenres from 'data/serial/genres.json';
+import countries from 'data/serial/countries.json';
+import companies from 'data/serial/companies.json';
+import years from 'data/movie/years.json';
+import ratings from 'data/movie/ratings.json';
+import serialSorting from 'data/serial/sorting.json';
 
 import { SerialDiscover } from 'service/api';
 

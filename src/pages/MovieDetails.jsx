@@ -5,7 +5,7 @@ import { Loader } from 'components/Loader/Loader';
 import { fetchMovieDetails } from 'service/api';
 
 import { Details } from 'components/Details/Details';
-import availableMovies from 'data/availableMovies.json';
+import availableMovies from 'data/movie/availableMovies.json';
 
 const MovieDetails = ({ language }) => {
   const [isLoading, setIsLoading] = useState(true);

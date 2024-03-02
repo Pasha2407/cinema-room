@@ -3,12 +3,12 @@ import { useSearchParams } from 'react-router-dom';
 
 import css from './Filter.module.css';
 
-import genres from 'data/genres.json';
-import countries from 'data/countries.json';
-import companies from 'data/companies.json';
-import years from 'data/years.json';
-import ratings from 'data/ratings.json';
-import sorting from 'data/sorting.json';
+import genres from 'data/movie/genres.json';
+import countries from 'data/movie/countries.json';
+import companies from 'data/movie/companies.json';
+import years from 'data/movie/years.json';
+import ratings from 'data/movie/ratings.json';
+import sorting from 'data/movie/sorting.json';
 
 import { MovieDiscover } from 'service/api';
 
