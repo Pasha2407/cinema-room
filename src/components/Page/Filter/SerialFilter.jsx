@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import css from './Filter.module.css';
 
 import serialGenres from 'data/serial/genres.json';
-import countries from 'data/serial/countries.json';
+import countries from 'data/movie/countries.json';
 import companies from 'data/serial/companies.json';
 import years from 'data/movie/years.json';
 import ratings from 'data/movie/ratings.json';
