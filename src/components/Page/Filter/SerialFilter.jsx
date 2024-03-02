@@ -3,17 +3,17 @@ import { useSearchParams } from 'react-router-dom';
 
 import css from './Filter.module.css';
 
-import serialGenres from 'data/serialGenres.json';
-import countries from 'data/countries.json';
-import companies from 'data/companies.json';
-import years from 'data/years.json';
-import ratings from 'data/ratings.json';
-import sorting from 'data/sorting.json';
+import serialGenres from 'data/serial/genres.json';
+import countries from 'data/movie/countries.json';
+import companies from 'data/serial/companies.json';
+import years from 'data/movie/years.json';
+import ratings from 'data/movie/ratings.json';
+import serialSorting from 'data/serial/sorting.json';
 
 import { SerialDiscover } from 'service/api';
 
 import { List } from 'components/List/List';
-import { FilterItemParam, FilterItemParams } from './FilterItem';
+import { FilterItem } from './FilterItem';
 import { PageNumber } from '../PageNumber/PageNumber';
 import { Loader } from 'components/Loader/Loader';
 
@@ -74,26 +74,26 @@ export const SerialFilter = ({ language }) => {
     setFilterName(name);
   };
 
-  const choiceGenre = (item, name) =>
+  const choiceGenre = (item, item2, name) =>
     choiceFilter(item, name, setGenre, setGenreName);
 
-  const choiceCountry = (item, name) =>
+  const choiceCountry = (item, item2, name) =>
     choiceFilter(item, name, setCountry, setCountryName);
 
-  const choiceCompany = (item, name) =>
+  const choiceCompany = (item, item2, name) =>
     choiceFilter(item, name, setCompany, setCompanyName);
 
-  const choiceYear = (item1, item2, name) => {
-    choiceFilter(item1, name, setYear1, setYearName);
+  const choiceYear = (item, item2, name) => {
+    choiceFilter(item, name, setYear1, setYearName);
     choiceFilter(item2, name, setYear2, setYearName);
   };
 
-  const choiceRating = (item1, item2, name) => {
-    choiceFilter(item1, name, setRating1, setRatingName);
+  const choiceRating = (item, item2, name) => {
+    choiceFilter(item, name, setRating1, setRatingName);
     choiceFilter(item2, name, setRating2, setRatingName);
   };
 
-  const choiceSort = (item, name) =>
+  const choiceSort = (item, item2, name) =>
     choiceFilter(item, name, setSort, setSortName);
 
   useEffect(() => {
@@ -115,7 +115,7 @@ export const SerialFilter = ({ language }) => {
         setTotalResults(serials.total_results);
       } catch (error) {
         console.error(error);
-      }  finally {
+      } finally {
         setTimeout(() => {
           setIsLoading(false);
         }, 300);
@@ -135,19 +135,25 @@ export const SerialFilter = ({ language }) => {
 
   useEffect(() => {
     searchParams.set('page', page);
+
     searchParams.set('g', genre);
+    searchParams.set('gn', genreName);
+
     searchParams.set('y1', year1);
     searchParams.set('y2', year2);
+    searchParams.set('yn', yearName);
+
     searchParams.set('c', company);
+    searchParams.set('cn', companyName);
+
     searchParams.set('ct', country);
+    searchParams.set('ctn', countryName);
+
     searchParams.set('r1', rating1);
     searchParams.set('r2', rating2);
-    searchParams.set('s', sort);
-    searchParams.set('gn', genreName);
-    searchParams.set('yn', yearName);
-    searchParams.set('cn', companyName);
-    searchParams.set('ctn', countryName);
     searchParams.set('rn', ratingName);
+
+    searchParams.set('s', sort);
     searchParams.set('sn', sortName);
     setSearchParams(searchParams);
   }, [
@@ -170,12 +176,6 @@ export const SerialFilter = ({ language }) => {
     setSearchParams,
   ]);
 
-  const deleteFilter = (setFilterName, setFilter, setFilter2) => {
-    setFilterName('');
-    setFilter('');
-    if (setFilter2) setFilter2('');
-  };
-
   let selected = false;
   if (
     genre ||
@@ -192,82 +192,70 @@ export const SerialFilter = ({ language }) => {
   return (
     <div>
       <section className={css.Container}>
-        <FilterItemParam
+        <FilterItem
           header="Жанр"
-          filterName={genreName}
-          deleteFilter={deleteFilter}
-          setFilterName={setGenreName}
-          setFilter={setGenre}
+          placeholder="Всі жанри"
           data={serialGenres}
           choiceFilter={choiceGenre}
-          filter={genre}
+          filterName={genreName}
         />
-        <FilterItemParams
+        <FilterItem
           header="Рік"
-          filterName={yearName}
-          deleteFilter={deleteFilter}
-          setFilterName={setYearName}
-          setFilter1={setYear1}
-          setFilter2={setYear2}
+          placeholder="Всі роки"
           data={years}
           choiceFilter={choiceYear}
-          filter={year1}
+          filterName={yearName}
         />
-        <FilterItemParam
+        <FilterItem
           header="Компанія"
-          filterName={companyName}
-          deleteFilter={deleteFilter}
-          setFilterName={setCompanyName}
-          setFilter={setCompany}
+          placeholder="Всі компанії"
           data={companies}
           choiceFilter={choiceCompany}
-          filter={company}
+          filterName={companyName}
         />
-        <FilterItemParam
+        <FilterItem
           header="Країна"
-          filterName={countryName}
-          deleteFilter={deleteFilter}
-          setFilterName={setCountryName}
-          setFilter={setCountry}
+          placeholder="Всі країни"
           data={countries}
           choiceFilter={choiceCountry}
-          filter={country}
+          filterName={countryName}
         />
-        <FilterItemParams
+        <FilterItem
           header="Рейтинг"
-          filterName={ratingName}
-          deleteFilter={deleteFilter}
-          setFilterName={setRatingName}
-          setFilter1={setRating1}
-          setFilter2={setRating2}
+          placeholder="Будь який рейтинг"
           data={ratings}
           choiceFilter={choiceRating}
-          filter={rating1}
+          filterName={ratingName}
         />
-        <FilterItemParam
+        <FilterItem
           header="Сортувати"
-          filterName={sortName}
-          deleteFilter={deleteFilter}
-          setFilterName={setSortName}
-          setFilter={setSort}
-          data={sorting}
+          placeholder="Від більшої популярності до меншої"
+          data={serialSorting}
           choiceFilter={choiceSort}
-          filter={sort}
+          filterName={sortName}
         />
       </section>
 
-      {data.length > 0 && !isLoading ?  (
+      {isLoading && <Loader />}
+
+      {!isLoading && totalResults > 0 && (
         <>
           {selected ? (
-            <span>Знайдено серіалів {totalResults}</span>
+            <span>
+              Знайдено серіалів: {totalResults}&emsp;Сторінка: {page}
+            </span>
           ) : (
-            <span>Всього серіалів {totalResults}</span>
+            <span>Всього серіалів: {totalResults}</span>
           )}
 
           <List data={data} path="serials" />
           <PageNumber totalPages={totalPages} page={page} setPage={setPage} />
         </>
-      ) : <Loader />}
+      )}
+
+      {!isLoading && totalResults === 0 && (
+        <i className={css.NotFound}>Серіалів не знайдено</i>
+      )}
     </div>
   );
 };

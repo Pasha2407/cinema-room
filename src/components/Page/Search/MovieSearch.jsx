@@ -72,7 +72,9 @@ export const MovieSearch = ({ language }) => {
       {!isLoading && totalResults > 0 && (
         <>
           <h2 className={css.ListHeader}>Фільми по запиту " {movieName} "</h2>
-          <span>Знайдено фільмів {totalResults}</span>
+          <span>
+            Знайдено фільмів: {totalResults}&emsp;Сторінка: {page}
+          </span>
           <List data={foundMovies} path="movies" />
           <PageNumber totalPages={totalPages} page={page} setPage={setPage} />
         </>

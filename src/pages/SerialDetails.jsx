@@ -5,7 +5,7 @@ import { Loader } from 'components/Loader/Loader';
 import { fetchSerialDetails } from 'service/api';
 
 import { Details } from 'components/Details/Details';
-import availableSerials from 'data/availableSerials.json';
+import availableSerials from 'data/serial/availableSerials.json';
 
 const SerialDetails = ({ language }) => {
   const [isLoading, setIsLoading] = useState(true);

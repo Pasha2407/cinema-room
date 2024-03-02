@@ -3,8 +3,8 @@ import css from './List.module.css';
 import { IconContext } from 'react-icons';
 import { VscGraph } from 'react-icons/vsc';
 
-import availableMovies from 'data/availableMovies.json';
-import availableSerials from 'data/availableSerials.json';
+import availableMovies from 'data/movie/availableMovies.json';
+import availableSerials from 'data/serial/availableSerials.json';
 
 import { ratingColor } from 'service/ratingColor';
 

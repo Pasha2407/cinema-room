@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "name": "Sony Pictures Television",
+        "param": "11073"
+    },
+    {
+        "id": 2,
+        "name": "Amazon Studios",
+        "param": "20580"
+    },
+    {
+        "id": 3,
+        "name": "Disney Television Animation",
+        "param": "3475"
+    },
+    {
+        "id": 4,
+        "name": "Marvel Entertainment",
+        "param": "420|19551|7505"
+    },
+    {
+        "id": 5,
+        "name": "DC Films",
+        "param": "128064|9993"
+    },
+    {
+        "id": 6,
+        "name": "DreamWorks Pictures",
+        "param": "521"
+    },
+    {
+        "id": 7,
+        "name": "20th Television",
+        "param": "21659"
+    },
+    {
+        "id": 8,
+        "name": "Metro Goldwyn Mayer Television",
+        "param": "2230"
+    },
+    {
+        "id": 9,
+        "name": "Lionsgate Television",
+        "param": "28523"
+    }
+]
