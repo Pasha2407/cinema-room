@@ -8,12 +8,15 @@ import availableSerials from 'data/serial/availableSerials.json';
 
 import { ratingColor } from 'service/ratingColor';
 
-export const List = ({ header, data, path }) => {
+export const List = ({ header, page, data, path }) => {
   const location = useLocation();
 
   return (
     <div>
-      <h2 className={css.Header}>{header}</h2>
+      <h2 className={css.Header}>
+        {header}
+        {page && <span>&emsp;Сторінка: {page}</span>}
+      </h2>
       <ul className={css.List}>
         {data.map(item => (
           <li key={item.id}>

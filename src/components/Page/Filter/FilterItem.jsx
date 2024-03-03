@@ -39,6 +39,7 @@ export const FilterItem = ({
         onChange={handleChangeFilter}
         styles={filterSelectStyles}
         value={searchParamOption}
+        isSearchable={false}
       ></Select>
     </div>
   );

@@ -245,7 +245,9 @@ export const SerialFilter = ({ language }) => {
               Знайдено серіалів: {totalResults}&emsp;Сторінка: {page}
             </span>
           ) : (
-            <span>Всього серіалів: {totalResults}</span>
+            <span>
+              Всього серіалів: {totalResults}&emsp;Сторінка: {page}
+            </span>
           )}
 
           <List data={data} path="serials" />

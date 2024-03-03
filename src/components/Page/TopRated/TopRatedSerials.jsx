@@ -26,21 +26,21 @@ export const TopRatedSerials = ({ language }) => {
       } catch (error) {
         console.error(error);
       } finally {
-        setTimeout(()=>{
+        setTimeout(() => {
           setIsLoading(false);
-        }, 300)
-    }
+        }, 300);
+      }
     };
     fetchSerials();
     searchParams.set('page', page);
     setSearchParams(searchParams);
   }, [language, page, searchParams, setSearchParams]);
 
-  return  isLoading ? (
+  return isLoading ? (
     <Loader />
   ) : (
     <div>
-      <List header="Топ рейтинга" data={data} path="serials" />
+      <List header="Топ рейтинга" page={page} data={data} path="serials" />
       <PageNumber totalPages={totalPages} page={page} setPage={setPage} />
     </div>
   );
