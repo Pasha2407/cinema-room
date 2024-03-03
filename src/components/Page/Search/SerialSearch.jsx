@@ -73,7 +73,9 @@ export const SerialSearch = ({ language }) => {
       {!isLoading && foundSerials.length > 0 && (
         <>
           <h2 className={css.ListHeader}>Серіали по запиту " {serialName} "</h2>
-          <span>Знайдено серіалів {totalResults}</span>
+          <span>
+            Знайдено серіалів: {totalResults}&emsp;Сторінка: {page}
+          </span>
           <List data={foundSerials} path="serials" />
           <PageNumber totalPages={totalPages} page={page} setPage={setPage} />
         </>

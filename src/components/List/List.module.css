@@ -2,6 +2,13 @@
     margin: 0;
 }
 
+.Header>span {
+    font-weight: normal;
+    font-size: 16px;
+    position: relative;
+    bottom: 2px;
+}
+
 .List {
     display: grid;
     grid-template-columns: repeat(5, 1fr);

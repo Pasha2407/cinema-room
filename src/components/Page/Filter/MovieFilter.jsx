@@ -245,7 +245,9 @@ export const MovieFilter = ({ language }) => {
               Знайдено фільмів: {totalResults}&emsp;Сторінка: {page}
             </span>
           ) : (
-            <span>Всього фільмів: {totalResults}</span>
+            <span>
+              Всього фільмів: {totalResults}&emsp;Сторінка: {page}
+            </span>
           )}
 
           <List data={data} path="movies" />

@@ -7,7 +7,7 @@ export const Serials = () => {
   return (
     <div className={css.Container}>
       <div className={css.Buttons}>
-        <section>
+        <section className={css.Category}>
           <h2>Категорії:</h2>
           <div>
             <NavLink
@@ -36,7 +36,7 @@ export const Serials = () => {
             </NavLink>
           </div>
         </section>
-        <section>
+        <section className={css.Control}>
           <h2>Управління:</h2>
           <div>
             <NavLink

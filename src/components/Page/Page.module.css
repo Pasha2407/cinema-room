@@ -9,7 +9,13 @@
     padding: 10px 0 20px 0;
 }
 
-.Buttons>section {
+.Category {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.Control {
     display: flex;
     gap: 15px;
     align-items: center;
@@ -37,5 +43,9 @@
 @media screen and (max-width: 450px) {
     .Container {
         padding: 10px 10px 50px 10px;
+    }
+
+    .Buttons>section>div>a {
+        font-size: 15px;
     }
 }

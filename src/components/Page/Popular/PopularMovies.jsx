@@ -26,10 +26,10 @@ export const PopularMovies = ({ language }) => {
       } catch (error) {
         console.error(error);
       } finally {
-        setTimeout(()=>{
+        setTimeout(() => {
           setIsLoading(false);
-        }, 300)
-    }
+        }, 300);
+      }
     };
     fetchMovies();
     searchParams.set('page', page);
@@ -40,7 +40,7 @@ export const PopularMovies = ({ language }) => {
     <Loader />
   ) : (
     <div>
-      <List header="Популярні" data={data} path="movies" />
+      <List header="Популярні" page={page} data={data} path="movies" />
       <PageNumber totalPages={totalPages} page={page} setPage={setPage} />
     </div>
   );

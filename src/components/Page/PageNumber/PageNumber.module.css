@@ -1,0 +1,63 @@
+ .Container {
+     display: flex;
+     width: 100%;
+     justify-content: center;
+     align-items: center;
+     padding: 30px 0 10px 0;
+     gap: 10px;
+ }
+
+ .Container>div {
+     display: flex;
+     gap: 10px;
+ }
+
+ .Container>div>button {
+     background-color: unset;
+     border-radius: 100%;
+     border: none;
+     font-size: 20px;
+     padding: 5px 10px;
+     color: white;
+     transition: color 0.3s ease,
+ }
+
+ .Dots {
+     position: relative;
+     top: 10px;
+ }
+
+ .Icons {
+     color: #be4040;
+     position: relative;
+     top: 2px;
+     transition: color 0.3s ease,
+ }
+
+ @media screen and (min-width: 768px) {
+     .Container>div>button:hover {
+         cursor: pointer;
+         color: rgba(255, 255, 255, 0.7);
+     }
+
+     .Icons:hover {
+         cursor: pointer;
+         color: #9b3737;
+     }
+ }
+
+ @media screen and (max-width: 768px) {
+     .Container {
+         padding: 25px 0 10px 0;
+         gap: 5px;
+     }
+
+     .Container>div>button {
+         font-size: 15px;
+         padding: 4px 8px;
+     }
+
+     .Container>div {
+         gap: 5px;
+     }
+ }
