@@ -1,26 +1,23 @@
 import { useEffect, useState } from 'react';
 
-import { findExternalIds } from 'service/api';
-import { findSerialById } from 'service/api';
+import { findMovieById } from 'service/api';
 import { List } from 'components/List/List';
 import { Loader } from 'components/Loader/Loader';
 
-export const RecommendedSerials = ({ ids, header, language }) => {
+export const RecommendedMovies = ({ ids, header, language }) => {
   const [isLoading, setIsLoading] = useState();
-  const [serials, setSerials] = useState([]);
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     setIsLoading(true);
-    const fetchSerials = async () => {
+    const fetchMovies = async () => {
       try {
-        const dataIds = await findExternalIds();
-        console.log(dataIds.imdb_id);
         const data = [];
         for (const id of ids) {
-          const serial = await findSerialById(id, language);
-          data.push(serial[0]);
+          const movie = await findMovieById(id, language);
+          data.push(movie[0]);
         }
-        setSerials(data);
+        setMovies(data);
       } catch (error) {
         console.error(error);
       } finally {
@@ -29,14 +26,14 @@ export const RecommendedSerials = ({ ids, header, language }) => {
         }, 300);
       }
     };
-    fetchSerials();
+    fetchMovies();
   }, [ids, language]);
 
   return isLoading ? (
     <Loader />
   ) : (
     <div>
-      <List header={header} data={serials} path="serials" />
+      <List header={header} data={movies} path="movies" />
     </div>
   );
 };

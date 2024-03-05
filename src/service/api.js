@@ -9,7 +9,17 @@ const params = {
     },
 };
 
+export const findExternalIds = async () => {
+    const response = await axios.get(`/movie/286217/external_ids`, params);
+    return response.data;
+};
+
 // MOVIES
+export const findMovieById = async (id, language) => {
+    const response = await axios.get(`/find/${id}?external_source=imdb_id&language=${language}`, params);
+    return response.data.movie_results;
+};
+
 export const fetchTrendingMovies = async (language) => {
     const response = await axios.get(`trending/movie/week?language=${language}`, params);
     return response.data.results;
@@ -53,6 +63,11 @@ export const MovieDiscover = async (language, genreParam, countryParam, companyP
 
 
 // SERIALS
+export const findSerialById = async (id, language) => {
+    const response = await axios.get(`/find/${id}?external_source=tvdb_id&language=${language}`, params);
+    return response.data.tv_results;
+};
+
 export const fetchTrendingSerials = async (language) => {
     const response = await axios.get(`trending/tv/week?language=${language}`, params);
     return response.data.results;
@@ -89,14 +104,3 @@ export const SerialDiscover = async (language, genreParam, countryParam, company
         `discover/tv?language=${language}${genreParam}${countryParam}${companyParam}${yearParam}${ratingParam}${sortParam}&page=${page}`, params);
     return response.data;
 };
-
-export const findExternalIds = async () => {
-    const response = await axios.get(`/tv/456/external_ids`, params);
-    return response.data;
-};
-export const findSerialById = async (id, language) => {
-    const response = await axios.get(`/find/${id}?external_source=tvdb_id&language=${language}`, params);
-    return response.data.tv_results;
-};
-
-

@@ -10,7 +10,6 @@ import availableMovies from 'data/movie/availableMovies.json';
 const MovieDetails = ({ language }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [movieDetails, setMovieDetails] = useState([]);
-  console.log(movieDetails);
   const { id } = useParams();
   const location = useLocation();
   const back = useRef(location.state?.from || '/movies/trending');
