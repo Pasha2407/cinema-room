@@ -31,6 +31,7 @@ import recommendedCartoons from 'data/movie/recommendedCartoons.json';
 import recommendedSerials from 'data/serial/recommendedSerials.json';
 import recommendedAnime from 'data/serial/recommendedAnime.json';
 import recommendedCartoonSeries from 'data/serial/recommendedCartoonSeries.json';
+import logo from 'data/images/logo.png';
 
 const MovieDetails = lazy(() => import('../../pages/MovieDetails'));
 const SerialDetails = lazy(() => import('../../pages/SerialDetails'));
@@ -52,13 +53,8 @@ export const App = () => {
     <div className={css.Container}>
       <header>
         <nav>
-          <NavLink
-            to="/"
-            style={({ isActive }) => ({
-              background: isActive ? '#be4040' : '',
-            })}
-          >
-            CR
+          <NavLink to="/">
+            <img className={css.Logo} src={logo} alt=""></img>
           </NavLink>
           <NavLink
             to="/movies/trending"
