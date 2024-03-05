@@ -10,8 +10,7 @@
   width: 100%;
   background: rgb(49, 49, 49);
   background: linear-gradient(180deg, rgba(49, 49, 49, 1) 90%, rgba(190, 64, 64, 1) 100%);
-  padding-top: 20px;
-  padding-bottom: 10px;
+  padding: 15px 0 10px 0;
 }
 
 .Container>header>nav {
@@ -20,6 +19,7 @@
   margin-left: 30px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 20px;
   box-sizing: border-box;
   width: 90%;
@@ -35,6 +35,10 @@
 .Language>button {
   font-size: 10px;
   padding: 5px 2px;
+}
+
+.Logo {
+  width: 120px;
 }
 
 .Container>main {
@@ -81,6 +85,10 @@
 
   .Language>button {
     display: none;
+  }
+
+  .Logo {
+    width: 80px;
   }
 
 }

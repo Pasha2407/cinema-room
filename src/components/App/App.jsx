@@ -23,6 +23,15 @@ import { MovieCast } from 'components/Cast/MovieCast';
 import { MovieReviews } from 'components/Reviews/MovieReviews';
 import { SerialCast } from 'components/Cast/SerialCast';
 import { SerialReviews } from 'components/Reviews/SerialReviews';
+import { RecommendedMovies } from 'components/Page/Recommended/RecommendedMovies';
+import { RecommendedSerials } from 'components/Page/Recommended/RecommendedSerials';
+
+import recommendedMovies from 'data/movie/recommendedMovies.json';
+import recommendedCartoons from 'data/movie/recommendedCartoons.json';
+import recommendedSerials from 'data/serial/recommendedSerials.json';
+import recommendedAnime from 'data/serial/recommendedAnime.json';
+import recommendedCartoonSeries from 'data/serial/recommendedCartoonSeries.json';
+import logo from 'data/images/logo.png';
 
 const MovieDetails = lazy(() => import('../../pages/MovieDetails'));
 const SerialDetails = lazy(() => import('../../pages/SerialDetails'));
@@ -44,13 +53,8 @@ export const App = () => {
     <div className={css.Container}>
       <header>
         <nav>
-          <NavLink
-            to="/"
-            style={({ isActive }) => ({
-              background: isActive ? '#be4040' : '',
-            })}
-          >
-            CR
+          <NavLink to="/">
+            <img className={css.Logo} src={logo} alt=""></img>
           </NavLink>
           <NavLink
             to="/movies/trending"
@@ -85,7 +89,58 @@ export const App = () => {
       <main>
         <Suspense>
           <Routes>
-            <Route path="/" element={<Home language={language} />} />
+            <Route path="/" element={<Home language={language} />}>
+              <Route
+                path="recommended-movies"
+                element={
+                  <RecommendedMovies
+                    language={language}
+                    ids={recommendedMovies}
+                    header="Рекомендовані фільми"
+                  />
+                }
+              />
+              <Route
+                path="recommended-cartoons"
+                element={
+                  <RecommendedMovies
+                    language={language}
+                    ids={recommendedCartoons}
+                    header="Рекомендовані мултфільми"
+                  />
+                }
+              />
+              <Route
+                path="recommended-serials"
+                element={
+                  <RecommendedSerials
+                    language={language}
+                    ids={recommendedSerials}
+                    header="Рекомендовані серіали"
+                  />
+                }
+              />
+              <Route
+                path="recommended-cartoon-series"
+                element={
+                  <RecommendedSerials
+                    language={language}
+                    ids={recommendedCartoonSeries}
+                    header="Рекомендовані мультсеріали"
+                  />
+                }
+              />
+              <Route
+                path="recommended-anime"
+                element={
+                  <RecommendedSerials
+                    language={language}
+                    ids={recommendedAnime}
+                    header="Рекомендовані аніме"
+                  />
+                }
+              />
+            </Route>
 
             <Route path="/movies" element={<Movies language={language} />}>
               <Route

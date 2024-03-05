@@ -1,20 +1,23 @@
 import { useEffect, useState } from 'react';
 
-import { fetchTrendingMovies } from 'service/api';
+import { findMovieById } from 'service/api';
 import { List } from 'components/List/List';
 import { Loader } from 'components/Loader/Loader';
 
-export const TrendingMovies = ({ language }) => {
+export const RecommendedMovies = ({ ids, header, language }) => {
   const [isLoading, setIsLoading] = useState();
-
-  const [trendingMovies, setTrendingMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     setIsLoading(true);
     const fetchMovies = async () => {
       try {
-        const data = await fetchTrendingMovies(language);
-        setTrendingMovies(data);
+        const data = [];
+        for (const id of ids) {
+          const movie = await findMovieById(id, language);
+          data.push(movie[0]);
+        }
+        setMovies(data);
       } catch (error) {
         console.error(error);
       } finally {
@@ -24,13 +27,13 @@ export const TrendingMovies = ({ language }) => {
       }
     };
     fetchMovies();
-  }, [language]);
+  }, [ids, language]);
 
   return isLoading ? (
     <Loader />
   ) : (
     <div>
-      <List header="Зараз в тренді" data={trendingMovies} path="movies" />
+      <List header={header} data={movies} path="movies" />
     </div>
   );
 };
