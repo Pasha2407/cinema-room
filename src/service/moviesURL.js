@@ -6,6 +6,8 @@ export const URLMovies = (id, quality) => {
 
   useEffect(() => {
     switch (id) {
+
+      // Recommended movies 
       case '27205':
         setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/content/stream/films/pochatok_1219/hls/${quality}${end}`);
         break;
@@ -70,6 +72,40 @@ export const URLMovies = (id, quality) => {
         setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/content/stream/films/forsazh_7_1466/hls/${quality}${end}`);
         break;
 
+      // Recommended cartoons
+      case '57800':
+        setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/content/stream/films/lodovikovij_perod_4_1757/hls/${quality}${end}`);
+        break;
+      case '808':
+        setVideoUrls(`https://jk29ocmjeoyql3tj.ashdi.vip/content/stream/new/shrek_2001_bdremux_1080p_83765/hls/${quality}${end}`);
+        break;
+      case '920':
+        setVideoUrls(`https://jk29ocmjeoyql3tj.ashdi.vip/content/stream/films/tachki_526/hls/${quality}${end}`);
+        break;
+      case '9502':
+        setVideoUrls(`https://jk29ocmjeoyql3tj.ashdi.vip/content/stream/serials/90210_s5/1._kung_fu_panda_2008_bdrip_1080p_h.265_2xukr_eng_hurtom_6413/hls/${quality}${end}`);
+        break;
+      case '10191':
+        setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/content/stream/films/yak_priborkati_drakona_577/hls/${quality}${end}`);
+        break;
+
+      case '12':
+        setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/content/stream/films/finding_nemo_2003_bdrip_1080p_h.265_ukr_eng_1439/hls/${quality}${end}`);
+        break;
+      case '2062':
+        setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/content/stream/films/ratatuj_1067/hls/${quality}${end}`);
+        break;
+      case '10681':
+        setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/content/stream/films/vall_3303/hls/${quality}${end}`);
+        break;
+      case '76492':
+        setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/video05/films/monstri_na_kankulax_546/hls/${quality}${end}`);
+        break;
+      case '270946':
+        setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/video05/new4/penguins_of_madagascar_2014_bdrip_1080p_ukr_eng_hurtom_6648/hls/${quality}${end}`);
+        break;
+
+      //Other movies
       case '872585':
         setVideoUrls(`https://jk29ocmjeoyql3tj.ashdi.vip/content/stream/films/oppenheimer_2023_bdrip_1080p_h.265_imax_ukr_eng_hurtom_109925/hls/${quality}${end}`);
         break;

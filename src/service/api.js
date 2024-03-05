@@ -10,7 +10,7 @@ const params = {
 };
 
 export const findExternalIds = async () => {
-    const response = await axios.get(`/movie/286217/external_ids`, params);
+    const response = await axios.get(`/movie/10681/external_ids`, params);
     return response.data;
 };
 
