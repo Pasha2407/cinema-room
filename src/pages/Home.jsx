@@ -1,12 +1,21 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import css from '../components/Page/Page.module.css';
 import { Suspense } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 export const Home = () => {
+  const isMobile = useMediaQuery({ maxWidth: 450 }) ? true : false;
   return (
     <div className={css.Container}>
       <header>
-        <h2>Cinema Room</h2>
+        <h2>Вітаємо в Cinema Room</h2>
+        <p>
+          Тут ви зможете знайти для себе фільм або серіал для перегляду<br></br>
+          в вкладках Фільми та Серіали відповідно, або можете ознайомитись з
+          авторським списком<br></br>
+          рекомендованих фільмів та серіалів
+        </p>
+        <h2>Авторський список рекомендованих фільмів та серіалів</h2>
       </header>
       <div className={css.Buttons}>
         <section>
@@ -27,10 +36,12 @@ export const Home = () => {
             >
               Мульфільми
             </NavLink>
-          </div>
-        </section>
-        <section>
-          <div>
+            {isMobile && (
+              <>
+                <br></br>
+                <br></br>
+              </>
+            )}
             <NavLink
               to="recommended-serials"
               style={({ isActive }) => ({
