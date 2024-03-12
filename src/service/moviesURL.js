@@ -105,19 +105,94 @@ export const URLMovies = (id, quality) => {
         setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/video05/new4/penguins_of_madagascar_2014_bdrip_1080p_ukr_eng_hurtom_6648/hls/${quality}${end}`);
         break;
 
-      //Other movies
+      //Popular
+      case '792307':
+        setVideoUrls(`https://jk29ocmjeoyql3tj.ashdi.vip/content/stream/films/poor_things_2023_webdl_2160p_ukr_eng_mayhemhd_120396/hls/${quality}${end}`);
+        break;
+      case '763215':
+        setVideoUrls(`https://jk29ocmjeoyql3tj.ashdi.vip/content/stream/films/damsel_2024_webdl_1080p_ukr.eng_ukr.eng_exterminus_121043/hls/${quality}${end}`);
+        break;
+      case '848538':
+        setVideoUrls(`https://jk29ocmjeoyql3tj.ashdi.vip/content/stream/serials/argylle.2024.1080p.web.multirgb_1_120890/hls/${quality}${end}`);
+        break;
+      case '636706':
+        setVideoUrls(`https://jk29ocmjeoyql3tj.ashdi.vip/content/stream/films/spaceman_2024_webdl_1080p_ukr.eng_sub_ukr.eng_exterminus_120444/hls/${quality}${end}`);
+        break;
       case '872585':
         setVideoUrls(`https://jk29ocmjeoyql3tj.ashdi.vip/content/stream/films/oppenheimer_2023_bdrip_1080p_h.265_imax_ukr_eng_hurtom_109925/hls/${quality}${end}`);
         break;
+
+      case '1072790':
+        setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/content/stream/new/i_119847/hls/${quality}${end}`);
+        break;
+      case '932420':
+        setVideoUrls(`https://jk29ocmjeoyql3tj.ashdi.vip/content/stream/films/code_8._part_ii_2024_webdl_1080p_ukr.eng_sub_ukr.eng_exterminus_120152/hls/${quality}${end}`);
+        break;
+      case '572802':
+        setVideoUrls(`https://jk29ocmjeoyql3tj.ashdi.vip/content/stream/films/aquaman_and_the_lost_kingdom_2023_webdl_1080p__ukr.eng_sub_ukr.eng_117795/hls/${quality}${end}`);
+        break;
+      case '866398':
+        setVideoUrls(`https://jk29ocmjeoyql3tj.ashdi.vip/content/stream/films/the_beekeeper_2024_webdl_2160p_ukr_eng_hurtom_116855/hls/${quality}${end}`);
+        break;
+
+      //Trending 
+
+      // Tarantino
+      case '16869':
+        setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/content/stream/films/bezslavn_virodki_2423/hls/${quality}${end}`);
+        break;
+      case '68718':
+        setVideoUrls(`https://jk29ocmjeoyql3tj.ashdi.vip/content/stream/films/dzhango_vlnij_3306/hls/${quality}${end}`);
+        break;
+
+      //Marvel
       case '299534':
         setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/content/stream/films/mesniki_fnal_314/hls/${quality}${end}`);
+        break;
+
+      //Forsazh
+      case '9799':
+        setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/content/stream/films/forsazh_1_975/hls/${quality}${end}`);
+        break;
+      case '584':
+        setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/content/stream/films/forsazh_2_976/hls/${quality}${end}`);
+        break;
+      case '9615':
+        setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/content/stream/films/forsazh_3_977/hls/${quality}${end}`);
+        break;
+      case '13804':
+        setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/content/stream/films/forsazh_4_979/hls/${quality}${end}`);
         break;
       case '51497':
         setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/content/stream/films/forsazh_5_1449/hls/${quality}${end}`);
         break;
+      case '82992':
+        setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/content/stream/films/forsazh_6_1512/hls/${quality}${end}`);
+        break;
+      case '337339':
+        setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/content/stream/films/forsazh_8_1467/hls/${quality}${end}`);
+        break;
+      case '384018':
+        setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/content/stream/films/gobs__shou_358/hls/${quality}${end}`);
+        break;
+      case '385128':
+        setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/content/stream/films/forsazh_f9_2021_webdl_1080p_ukr_eng_hurtom_48059/hls/${quality}${end}`);
+        break;
+      case '85687':
+        setVideoUrls(`https://jk19ocmjeoyql3tj.ashdi.vip/content/stream/films/fast.x.2023.webdlrip.1080p.ukr.5.1.hdrezka.studio_95214/hls/${quality}${end}`);
+        break;
+
+      //DC
+      case '297802':
+        setVideoUrls(`https://jk29ocmjeoyql3tj.ashdi.vip/content/stream/films/akvamen_500/hls/${quality}${end}`);
+        break;
+
+      //Other movies 
+
       default:
         setVideoUrls('');
     }
   }, [id, quality]);
   return videoUrls;
 };
+
