@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/cinema-room/static/css/main.4af81eee.css",
-    "main.js": "/cinema-room/static/js/main.2136c089.js",
-    "static/css/884.8124f93e.chunk.css": "/cinema-room/static/css/884.8124f93e.chunk.css",
-    "static/js/884.cead9fa9.chunk.js": "/cinema-room/static/js/884.cead9fa9.chunk.js",
-    "static/css/538.8124f93e.chunk.css": "/cinema-room/static/css/538.8124f93e.chunk.css",
-    "static/js/538.654c7fd1.chunk.js": "/cinema-room/static/js/538.654c7fd1.chunk.js",
+    "main.js": "/cinema-room/static/js/main.e38d8a1e.js",
+    "static/css/159.92fbf6f1.chunk.css": "/cinema-room/static/css/159.92fbf6f1.chunk.css",
+    "static/js/159.bfb3b4a0.chunk.js": "/cinema-room/static/js/159.bfb3b4a0.chunk.js",
+    "static/css/411.92fbf6f1.chunk.css": "/cinema-room/static/css/411.92fbf6f1.chunk.css",
+    "static/js/411.cc630230.chunk.js": "/cinema-room/static/js/411.cc630230.chunk.js",
     "reactPlayerYouTube.js": "/cinema-room/static/js/reactPlayerYouTube.9775680d.chunk.js",
     "reactPlayerSoundCloud.js": "/cinema-room/static/js/reactPlayerSoundCloud.4f86d3be.chunk.js",
     "reactPlayerVimeo.js": "/cinema-room/static/js/reactPlayerVimeo.55ebd5c9.chunk.js",
@@ -20,16 +20,17 @@
     "reactPlayerFilePlayer.js": "/cinema-room/static/js/reactPlayerFilePlayer.2732b08a.chunk.js",
     "reactPlayerPreview.js": "/cinema-room/static/js/reactPlayerPreview.f8c36fb6.chunk.js",
     "static/js/348.39736392.chunk.js": "/cinema-room/static/js/348.39736392.chunk.js",
+    "static/js/241.d9469fde.chunk.js": "/cinema-room/static/js/241.d9469fde.chunk.js",
     "static/media/fon.png": "/cinema-room/static/media/fon.25b0dee8ac2b002409da.png",
     "static/media/noimage.jpg": "/cinema-room/static/media/noimage.d6863c531721152fea3b.jpg",
     "static/media/logo.png": "/cinema-room/static/media/logo.440f7663ac0dfa678202.png",
     "index.html": "/cinema-room/index.html",
     "main.4af81eee.css.map": "/cinema-room/static/css/main.4af81eee.css.map",
-    "main.2136c089.js.map": "/cinema-room/static/js/main.2136c089.js.map",
-    "884.8124f93e.chunk.css.map": "/cinema-room/static/css/884.8124f93e.chunk.css.map",
-    "884.cead9fa9.chunk.js.map": "/cinema-room/static/js/884.cead9fa9.chunk.js.map",
-    "538.8124f93e.chunk.css.map": "/cinema-room/static/css/538.8124f93e.chunk.css.map",
-    "538.654c7fd1.chunk.js.map": "/cinema-room/static/js/538.654c7fd1.chunk.js.map",
+    "main.e38d8a1e.js.map": "/cinema-room/static/js/main.e38d8a1e.js.map",
+    "159.92fbf6f1.chunk.css.map": "/cinema-room/static/css/159.92fbf6f1.chunk.css.map",
+    "159.bfb3b4a0.chunk.js.map": "/cinema-room/static/js/159.bfb3b4a0.chunk.js.map",
+    "411.92fbf6f1.chunk.css.map": "/cinema-room/static/css/411.92fbf6f1.chunk.css.map",
+    "411.cc630230.chunk.js.map": "/cinema-room/static/js/411.cc630230.chunk.js.map",
     "reactPlayerYouTube.9775680d.chunk.js.map": "/cinema-room/static/js/reactPlayerYouTube.9775680d.chunk.js.map",
     "reactPlayerSoundCloud.4f86d3be.chunk.js.map": "/cinema-room/static/js/reactPlayerSoundCloud.4f86d3be.chunk.js.map",
     "reactPlayerVimeo.55ebd5c9.chunk.js.map": "/cinema-room/static/js/reactPlayerVimeo.55ebd5c9.chunk.js.map",
@@ -43,10 +44,11 @@
     "reactPlayerKaltura.650ea9c2.chunk.js.map": "/cinema-room/static/js/reactPlayerKaltura.650ea9c2.chunk.js.map",
     "reactPlayerFilePlayer.2732b08a.chunk.js.map": "/cinema-room/static/js/reactPlayerFilePlayer.2732b08a.chunk.js.map",
     "reactPlayerPreview.f8c36fb6.chunk.js.map": "/cinema-room/static/js/reactPlayerPreview.f8c36fb6.chunk.js.map",
-    "348.39736392.chunk.js.map": "/cinema-room/static/js/348.39736392.chunk.js.map"
+    "348.39736392.chunk.js.map": "/cinema-room/static/js/348.39736392.chunk.js.map",
+    "241.d9469fde.chunk.js.map": "/cinema-room/static/js/241.d9469fde.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4af81eee.css",
-    "static/js/main.2136c089.js"
+    "static/js/main.e38d8a1e.js"
   ]
 }
