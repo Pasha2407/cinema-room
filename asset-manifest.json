@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/cinema-room/static/css/main.4af81eee.css",
-    "main.js": "/cinema-room/static/js/main.e38d8a1e.js",
+    "main.css": "/cinema-room/static/css/main.b4da8edb.css",
+    "main.js": "/cinema-room/static/js/main.41101505.js",
     "static/css/159.92fbf6f1.chunk.css": "/cinema-room/static/css/159.92fbf6f1.chunk.css",
     "static/js/159.bfb3b4a0.chunk.js": "/cinema-room/static/js/159.bfb3b4a0.chunk.js",
     "static/css/411.92fbf6f1.chunk.css": "/cinema-room/static/css/411.92fbf6f1.chunk.css",
@@ -25,8 +25,8 @@
     "static/media/noimage.jpg": "/cinema-room/static/media/noimage.d6863c531721152fea3b.jpg",
     "static/media/logo.png": "/cinema-room/static/media/logo.440f7663ac0dfa678202.png",
     "index.html": "/cinema-room/index.html",
-    "main.4af81eee.css.map": "/cinema-room/static/css/main.4af81eee.css.map",
-    "main.e38d8a1e.js.map": "/cinema-room/static/js/main.e38d8a1e.js.map",
+    "main.b4da8edb.css.map": "/cinema-room/static/css/main.b4da8edb.css.map",
+    "main.41101505.js.map": "/cinema-room/static/js/main.41101505.js.map",
     "159.92fbf6f1.chunk.css.map": "/cinema-room/static/css/159.92fbf6f1.chunk.css.map",
     "159.bfb3b4a0.chunk.js.map": "/cinema-room/static/js/159.bfb3b4a0.chunk.js.map",
     "411.92fbf6f1.chunk.css.map": "/cinema-room/static/css/411.92fbf6f1.chunk.css.map",
@@ -48,7 +48,7 @@
     "241.d9469fde.chunk.js.map": "/cinema-room/static/js/241.d9469fde.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4af81eee.css",
-    "static/js/main.e38d8a1e.js"
+    "static/css/main.b4da8edb.css",
+    "static/js/main.41101505.js"
   ]
 }
