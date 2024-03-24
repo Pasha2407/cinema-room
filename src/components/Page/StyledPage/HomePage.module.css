@@ -9,35 +9,14 @@
     padding: 10px 0 20px 0;
 }
 
-.Category {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.Control {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-.Buttons>section>h2 {
-    margin: 0;
-    font-size: 16px;
-}
-
-.Buttons>section>div>a {
+.Buttons>div>a {
     background-color: #be4040;
     color: white;
-    padding: 5px;
+    padding: 6px 14px;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 10px;
     transition: background-color 0.2s;
     margin-right: 15px;
-}
-
-.Container>section>a:hover {
-    background-color: #913131
 }
 
 @media screen and (max-width: 450px) {
@@ -45,7 +24,19 @@
         padding: 10px 10px 50px 10px;
     }
 
-    .Buttons>section>div>a {
+    .Buttons {
+        display: inline-flex;
+        gap: 15px;
+    }
+
+    .Buttons>div {
+        display: inline-flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .Buttons>div>a {
         font-size: 15px;
+        padding: 6px 12px;
     }
 }
