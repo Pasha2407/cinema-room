@@ -1,7 +1,10 @@
 import css from './Title.module.css';
 import { ratingColor } from 'service/ratingColor';
+import { useMediaQuery } from 'react-responsive';
 
 export const MovieTitle = ({ data }) => {
+  const isMobile = useMediaQuery({ maxWidth: 450 }) ? true : false;
+
   const rating = data.vote_average > 0 && data.vote_average.toFixed(1);
 
   const budget =
@@ -40,33 +43,35 @@ export const MovieTitle = ({ data }) => {
         <span>Рік: </span>
         {data.release_date.slice(0, 4)}
       </h2>
+      {!isMobile && (
+        <>
+          <h2>
+            <span>Жанр</span>
+          </h2>
+          {data.genres.length > 0 ? (
+            <section>
+              {data.genres?.map(item => (
+                <b key={item.name}>{item.name}</b>
+              ))}
+            </section>
+          ) : (
+            <i>невідомий</i>
+          )}
 
-      <h2>
-        <span>Жанр</span>
-      </h2>
-      {data.genres.length > 0 ? (
-        <section>
-          {data.genres?.map(item => (
-            <b key={item.name}>{item.name}</b>
-          ))}
-        </section>
-      ) : (
-        <i>невідомий</i>
+          <h2>
+            <span>Країна</span>
+          </h2>
+          {data.production_countries.length > 0 ? (
+            <section>
+              {data.production_countries?.map(item => (
+                <b key={item.name}>{item.name}</b>
+              ))}
+            </section>
+          ) : (
+            <i>невідома</i>
+          )}
+        </>
       )}
-
-      <h2>
-        <span>Країна</span>
-      </h2>
-      {data.production_countries.length > 0 ? (
-        <section>
-          {data.production_countries?.map(item => (
-            <b key={item.name}>{item.name}</b>
-          ))}
-        </section>
-      ) : (
-        <i>невідома</i>
-      )}
-
       <h2>
         <span>Бюджет: </span>
         {budget ? `${budget} $` : <i>невідомий</i>}

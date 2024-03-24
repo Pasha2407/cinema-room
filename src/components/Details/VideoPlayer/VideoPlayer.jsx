@@ -3,6 +3,7 @@ import ReactPlayer from 'react-player';
 import { URLMovies } from 'service/moviesURL';
 import css from './VideoPlayer.module.css';
 import { useMediaQuery } from 'react-responsive';
+import { FaPlay } from 'react-icons/fa6';
 
 export const VideoPlayer = ({ id, searchLink }) => {
   const playerWidth = useMediaQuery({ maxWidth: 450 }) ? 320 : 768;
@@ -22,9 +23,15 @@ export const VideoPlayer = ({ id, searchLink }) => {
     <div className={css.Container}>
       <section className={css.Play}>
         <h3>Дивитись онлайн українською</h3>
-        <button onClick={() => handlePlay('480')}>P SD 480</button>
-        <button onClick={() => handlePlay('720')}>P HD 720</button>
-        <button onClick={() => handlePlay('1080')}>P Full HD 1080</button>
+        <button onClick={() => handlePlay('480')}>
+          <FaPlay /> SD 480
+        </button>
+        <button onClick={() => handlePlay('720')}>
+          <FaPlay /> HD 720
+        </button>
+        <button onClick={() => handlePlay('1080')}>
+          <FaPlay /> Full HD 1080
+        </button>
       </section>
 
       {play && (

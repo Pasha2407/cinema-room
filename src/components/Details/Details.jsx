@@ -6,6 +6,7 @@ import { IoMdArrowRoundBack } from 'react-icons/io';
 import css from './Details.module.css';
 import { VideoPlayer } from 'components/Details/VideoPlayer/VideoPlayer';
 import { HeaderSection } from './HeaderSection/HeaderSection';
+import { useMediaQuery } from 'react-responsive';
 
 export const Details = ({
   data,
@@ -15,6 +16,8 @@ export const Details = ({
   id,
   availableId,
 }) => {
+  const isMobile = useMediaQuery({ maxWidth: 450 }) ? true : false;
+
   const searchLink = movieData
     ? `https://rezka.ag/search/?do=search&subaction=search&q=${data.title}`
     : `https://rezka.ag/search/?do=search&subaction=search&q=${data.name}`;
@@ -46,6 +49,36 @@ export const Details = ({
               movieData={movieData}
               serialData={serialData}
             />
+
+            {isMobile && (
+              <div className={css.MobileContent}>
+                <h2>
+                  <span>Жанр</span>
+                </h2>
+                {data.genres.length > 0 ? (
+                  <section>
+                    {data.genres?.slice(0, 4).map(item => (
+                      <b key={item.name}>{item.name}</b>
+                    ))}
+                  </section>
+                ) : (
+                  <i>невідомий</i>
+                )}
+
+                <h2>
+                  <span>Країна</span>
+                </h2>
+                {data.production_countries.length > 0 ? (
+                  <section>
+                    {data.production_countries?.slice(0, 4).map(item => (
+                      <b key={item.name}>{item.name}</b>
+                    ))}
+                  </section>
+                ) : (
+                  <i>невідома</i>
+                )}
+              </div>
+            )}
 
             <h3>Компанії</h3>
             {data.production_companies.length > 0 && (

@@ -16,12 +16,12 @@
 
 @media screen and (max-width: 450px) {
     .Container {
-        height: 250px;
+        height: 180px;
         border-radius: 10px;
         margin: 10px;
     }
 
     .Container>aside {
-        width: 45%;
+        width: 35%;
     }
 }
