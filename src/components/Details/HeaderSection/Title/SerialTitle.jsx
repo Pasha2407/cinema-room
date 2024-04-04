@@ -3,7 +3,7 @@ import { ratingColor } from 'service/ratingColor';
 import { useMediaQuery } from 'react-responsive';
 
 export const SerialTitle = ({ data }) => {
-  const isMobile = useMediaQuery({ maxWidth: 450 }) ? true : false;
+  const isMobile = useMediaQuery({ maxWidth: 500 }) ? true : false;
 
   const rating = data.vote_average > 0 && data.vote_average.toFixed(1);
 

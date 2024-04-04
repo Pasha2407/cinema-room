@@ -2,6 +2,18 @@
     padding: 20px 30px 50px 30px;
 }
 
+.Container>header {
+    margin-bottom: 10px;
+}
+
+.Container h2 {
+    margin: 0 0 10px 0;
+}
+
+.Container i {
+    color: #bebebe;
+}
+
 .Buttons {
     display: flex;
     flex-direction: column;
@@ -19,20 +31,32 @@
     margin-right: 15px;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px) {
     .Container {
-        padding: 10px 10px 50px 10px;
+        padding: 20px 10px 50px 10px;
+    }
+
+    .Container>header {
+        margin-bottom: 5px;
+    }
+
+    .Container h2 {
+        font-size: 20px;
+    }
+
+    .Container i {
+        font-size: 14px;
     }
 
     .Buttons {
         display: inline-flex;
-        gap: 15px;
+        gap: 12px;
     }
 
     .Buttons>div {
         display: inline-flex;
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
     }
 
     .Buttons>div>a {

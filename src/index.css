@@ -13,6 +13,7 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
   color: rgb(230, 230, 230);
+  background-color: #212121;
 }
 
 code {

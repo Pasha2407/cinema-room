@@ -6,8 +6,8 @@ import { useMediaQuery } from 'react-responsive';
 import { FaPlay } from 'react-icons/fa6';
 
 export const VideoPlayer = ({ id, searchLink }) => {
-  const playerWidth = useMediaQuery({ maxWidth: 450 }) ? 320 : 768;
-  const playerHeight = useMediaQuery({ maxWidth: 450 }) ? 180 : 432;
+  const playerWidth = useMediaQuery({ maxWidth: 500 }) ? 320 : 768;
+  const playerHeight = useMediaQuery({ maxWidth: 500 }) ? 180 : 432;
 
   const [quality, setQuality] = useState('720');
 

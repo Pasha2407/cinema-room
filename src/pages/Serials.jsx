@@ -5,7 +5,7 @@ import { useMediaQuery } from 'react-responsive';
 import css from '../components/Page/StyledPage/Page.module.css';
 
 export const Serials = () => {
-  const isMobile = useMediaQuery({ maxWidth: 450 }) ? true : false;
+  const isMobile = useMediaQuery({ maxWidth: 600 }) ? true : false;
   return (
     <div className={css.Container}>
       <div className={css.Buttons}>

@@ -47,7 +47,7 @@
 }
 
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px) {
     .Title {
         width: 65%;
         padding: 8px 5px 8px 10px

@@ -81,8 +81,24 @@ export const App = () => {
             Довідка
           </NavLink>
           <section className={css.Language}>
-            <button onClick={() => setLanguage('uk-UA')}>UA</button>
-            <button onClick={() => setLanguage('en-US')}>EN</button>
+            <button
+              className={css.Ua}
+              style={{
+                backgroundColor: language === 'uk-UA' ? '#be4040' : 'unset',
+              }}
+              onClick={() => setLanguage('uk-UA')}
+            >
+              UA
+            </button>
+            <button
+              className={css.En}
+              style={{
+                backgroundColor: language === 'en-US' ? '#be4040' : 'unset',
+              }}
+              onClick={() => setLanguage('en-US')}
+            >
+              EN
+            </button>
           </section>
         </nav>
       </header>

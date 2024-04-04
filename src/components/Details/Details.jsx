@@ -16,7 +16,7 @@ export const Details = ({
   id,
   availableId,
 }) => {
-  const isMobile = useMediaQuery({ maxWidth: 450 }) ? true : false;
+  const isMobile = useMediaQuery({ maxWidth: 500 }) ? true : false;
 
   const searchLink = movieData
     ? `https://rezka.ag/search/?do=search&subaction=search&q=${data.title}`
@@ -65,7 +65,7 @@ export const Details = ({
                   <i>невідомий</i>
                 )}
 
-                <h2>
+                <h2 style={{ marginTop: '10px' }}>
                   <span>Країна</span>
                 </h2>
                 {data.production_countries.length > 0 ? (
@@ -116,7 +116,7 @@ export const Details = ({
             {data.overview.length > 0 ? (
               <p> {data.overview}</p>
             ) : (
-              <i>Опису не має</i>
+              <i className={css.NoInf}>Опису не має</i>
             )}
 
             <div className={css.LinkButton}>

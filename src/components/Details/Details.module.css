@@ -131,7 +131,7 @@
       padding: 3px 6px;
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 500px) {
       .Background {
           background-size: 720px;
           background-attachment: scroll;
@@ -210,6 +210,10 @@
       }
 
       .LinkButton>a {
+          font-size: 14px;
+      }
+
+      .NoInf {
           font-size: 14px;
       }
   }
