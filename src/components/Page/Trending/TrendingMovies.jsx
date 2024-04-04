@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { fetchTrendingMovies } from 'service/api';
 import { List } from 'components/List/List';
@@ -6,7 +7,7 @@ import { Loader } from 'components/Loader/Loader';
 
 export const TrendingMovies = ({ language }) => {
   const [isLoading, setIsLoading] = useState();
-
+  const { t } = useTranslation();
   const [trendingMovies, setTrendingMovies] = useState([]);
 
   useEffect(() => {
@@ -30,7 +31,7 @@ export const TrendingMovies = ({ language }) => {
     <Loader />
   ) : (
     <div>
-      <List header="Зараз в тренді" data={trendingMovies} path="movies" />
+      <List header={t('list.trend')} data={trendingMovies} path="movies" />
     </div>
   );
 };

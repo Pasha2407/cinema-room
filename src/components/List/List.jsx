@@ -1,4 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 import css from './List.module.css';
 import { IconContext } from 'react-icons';
 import { VscGraph } from 'react-icons/vsc';
@@ -10,12 +12,17 @@ import { ratingColor } from 'service/ratingColor';
 
 export const List = ({ header, page, data, path }) => {
   const location = useLocation();
+  const { t } = useTranslation();
 
   return (
     <div>
       <h2 className={css.Header}>
         {header}
-        {page && <span>&emsp;Сторінка: {page}</span>}
+        {page && (
+          <span>
+            &emsp; {t('list.page')} {page}
+          </span>
+        )}
       </h2>
       <ul className={css.List}>
         {data.map(item => (

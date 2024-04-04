@@ -1,5 +1,6 @@
-import { Suspense, lazy, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import { Routes, Route, NavLink, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import css from './App.module.css';
 
@@ -38,6 +39,12 @@ const SerialDetails = lazy(() => import('../../pages/SerialDetails'));
 
 export const App = () => {
   const [language, setLanguage] = useState('uk-UA');
+  const [language18, setLanguage18] = useState('ua');
+
+  const { t, i18n } = useTranslation();
+  useEffect(() => {
+    i18n.changeLanguage(language18);
+  }, [language18, i18n]);
 
   const location = useLocation();
   let movieLock;
@@ -62,7 +69,7 @@ export const App = () => {
               background: movieLock ? '#be4040' : '',
             }}
           >
-            Фільми
+            {t('header.movies')}
           </NavLink>
           <NavLink
             to="/serials/trending"
@@ -70,7 +77,7 @@ export const App = () => {
               background: serialLock ? '#be4040' : '',
             }}
           >
-            Серіали
+            {t('header.serials')}
           </NavLink>
           <NavLink
             to="/information"
@@ -78,7 +85,7 @@ export const App = () => {
               background: isActive ? '#be4040' : '',
             })}
           >
-            Довідка
+            {t('header.inf')}
           </NavLink>
           <section className={css.Language}>
             <button
@@ -86,7 +93,10 @@ export const App = () => {
               style={{
                 backgroundColor: language === 'uk-UA' ? '#be4040' : 'unset',
               }}
-              onClick={() => setLanguage('uk-UA')}
+              onClick={() => {
+                setLanguage('uk-UA');
+                setLanguage18('ua');
+              }}
             >
               UA
             </button>
@@ -95,7 +105,10 @@ export const App = () => {
               style={{
                 backgroundColor: language === 'en-US' ? '#be4040' : 'unset',
               }}
-              onClick={() => setLanguage('en-US')}
+              onClick={() => {
+                setLanguage('en-US');
+                setLanguage18('en');
+              }}
             >
               EN
             </button>
@@ -112,7 +125,7 @@ export const App = () => {
                   <RecommendedMovies
                     language={language}
                     ids={recommendedMovies}
-                    header="Рекомендовані фільми"
+                    header={t('home.movies')}
                   />
                 }
               />
@@ -122,7 +135,7 @@ export const App = () => {
                   <RecommendedMovies
                     language={language}
                     ids={recommendedCartoons}
-                    header="Рекомендовані мултфільми"
+                    header={t('home.mult')}
                   />
                 }
               />
@@ -132,7 +145,7 @@ export const App = () => {
                   <RecommendedSerials
                     language={language}
                     ids={recommendedSerials}
-                    header="Рекомендовані серіали"
+                    header={t('home.serials')}
                   />
                 }
               />
@@ -142,7 +155,7 @@ export const App = () => {
                   <RecommendedSerials
                     language={language}
                     ids={recommendedCartoonSeries}
-                    header="Рекомендовані мультсеріали"
+                    header={t('home.mults')}
                   />
                 }
               />
@@ -152,7 +165,7 @@ export const App = () => {
                   <RecommendedSerials
                     language={language}
                     ids={recommendedAnime}
-                    header="Рекомендовані аніме"
+                    header={t('home.anime')}
                   />
                 }
               />

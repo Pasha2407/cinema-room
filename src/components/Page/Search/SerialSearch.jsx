@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 import { searchSerials } from 'service/api';
 import { List } from 'components/List/List';
 import { Loader } from 'components/Loader/Loader';
@@ -11,6 +13,7 @@ import { PageNumber } from '../PageNumber/PageNumber';
 export const SerialSearch = ({ language }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const serialName = searchParams.get('query') || '';
+  const { t } = useTranslation();
 
   const [isLoading, setIsLoading] = useState();
 
@@ -54,11 +57,11 @@ export const SerialSearch = ({ language }) => {
   return (
     <div>
       <div className={css.SearchForm}>
-        <h3>Пошук Серіалів</h3>
+        <h3>{t('search.serials.title')}</h3>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="напишіть щось для пошуку"
+            placeholder={t('search.placeholder')}
             name="search"
           />
           <button type="submit" onClick={() => setPage(1)}>
@@ -72,9 +75,12 @@ export const SerialSearch = ({ language }) => {
 
       {!isLoading && foundSerials.length > 0 && (
         <>
-          <h2 className={css.ListHeader}>Серіали по запиту " {serialName} "</h2>
+          <h2 className={css.ListHeader}>
+            {t('search.serials.request')} " {serialName} "
+          </h2>
           <span>
-            Знайдено серіалів: {totalResults}&emsp;Сторінка: {page}
+            {t('search.serials.result')} {totalResults}&emsp;{t('search.page')}{' '}
+            {page}
           </span>
           <List data={foundSerials} path="serials" />
           <PageNumber totalPages={totalPages} page={page} setPage={setPage} />
@@ -83,7 +89,7 @@ export const SerialSearch = ({ language }) => {
 
       {foundSerials.length === 0 && !isLoading && serialName && (
         <i className={css.NotFound}>
-          Серіалів по запиту " {serialName} " не знайдено
+          {t('search.serials.requests')} " {serialName} " {t('search.not')}
         </i>
       )}
     </div>

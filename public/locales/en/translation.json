@@ -1,0 +1,48 @@
+{
+    "header": {
+        "movies": "Movies",
+        "serials": "Serials",
+        "inf": "Information"
+    },
+    "main": {
+        "category": "Category:",
+        "trend": "Trending",
+        "popular": "Popular",
+        "top": "Top rated",
+        "management": "Management:",
+        "search": "Search",
+        "filter": "Filter"
+    },
+    "list": {
+        "trend": "Trending",
+        "popular": "Popular",
+        "top": "Top rated",
+        "page": "Page:"
+    },
+    "search": {
+        "placeholder": "write something to search",
+        "page": "Page:",
+        "not": "not found",
+        "movies": {
+            "title": "Search Movies",
+            "request": "Movies on demand",
+            "requests": "Movies on demand",
+            "result": "Found movies:"
+        },
+        "serials": {
+            "title": "Search Serials",
+            "request": "Serials on demand",
+            "requests": "Serials on demand",
+            "result": "Found serials:"
+        }
+    },
+    "home": {
+        "header": "Welcome to the Cinema Room",
+        "title": "Here you can find a movie or series to watch in the Movies and Series tabs, or you can read the author's list of recommended movies and series",
+        "movies": "Recommended movies",
+        "mult": "Recommended cartoons",
+        "serials": "Recommended serials",
+        "mults": "Recommended cartoon series",
+        "anime": "Recommended anime"
+    }
+}

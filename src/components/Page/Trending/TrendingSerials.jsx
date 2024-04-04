@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { fetchTrendingSerials } from 'service/api';
 import { List } from 'components/List/List';
@@ -6,7 +7,7 @@ import { Loader } from 'components/Loader/Loader';
 
 export const TrendingSerials = ({ language }) => {
   const [isLoading, setIsLoading] = useState();
-
+  const { t } = useTranslation();
   const [trendingSerials, setTrendingSerials] = useState([]);
 
   useEffect(() => {
@@ -17,11 +18,11 @@ export const TrendingSerials = ({ language }) => {
         setTrendingSerials(data);
       } catch (error) {
         console.error(error);
-      }  finally {
-        setTimeout(()=>{
+      } finally {
+        setTimeout(() => {
           setIsLoading(false);
-        }, 300)
-    }
+        }, 300);
+      }
     };
     fetchSerials();
   }, [language]);
@@ -30,7 +31,7 @@ export const TrendingSerials = ({ language }) => {
     <Loader />
   ) : (
     <div>
-      <List header="Зараз в тренді" data={trendingSerials} path="serials" />
+      <List header={t('list.trend')} data={trendingSerials} path="serials" />
     </div>
   );
 };
