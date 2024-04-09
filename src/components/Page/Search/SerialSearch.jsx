@@ -79,7 +79,7 @@ export const SerialSearch = ({ language }) => {
             {t('search.serials.request')} " {serialName} "
           </h2>
           <span>
-            {t('search.serials.result')} {totalResults}&emsp;{t('search.page')}{' '}
+            {t('search.serials.result')} {totalResults}&emsp;{t('general.page')}{' '}
             {page}
           </span>
           <List data={foundSerials} path="serials" />

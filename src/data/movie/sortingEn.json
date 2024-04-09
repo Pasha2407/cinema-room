@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "From less popular to more popular",
+        "param": "popularity.asc"
+    },
+    {
+        "id": 2,
+        "name": "From newer to older",
+        "param": "primary_release_date.desc"
+    },
+    {
+        "id": 3,
+        "name": "From older to newer",
+        "param": "primary_release_date.asc"
+    },
+    {
+        "id": 4,
+        "name": "From higher rating to lower",
+        "param": "vote_average.desc"
+    },
+    {
+        "id": 5,
+        "name": "From lower rating to higher",
+        "param": "vote_average.asc"
+    }
+]

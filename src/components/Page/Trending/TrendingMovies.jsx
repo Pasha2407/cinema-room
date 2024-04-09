@@ -31,7 +31,7 @@ export const TrendingMovies = ({ language }) => {
     <Loader />
   ) : (
     <div>
-      <List header={t('list.trend')} data={trendingMovies} path="movies" />
+      <List header={t('main.trend')} data={trendingMovies} path="movies" />
     </div>
   );
 };

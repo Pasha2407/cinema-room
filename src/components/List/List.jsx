@@ -20,7 +20,7 @@ export const List = ({ header, page, data, path }) => {
         {header}
         {page && (
           <span>
-            &emsp; {t('list.page')} {page}
+            &emsp; {t('general.page')} {page}
           </span>
         )}
       </h2>

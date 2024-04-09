@@ -1,8 +1,20 @@
 {
+    "general": {
+        "page": "Page:"
+    },
     "header": {
         "movies": "Movies",
         "serials": "Serials",
         "inf": "Information"
+    },
+    "home": {
+        "header": "Welcome to the Cinema Room",
+        "title": "Here you can find a movie or series to watch in the Movies and Series tabs, or you can read the author's list of recommended movies and series",
+        "movies": "Recommended movies",
+        "mult": "Recommended cartoons",
+        "serials": "Recommended serials",
+        "mults": "Recommended cartoon series",
+        "anime": "Recommended anime"
     },
     "main": {
         "category": "Category:",
@@ -13,15 +25,8 @@
         "search": "Search",
         "filter": "Filter"
     },
-    "list": {
-        "trend": "Trending",
-        "popular": "Popular",
-        "top": "Top rated",
-        "page": "Page:"
-    },
     "search": {
         "placeholder": "write something to search",
-        "page": "Page:",
         "not": "not found",
         "movies": {
             "title": "Search Movies",
@@ -36,13 +41,30 @@
             "result": "Found serials:"
         }
     },
-    "home": {
-        "header": "Welcome to the Cinema Room",
-        "title": "Here you can find a movie or series to watch in the Movies and Series tabs, or you can read the author's list of recommended movies and series",
-        "movies": "Recommended movies",
-        "mult": "Recommended cartoons",
-        "serials": "Recommended serials",
-        "mults": "Recommended cartoon series",
-        "anime": "Recommended anime"
+    "filter": {
+        "header": {
+            "genre": "Genre",
+            "year": "Year",
+            "company": "Company",
+            "country": "Country",
+            "rating": "Rating",
+            "sort": "Sort"
+        },
+        "placeholder": {
+            "genre": "All genres",
+            "year": "All years",
+            "company": "All companies",
+            "country": "All countries",
+            "rating": "Any rating",
+            "sort": "From more popular to less popular"
+        },
+        "movies": {
+            "all": "Total movies:",
+            "not": "No movies found"
+        },
+        "serials": {
+            "all": "Total serials:",
+            "not": "No serials found"
+        }
     }
 }

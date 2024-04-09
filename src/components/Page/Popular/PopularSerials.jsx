@@ -42,7 +42,7 @@ export const PopularSerials = ({ language }) => {
     <Loader />
   ) : (
     <div>
-      <List header={t('list.popular')} page={page} data={data} path="serials" />
+      <List header={t('main.popular')} page={page} data={data} path="serials" />
       <PageNumber totalPages={totalPages} page={page} setPage={setPage} />
     </div>
   );

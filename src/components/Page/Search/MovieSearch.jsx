@@ -79,7 +79,7 @@ export const MovieSearch = ({ language }) => {
           </h2>
           <span>
             {t('search.movies.result')} {totalResults}&emsp;
-            {t('search.page')} {page}
+            {t('general.page')} {page}
           </span>
           <List data={foundMovies} path="movies" />
           <PageNumber totalPages={totalPages} page={page} setPage={setPage} />

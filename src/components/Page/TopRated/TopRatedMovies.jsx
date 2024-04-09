@@ -42,7 +42,7 @@ export const TopRatedMovies = ({ language }) => {
     <Loader />
   ) : (
     <div>
-      <List header={t('list.top')} page={page} data={data} path="movies" />
+      <List header={t('main.top')} page={page} data={data} path="movies" />
       <PageNumber totalPages={totalPages} page={page} setPage={setPage} />
     </div>
   );

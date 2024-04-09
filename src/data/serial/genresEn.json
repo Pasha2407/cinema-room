@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "Action and Adventure",
+        "param": "10759"
+    },
+    {
+        "id": 2,
+        "name": "Comedy",
+        "param": "35"
+    },
+    {
+        "id": 3,
+        "name": "Cartoon",
+        "param": "16"
+    },
+    {
+        "id": 4,
+        "name": "Science fiction",
+        "param": "10765"
+    },
+    {
+        "id": 5,
+        "name": "Detective",
+        "param": "9648"
+    },
+    {
+        "id": 6,
+        "name": "Drama",
+        "param": "18"
+    },
+    {
+        "id": 7,
+        "name": "Crime",
+        "param": "80"
+    },
+    {
+        "id": 8,
+        "name": "Family",
+        "param": "10751"
+    },
+    {
+        "id": 9,
+        "name": "Baby",
+        "param": "10762"
+    },
+    {
+        "id": 10,
+        "name": "Western",
+        "param": "37"
+    },
+    {
+        "id": 11,
+        "name": "Documentary",
+        "param": "99"
+    },
+    {
+        "id": 12,
+        "name": "News",
+        "param": "10763"
+    },
+    {
+        "id": 13,
+        "name": "Politics and war",
+        "param": "10768"
+    },
+    {
+        "id": 14,
+        "name": "A talk show",
+        "param": "10767"
+    },
+    {
+        "id": 15,
+        "name": "Reality show",
+        "param": "10764"
+    },
+    {
+        "id": 16,
+        "name": "A soap opera",
+        "param": "10766"
+    }
+]
