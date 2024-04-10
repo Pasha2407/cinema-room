@@ -1,6 +1,8 @@
 {
     "general": {
-        "page": "Page:"
+        "page": "Page:",
+        "hdrezka1": "HDrezka",
+        "hdrezka2": "Find on HDrezka"
     },
     "header": {
         "movies": "Movies",
@@ -66,5 +68,46 @@
             "all": "Total serials:",
             "not": "No serials found"
         }
+    },
+    "details": {
+        "back": "Back",
+        "header": {
+            "rating": "User rating:",
+            "year": "Year:",
+            "genre": "Genre",
+            "country": "Country",
+            "budget": "Budget:",
+            "revenue": "Income:",
+            "slogan": "Slogan:",
+            "duration": "Duration:",
+            "seasons": "Number of seasons:",
+            "series": "Number of all series:",
+            "not1": "unknown",
+            "not2": "unknown",
+            "not3": "unknown",
+            "hour1": "hour",
+            "hour2": "hours",
+            "min": "min"
+        },
+        "companies": "Companies",
+        "notC": "Companies are unknown",
+        "play": {
+            "title": "Watch online with Ukrainian dubbing",
+            "this": "This",
+            "not": "does not have to view",
+            "film": "movie",
+            "serial": "series",
+            "inf": "If you are interested in other voiceovers, you can have a look on the website"
+        },
+        "description": "Description",
+        "notD": "There is no description",
+        "addInf": {
+            "title": "Additional Information",
+            "cast": "Cast",
+            "reviews": "Reviews"
+        }
+    },
+    "inf": {
+        "title": "Information about the site"
     }
 }
