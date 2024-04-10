@@ -1,18 +1,15 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import css from '../components/Page/StyledPage/HomePage.module.css';
 import { Suspense } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const Home = () => {
+  const { t } = useTranslation();
   return (
     <div className={css.Container}>
       <header>
-        <h2>Вітаємо в Cinema Room</h2>
-        <i>
-          Тут ви зможете знайти для себе фільм або серіал для перегляду в
-          вкладках Фільми та Серіали,
-          <br></br>або можете ознайомитись з авторським списком рекомендованих
-          фільмів та серіалів
-        </i>
+        <h2>{t('home.header')}</h2>
+        <i>{t('home.title')}</i>
       </header>
       <section className={css.Buttons}>
         <div>
@@ -22,7 +19,7 @@ export const Home = () => {
               background: isActive ? '#be4040' : '#313131',
             })}
           >
-            Рекомендовані фільми
+            {t('home.movies')}
           </NavLink>
           <NavLink
             to="recommended-cartoons"
@@ -30,7 +27,7 @@ export const Home = () => {
               background: isActive ? '#be4040' : '#313131',
             })}
           >
-            Рекомендовані мульфільми
+            {t('home.mult')}
           </NavLink>
         </div>
         <div>
@@ -40,7 +37,7 @@ export const Home = () => {
               background: isActive ? '#be4040' : '#313131',
             })}
           >
-            Рекомендовані серіали
+            {t('home.serials')}
           </NavLink>
           <NavLink
             to="recommended-cartoon-series"
@@ -48,7 +45,7 @@ export const Home = () => {
               background: isActive ? '#be4040' : '#313131',
             })}
           >
-            Рекомендовані мультсеріали
+            {t('home.mults')}
           </NavLink>
           <NavLink
             to="recommended-anime"
@@ -56,7 +53,7 @@ export const Home = () => {
               background: isActive ? '#be4040' : '#313131',
             })}
           >
-            Рекомендовані аніме
+            {t('home.anime')}
           </NavLink>
         </div>
       </section>

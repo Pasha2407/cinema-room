@@ -1,16 +1,18 @@
 import { Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
+import { useTranslation } from 'react-i18next';
 
 import css from '../components/Page/StyledPage/Page.module.css';
 
 export const Movies = () => {
   const isMobile = useMediaQuery({ maxWidth: 600 }) ? true : false;
+  const { t } = useTranslation();
   return (
     <div className={css.Container}>
       <div className={css.Buttons}>
         <section>
-          <h2>Категорії:</h2>
+          <h2>{t('main.category')}</h2>
           <div>
             <NavLink
               to="trending"
@@ -18,7 +20,7 @@ export const Movies = () => {
                 background: isActive ? '#be4040' : '#313131',
               })}
             >
-              Зараз в тренді
+              {t('main.trend')}
             </NavLink>
             {!isMobile && (
               <>
@@ -28,7 +30,7 @@ export const Movies = () => {
                     background: isActive ? '#be4040' : '#313131',
                   })}
                 >
-                  Популярні
+                  {t('main.popular')}
                 </NavLink>
                 <NavLink
                   to="top-rated"
@@ -36,7 +38,7 @@ export const Movies = () => {
                     background: isActive ? '#be4040' : '#313131',
                   })}
                 >
-                  Топ рейтинга
+                  {t('main.top')}
                 </NavLink>
               </>
             )}
@@ -51,7 +53,7 @@ export const Movies = () => {
                   background: isActive ? '#be4040' : '#313131',
                 })}
               >
-                Популярні
+                {t('main.popular')}
               </NavLink>
               <NavLink
                 to="top-rated"
@@ -59,13 +61,13 @@ export const Movies = () => {
                   background: isActive ? '#be4040' : '#313131',
                 })}
               >
-                Топ рейтинга
+                {t('main.top')}
               </NavLink>
             </div>
           </section>
         )}
         <section>
-          <h2>Управління:</h2>
+          <h2>{t('main.management')}</h2>
           <div>
             <NavLink
               to="search"
@@ -73,7 +75,7 @@ export const Movies = () => {
                 background: isActive ? '#be4040' : '#313131',
               })}
             >
-              Пошук
+              {t('main.search')}
             </NavLink>
             <NavLink
               to="filter"
@@ -81,7 +83,7 @@ export const Movies = () => {
                 background: isActive ? '#be4040' : '#313131',
               })}
             >
-              Фільтер
+              {t('main.filter')}
             </NavLink>
           </div>
         </section>

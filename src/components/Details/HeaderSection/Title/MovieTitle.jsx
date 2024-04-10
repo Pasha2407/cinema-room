@@ -1,9 +1,11 @@
 import css from './Title.module.css';
 import { ratingColor } from 'service/ratingColor';
 import { useMediaQuery } from 'react-responsive';
+import { useTranslation } from 'react-i18next';
 
 export const MovieTitle = ({ data }) => {
   const isMobile = useMediaQuery({ maxWidth: 500 }) ? true : false;
+  const { t } = useTranslation();
 
   const rating = data.vote_average > 0 && data.vote_average.toFixed(1);
 
@@ -16,8 +18,8 @@ export const MovieTitle = ({ data }) => {
 
   let hour = data.runtime > 0 && Math.floor(data.runtime / 60);
   let hourString;
-  if (hour === 1) hourString = 'година';
-  else if (hour > 1) hourString = 'години';
+  if (hour === 1) hourString = t('details.header.hour1');
+  else if (hour > 1) hourString = t('details.header.hour2');
   else {
     hourString = '';
     hour = '';
@@ -29,24 +31,24 @@ export const MovieTitle = ({ data }) => {
       {data.title && <h1>{data.title}</h1>}
 
       <h2>
-        <span>Оцінка корисутвачів: </span>
+        <span>{t('details.header.rating')} </span>
         {rating ? (
           <span className={css.Rating} style={ratingColor(rating)}>
             {rating}
           </span>
         ) : (
-          <i>невідома</i>
+          <i>{t('details.header.not2')}</i>
         )}
       </h2>
 
       <h2>
-        <span>Рік: </span>
+        <span>{t('details.header.year')} </span>
         {data.release_date.slice(0, 4)}
       </h2>
       {!isMobile && (
         <>
           <h2>
-            <span>Жанр</span>
+            <span>{t('details.header.genre')}</span>
           </h2>
           {data.genres.length > 0 ? (
             <section>
@@ -55,11 +57,11 @@ export const MovieTitle = ({ data }) => {
               ))}
             </section>
           ) : (
-            <i>невідомий</i>
+            <i>{t('details.header.not1')}</i>
           )}
 
           <h2>
-            <span>Країна</span>
+            <span>{t('details.header.country')}</span>
           </h2>
           {data.production_countries.length > 0 ? (
             <section>
@@ -68,31 +70,31 @@ export const MovieTitle = ({ data }) => {
               ))}
             </section>
           ) : (
-            <i>невідома</i>
+            <i>{t('details.header.not2')}</i>
           )}
         </>
       )}
       <h2>
-        <span>Бюджет: </span>
-        {budget ? `${budget} $` : <i>невідомий</i>}
+        <span>{t('details.header.budget')} </span>
+        {budget ? `${budget} $` : <i>{t('details.header.not1')}</i>}
       </h2>
 
       <h2>
-        <span>Дохід: </span>
-        {revenue ? `${revenue} $` : <i>невідомий</i>}
+        <span>{t('details.header.revenue')} </span>
+        {revenue ? `${revenue} $` : <i>{t('details.header.not1')}</i>}
       </h2>
 
       {data.tagline && (
         <h2>
-          <span>Слоган: </span>
+          <span>{t('details.header.slogan')} </span>
           {data.tagline}
         </h2>
       )}
 
       {data.runtime > 0 && (
         <h2>
-          <span>Тривалість: </span>
-          {hour} {hourString} {minute} хв
+          <span>{t('details.header.duration')} </span>
+          {hour} {hourString} {minute} {t('details.header.min')}
         </h2>
       )}
     </div>

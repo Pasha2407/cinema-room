@@ -1,97 +1,97 @@
 [
     {
         "id": 1,
-        "name": "Бойовик",
+        "name": "Action",
         "param": "28"
     },
     {
         "id": 2,
-        "name": "Пригоди",
+        "name": "Adventures",
         "param": "12"
     },
     {
         "id": 3,
-        "name": "Комедія",
+        "name": "Comedy",
         "param": "35"
     },
     {
         "id": 4,
-        "name": "Мультфільм",
+        "name": "Cartoon",
         "param": "16"
     },
     {
         "id": 5,
-        "name": "Фантастика",
+        "name": "Fantastic",
         "param": "878"
     },
     {
         "id": 6,
-        "name": "Жахи",
+        "name": "Horrors",
         "param": "27"
     },
     {
         "id": 7,
-        "name": "Драма",
+        "name": "Drama",
         "param": "18"
     },
     {
         "id": 8,
-        "name": "Детектив",
+        "name": "Detective",
         "param": "9648"
     },
     {
         "id": 9,
-        "name": "Сімейний",
+        "name": "Family",
         "param": "10751"
     },
     {
         "id": 10,
-        "name": "Мелодрама",
+        "name": "Melodrama",
         "param": "10749"
     },
     {
         "id": 11,
-        "name": "Фентезі",
+        "name": "Fantasy",
         "param": "14"
     },
     {
         "id": 12,
-        "name": "Кримінал",
+        "name": "Crime",
         "param": "80"
     },
     {
         "id": 13,
-        "name": "Вестерн",
+        "name": "Western",
         "param": "37"
     },
     {
         "id": 14,
-        "name": "Трилер",
+        "name": "Thriller",
         "param": "53"
     },
     {
         "id": 15,
-        "name": "Документальний",
+        "name": "Documentary",
         "param": "99"
     },
     {
         "id": 16,
-        "name": "Історичний",
+        "name": "Historical",
         "param": "36"
     },
     {
         "id": 17,
-        "name": "Військовий",
+        "name": "Military",
         "param": "10752"
     },
     {
         "id": 18,
-        "name": "Телефільм",
+        "name": "TV movie",
         "param": "10770"
     },
     {
         "id": 19,
-        "name": "Музика",
+        "name": "Music",
         "param": "10402"
     }
 ]

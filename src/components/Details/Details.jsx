@@ -1,5 +1,7 @@
 import { Suspense } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 import { IconContext } from 'react-icons';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 
@@ -17,11 +19,12 @@ export const Details = ({
   availableId,
 }) => {
   const isMobile = useMediaQuery({ maxWidth: 500 }) ? true : false;
+  const { t } = useTranslation();
 
   const searchLink = movieData
     ? `https://rezka.ag/search/?do=search&subaction=search&q=${data.title}`
     : `https://rezka.ag/search/?do=search&subaction=search&q=${data.name}`;
-  const iName = movieData ? 'фільму' : 'серіалу';
+  const iName = movieData ? t('details.play.film') : t('details.play.serial');
 
   return (
     <div
@@ -41,7 +44,7 @@ export const Details = ({
               <IconContext.Provider value={{ color: '#be4040', size: 35 }}>
                 <IoMdArrowRoundBack />
               </IconContext.Provider>
-              Назад
+              {t('details.back')}
             </Link>
 
             <HeaderSection
@@ -53,7 +56,7 @@ export const Details = ({
             {isMobile && (
               <div className={css.MobileContent}>
                 <h2>
-                  <span>Жанр</span>
+                  <span>{t('details.header.genre')}</span>
                 </h2>
                 {data.genres.length > 0 ? (
                   <section>
@@ -62,11 +65,11 @@ export const Details = ({
                     ))}
                   </section>
                 ) : (
-                  <i>невідомий</i>
+                  <i>{t('details.header.not1')}</i>
                 )}
 
                 <h2 style={{ marginTop: '10px' }}>
-                  <span>Країна</span>
+                  <span>{t('details.header.country')}</span>
                 </h2>
                 {data.production_countries.length > 0 ? (
                   <section>
@@ -75,12 +78,12 @@ export const Details = ({
                     ))}
                   </section>
                 ) : (
-                  <i>невідома</i>
+                  <i>{t('details.header.not2')}</i>
                 )}
               </div>
             )}
 
-            <h3>Компанії</h3>
+            <h3>{t('details.companies')}</h3>
             {data.production_companies.length > 0 && (
               <section className={css.Companies}>
                 {data.production_companies?.slice(0, 5).map(item => (
@@ -99,35 +102,39 @@ export const Details = ({
                 ))}
               </section>
             )}
-            {data.production_companies.length === 0 && <i>Компанії невідомі</i>}
+            {data.production_companies.length === 0 && (
+              <i className={css.NotC}>{t('details.notC')}</i>
+            )}
 
             {availableId.toString().includes(id) ? (
               <VideoPlayer id={id} searchLink={searchLink} />
             ) : (
               <div className={css.NotFilm}>
-                <i>Цього {iName} не має для перегляду</i>
+                <i>
+                  {t('details.play.this')} {iName} {t('details.play.not')}
+                </i>
                 <a href={searchLink} target="blank">
-                  Знайти на HDrezka
+                  {t('general.hdrezka2')}
                 </a>
               </div>
             )}
 
-            <h3>Опис</h3>
+            <h3>{t('details.description')}</h3>
             {data.overview.length > 0 ? (
               <p> {data.overview}</p>
             ) : (
-              <i className={css.NoInf}>Опису не має</i>
+              <i className={css.NoInf}>{t('details.notD')}</i>
             )}
 
             <div className={css.LinkButton}>
-              <h3>Додаткова інформація</h3>
+              <h3>{t('details.addInf.title')}</h3>
               <NavLink
                 to="cast"
                 style={({ isActive }) => ({
                   background: isActive ? '#be4040' : '#313131',
                 })}
               >
-                Акторський склад
+                {t('details.addInf.cast')}
               </NavLink>
               <NavLink
                 to="reviews"
@@ -135,7 +142,7 @@ export const Details = ({
                   background: isActive ? '#be4040' : '#313131',
                 })}
               >
-                Відгуки
+                {t('details.addInf.reviews')}
               </NavLink>
             </div>
 

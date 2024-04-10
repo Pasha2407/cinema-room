@@ -1,14 +1,20 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import css from './Filter.module.css';
 
-import genres from 'data/movie/genres.json';
-import countries from 'data/movie/countries.json';
+import genresUa from 'data/movie/genres.json';
+import genresEn from 'data/movie/genresEn.json';
+import countriesUa from 'data/movie/countries.json';
+import countriesEn from 'data/movie/countriesEn.json';
 import companies from 'data/movie/companies.json';
-import years from 'data/movie/years.json';
-import ratings from 'data/movie/ratings.json';
-import sorting from 'data/movie/sorting.json';
+import yearsUa from 'data/movie/years.json';
+import yearsEn from 'data/movie/yearsEn.json';
+import ratingsUa from 'data/movie/ratings.json';
+import ratingsEn from 'data/movie/ratingsEn.json';
+import sortingUa from 'data/movie/sorting.json';
+import sortingEn from 'data/movie/sortingEn.json';
 
 import { MovieDiscover } from 'service/api';
 
@@ -22,6 +28,13 @@ export const MovieFilter = ({ language }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [data, setData] = useState([]);
+  const { t } = useTranslation();
+
+  const genres = language === 'uk-UA' ? genresUa : genresEn;
+  const years = language === 'uk-UA' ? yearsUa : yearsEn;
+  const countries = language === 'uk-UA' ? countriesUa : countriesEn;
+  const ratings = language === 'uk-UA' ? ratingsUa : ratingsEn;
+  const sorting = language === 'uk-UA' ? sortingUa : sortingEn;
 
   const currentGenre = searchParams.get('g') || '';
   const [genre, setGenre] = useState(currentGenre);
@@ -193,43 +206,43 @@ export const MovieFilter = ({ language }) => {
     <div>
       <section className={css.Container}>
         <FilterItem
-          header="Жанр"
-          placeholder="Всі жанри"
+          header={t('filter.header.genre')}
+          placeholder={t('filter.placeholder.genre')}
           data={genres}
           choiceFilter={choiceGenre}
           filterName={genreName}
         />
         <FilterItem
-          header="Рік"
-          placeholder="Всі роки"
+          header={t('filter.header.year')}
+          placeholder={t('filter.placeholder.year')}
           data={years}
           choiceFilter={choiceYear}
           filterName={yearName}
         />
         <FilterItem
-          header="Компанія"
-          placeholder="Всі компанії"
+          header={t('filter.header.company')}
+          placeholder={t('filter.placeholder.company')}
           data={companies}
           choiceFilter={choiceCompany}
           filterName={companyName}
         />
         <FilterItem
-          header="Країна"
-          placeholder="Всі країни"
+          header={t('filter.header.country')}
+          placeholder={t('filter.placeholder.country')}
           data={countries}
           choiceFilter={choiceCountry}
           filterName={countryName}
         />
         <FilterItem
-          header="Рейтинг"
-          placeholder="Будь який рейтинг"
+          header={t('filter.header.rating')}
+          placeholder={t('filter.placeholder.rating')}
           data={ratings}
           choiceFilter={choiceRating}
           filterName={ratingName}
         />
         <FilterItem
-          header="Сортувати"
-          placeholder="Від більшої популярності до меншої"
+          header={t('filter.header.sort')}
+          placeholder={t('filter.placeholder.sort')}
           data={sorting}
           choiceFilter={choiceSort}
           filterName={sortName}
@@ -242,11 +255,13 @@ export const MovieFilter = ({ language }) => {
         <>
           {selected ? (
             <span>
-              Знайдено фільмів: {totalResults}&emsp;Сторінка: {page}
+              {t('search.movies.result')} {totalResults}&emsp;
+              {t('general.page')} {page}
             </span>
           ) : (
             <span>
-              Всього фільмів: {totalResults}&emsp;Сторінка: {page}
+              {t('filter.movies.all')} {totalResults}&emsp;
+              {t('general.page')} {page}
             </span>
           )}
 
@@ -256,7 +271,7 @@ export const MovieFilter = ({ language }) => {
       )}
 
       {!isLoading && totalResults === 0 && (
-        <i className={css.NotFound}>Фільмів не знайдено</i>
+        <i className={css.NotFound}>{t('filter.movies.not')}</i>
       )}
     </div>
   );

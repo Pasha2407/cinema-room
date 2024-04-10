@@ -1,14 +1,20 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import css from './Filter.module.css';
 
-import serialGenres from 'data/serial/genres.json';
-import countries from 'data/movie/countries.json';
+import serialGenresUa from 'data/serial/genres.json';
+import serialGenresEn from 'data/serial/genresEn.json';
+import countriesUa from 'data/movie/countries.json';
+import countriesEn from 'data/movie/countriesEn.json';
 import companies from 'data/serial/companies.json';
-import years from 'data/movie/years.json';
-import ratings from 'data/movie/ratings.json';
-import serialSorting from 'data/serial/sorting.json';
+import yearsUa from 'data/movie/years.json';
+import yearsEn from 'data/movie/yearsEn.json';
+import ratingsUa from 'data/movie/ratings.json';
+import ratingsEn from 'data/movie/ratingsEn.json';
+import serialSortingUa from 'data/serial/sorting.json';
+import serialSortingEn from 'data/serial/sortingEn.json';
 
 import { SerialDiscover } from 'service/api';
 
@@ -22,6 +28,14 @@ export const SerialFilter = ({ language }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [data, setData] = useState([]);
+  const { t } = useTranslation();
+
+  const serialGenres = language === 'uk-UA' ? serialGenresUa : serialGenresEn;
+  const years = language === 'uk-UA' ? yearsUa : yearsEn;
+  const countries = language === 'uk-UA' ? countriesUa : countriesEn;
+  const ratings = language === 'uk-UA' ? ratingsUa : ratingsEn;
+  const serialSorting =
+    language === 'uk-UA' ? serialSortingUa : serialSortingEn;
 
   const currentGenre = searchParams.get('g') || '';
   const [genre, setGenre] = useState(currentGenre);
@@ -193,43 +207,43 @@ export const SerialFilter = ({ language }) => {
     <div>
       <section className={css.Container}>
         <FilterItem
-          header="Жанр"
-          placeholder="Всі жанри"
+          header={t('filter.header.genre')}
+          placeholder={t('filter.placeholder.genre')}
           data={serialGenres}
           choiceFilter={choiceGenre}
           filterName={genreName}
         />
         <FilterItem
-          header="Рік"
-          placeholder="Всі роки"
+          header={t('filter.header.year')}
+          placeholder={t('filter.placeholder.year')}
           data={years}
           choiceFilter={choiceYear}
           filterName={yearName}
         />
         <FilterItem
-          header="Компанія"
-          placeholder="Всі компанії"
+          header={t('filter.header.company')}
+          placeholder={t('filter.placeholder.company')}
           data={companies}
           choiceFilter={choiceCompany}
           filterName={companyName}
         />
         <FilterItem
-          header="Країна"
-          placeholder="Всі країни"
+          header={t('filter.header.country')}
+          placeholder={t('filter.placeholder.country')}
           data={countries}
           choiceFilter={choiceCountry}
           filterName={countryName}
         />
         <FilterItem
-          header="Рейтинг"
-          placeholder="Будь який рейтинг"
+          header={t('filter.header.rating')}
+          placeholder={t('filter.placeholder.rating')}
           data={ratings}
           choiceFilter={choiceRating}
           filterName={ratingName}
         />
         <FilterItem
-          header="Сортувати"
-          placeholder="Від більшої популярності до меншої"
+          header={t('filter.header.sort')}
+          placeholder={t('filter.placeholder.sort')}
           data={serialSorting}
           choiceFilter={choiceSort}
           filterName={sortName}
@@ -242,11 +256,13 @@ export const SerialFilter = ({ language }) => {
         <>
           {selected ? (
             <span>
-              Знайдено серіалів: {totalResults}&emsp;Сторінка: {page}
+              {t('search.serials.result')} {totalResults}&emsp;
+              {t('general.page')} {page}
             </span>
           ) : (
             <span>
-              Всього серіалів: {totalResults}&emsp;Сторінка: {page}
+              {t('filter.serials.all')} {totalResults}&emsp;
+              {t('general.page')} {page}
             </span>
           )}
 
@@ -256,7 +272,7 @@ export const SerialFilter = ({ language }) => {
       )}
 
       {!isLoading && totalResults === 0 && (
-        <i className={css.NotFound}>Серіалів не знайдено</i>
+        <i className={css.NotFound}>{t('filter.serials.not')}</i>
       )}
     </div>
   );

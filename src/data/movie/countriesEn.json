@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "name": "United States",
+        "param": "US"
+    },
+    {
+        "id": 2,
+        "name": "Great Britain",
+        "param": "GB"
+    },
+    {
+        "id": 3,
+        "name": "France",
+        "param": "FR"
+    },
+    {
+        "id": 4,
+        "name": "Japan",
+        "param": "JP"
+    },
+    {
+        "id": 5,
+        "name": "Ukraine",
+        "param": "UA"
+    },
+    {
+        "id": 6,
+        "name": "Italy",
+        "param": "IT"
+    },
+    {
+        "id": 7,
+        "name": "Germany",
+        "param": "DE"
+    },
+    {
+        "id": 8,
+        "name": "Canada",
+        "param": "CA"
+    },
+    {
+        "id": 9,
+        "name": "Mexico",
+        "param": "MX"
+    },
+    {
+        "id": 10,
+        "name": "India",
+        "param": "IN"
+    },
+    {
+        "id": 11,
+        "name": "Russia",
+        "param": "RU"
+    },
+    {
+        "id": 12,
+        "name": "Spain",
+        "param": "ES"
+    },
+    {
+        "id": 13,
+        "name": "Sweden",
+        "param": "SE"
+    },
+    {
+        "id": 14,
+        "name": "Denmark",
+        "param": "DK"
+    },
+    {
+        "id": 15,
+        "name": "Poland",
+        "param": "PL"
+    },
+    {
+        "id": 16,
+        "name": "Australia",
+        "param": "AU"
+    },
+    {
+        "id": 17,
+        "name": "Brazil",
+        "param": "BR"
+    },
+    {
+        "id": 18,
+        "name": "Argentina",
+        "param": "AR"
+    },
+    {
+        "id": 19,
+        "name": "China",
+        "param": "CN"
+    },
+    {
+        "id": 20,
+        "name": "Turkey",
+        "param": "TR"
+    }
+]

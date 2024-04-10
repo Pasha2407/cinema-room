@@ -40,7 +40,6 @@
       margin: 15px 30px;
   }
 
-
   .Companies>article>img {
       height: 50px;
       max-width: 150px;
@@ -60,6 +59,10 @@
       background-color: rgba(42, 42, 42, 0.5);
       border-radius: 10px;
       padding: 8px 10px;
+  }
+
+  .NotC {
+      display: block;
   }
 
   .LinkButton>a {
@@ -131,6 +134,10 @@
       padding: 3px 6px;
   }
 
+  .MobileContent i {
+      font-size: 12px;
+  }
+
   @media screen and (max-width: 500px) {
       .Background {
           background-size: 720px;
@@ -169,6 +176,10 @@
           font-size: 8px;
           border-radius: 6px;
           padding: 4px 6px;
+      }
+
+      .NotC {
+          font-size: 12px;
       }
 
       .Wrapper>h3 {
@@ -214,6 +225,6 @@
       }
 
       .NoInf {
-          font-size: 14px;
+          font-size: 12px;
       }
   }

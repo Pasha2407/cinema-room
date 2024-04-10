@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 import { searchMovies } from 'service/api';
 import { List } from 'components/List/List';
 import { Loader } from 'components/Loader/Loader';
@@ -11,6 +13,7 @@ import { PageNumber } from '../PageNumber/PageNumber';
 export const MovieSearch = ({ language }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const movieName = searchParams.get('query') || '';
+  const { t } = useTranslation();
 
   const [isLoading, setIsLoading] = useState();
   const [foundMovies, setFoundMovies] = useState([]);
@@ -53,11 +56,11 @@ export const MovieSearch = ({ language }) => {
   return (
     <div>
       <div className={css.SearchForm}>
-        <h3>Пошук Фільмів</h3>
+        <h3>{t('search.movies.title')}</h3>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="напишіть щось для пошуку"
+            placeholder={t('search.placeholder')}
             name="search"
           />
           <button type="submit" onClick={() => setPage(1)}>
@@ -71,9 +74,12 @@ export const MovieSearch = ({ language }) => {
 
       {!isLoading && totalResults > 0 && (
         <>
-          <h2 className={css.ListHeader}>Фільми по запиту " {movieName} "</h2>
+          <h2 className={css.ListHeader}>
+            {t('search.movies.request')} " {movieName} "
+          </h2>
           <span>
-            Знайдено фільмів: {totalResults}&emsp;Сторінка: {page}
+            {t('search.movies.result')} {totalResults}&emsp;
+            {t('general.page')} {page}
           </span>
           <List data={foundMovies} path="movies" />
           <PageNumber totalPages={totalPages} page={page} setPage={setPage} />
@@ -82,7 +88,7 @@ export const MovieSearch = ({ language }) => {
 
       {movieName && !isLoading && totalResults === 0 && (
         <i className={css.NotFound}>
-          Фільмів по запиту " {movieName} " не знайдено
+          {t('search.movies.requests')} " {movieName} " {t('search.not')}
         </i>
       )}
     </div>

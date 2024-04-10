@@ -1,0 +1,113 @@
+{
+    "general": {
+        "page": "Page:",
+        "hdrezka1": "HDrezka",
+        "hdrezka2": "Find on HDrezka"
+    },
+    "header": {
+        "movies": "Movies",
+        "serials": "Serials",
+        "inf": "Information"
+    },
+    "home": {
+        "header": "Welcome to the Cinema Room",
+        "title": "Here you can find a movie or series to watch in the Movies and Series tabs, or you can read the author's list of recommended movies and series",
+        "movies": "Recommended movies",
+        "mult": "Recommended cartoons",
+        "serials": "Recommended serials",
+        "mults": "Recommended cartoon series",
+        "anime": "Recommended anime"
+    },
+    "main": {
+        "category": "Category:",
+        "trend": "Trending",
+        "popular": "Popular",
+        "top": "Top rated",
+        "management": "Management:",
+        "search": "Search",
+        "filter": "Filter"
+    },
+    "search": {
+        "placeholder": "write something to search",
+        "not": "not found",
+        "movies": {
+            "title": "Search Movies",
+            "request": "Movies on demand",
+            "requests": "Movies on demand",
+            "result": "Found movies:"
+        },
+        "serials": {
+            "title": "Search Serials",
+            "request": "Serials on demand",
+            "requests": "Serials on demand",
+            "result": "Found serials:"
+        }
+    },
+    "filter": {
+        "header": {
+            "genre": "Genre",
+            "year": "Year",
+            "company": "Company",
+            "country": "Country",
+            "rating": "Rating",
+            "sort": "Sort"
+        },
+        "placeholder": {
+            "genre": "All genres",
+            "year": "All years",
+            "company": "All companies",
+            "country": "All countries",
+            "rating": "Any rating",
+            "sort": "From more popular to less popular"
+        },
+        "movies": {
+            "all": "Total movies:",
+            "not": "No movies found"
+        },
+        "serials": {
+            "all": "Total serials:",
+            "not": "No serials found"
+        }
+    },
+    "details": {
+        "back": "Back",
+        "header": {
+            "rating": "User rating:",
+            "year": "Year:",
+            "genre": "Genre",
+            "country": "Country",
+            "budget": "Budget:",
+            "revenue": "Income:",
+            "slogan": "Slogan:",
+            "duration": "Duration:",
+            "seasons": "Number of seasons:",
+            "series": "Number of all series:",
+            "not1": "unknown",
+            "not2": "unknown",
+            "not3": "unknown",
+            "hour1": "hour",
+            "hour2": "hours",
+            "min": "min"
+        },
+        "companies": "Companies",
+        "notC": "Companies are unknown",
+        "play": {
+            "title": "Watch online with Ukrainian dubbing",
+            "this": "This",
+            "not": "does not have to view",
+            "film": "movie",
+            "serial": "series",
+            "inf": "If you are interested in other voiceovers, you can have a look on the website"
+        },
+        "description": "Description",
+        "notD": "There is no description",
+        "addInf": {
+            "title": "Additional Information",
+            "cast": "Cast",
+            "reviews": "Reviews"
+        }
+    },
+    "inf": {
+        "title": "Information about the site"
+    }
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { fetchTopRatedMovies } from 'service/api';
 import { List } from 'components/List/List';
@@ -8,6 +9,7 @@ import { Loader } from 'components/Loader/Loader';
 
 export const TopRatedMovies = ({ language }) => {
   const [isLoading, setIsLoading] = useState();
+  const { t } = useTranslation();
 
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = parseInt(searchParams.get('page')) || 1;
@@ -40,7 +42,7 @@ export const TopRatedMovies = ({ language }) => {
     <Loader />
   ) : (
     <div>
-      <List header="Топ рейтинга" page={page} data={data} path="movies" />
+      <List header={t('main.top')} page={page} data={data} path="movies" />
       <PageNumber totalPages={totalPages} page={page} setPage={setPage} />
     </div>
   );
