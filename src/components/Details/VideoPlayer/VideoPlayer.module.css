@@ -47,7 +47,7 @@
     color: rgb(149, 190, 255);
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 650px) {
     .Container {
         background-color: #313131;
         padding: 10px;

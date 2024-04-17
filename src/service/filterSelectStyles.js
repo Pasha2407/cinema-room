@@ -1,4 +1,4 @@
-const isMobile = window.innerWidth < 500;
+const isMobile = window.innerWidth < 650;
 
 export const filterSelectStyles = {
     container: provided => ({

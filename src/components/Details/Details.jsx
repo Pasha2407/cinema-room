@@ -18,7 +18,7 @@ export const Details = ({
   id,
   availableId,
 }) => {
-  const isMobile = useMediaQuery({ maxWidth: 500 }) ? true : false;
+  const isMobile = useMediaQuery({ maxWidth: 650 }) ? true : false;
   const { t } = useTranslation();
 
   const searchLink = movieData

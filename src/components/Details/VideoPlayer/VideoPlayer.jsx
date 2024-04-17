@@ -7,8 +7,8 @@ import { FaPlay } from 'react-icons/fa6';
 import { useTranslation } from 'react-i18next';
 
 export const VideoPlayer = ({ id, searchLink }) => {
-  const playerWidth = useMediaQuery({ maxWidth: 500 }) ? 320 : 768;
-  const playerHeight = useMediaQuery({ maxWidth: 500 }) ? 180 : 432;
+  const playerWidth = useMediaQuery({ maxWidth: 650 }) ? 320 : 768;
+  const playerHeight = useMediaQuery({ maxWidth: 650 }) ? 180 : 432;
 
   const [quality, setQuality] = useState('720');
   const { t } = useTranslation();

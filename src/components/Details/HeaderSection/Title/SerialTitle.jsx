@@ -4,7 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 import { useTranslation } from 'react-i18next';
 
 export const SerialTitle = ({ data }) => {
-  const isMobile = useMediaQuery({ maxWidth: 500 }) ? true : false;
+  const isMobile = useMediaQuery({ maxWidth: 650 }) ? true : false;
   const { t } = useTranslation();
 
   const rating = data.vote_average > 0 && data.vote_average.toFixed(1);

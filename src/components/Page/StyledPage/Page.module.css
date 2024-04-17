@@ -34,7 +34,7 @@
     background-color: #913131
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 650px) {
     .Container {
         padding: 10px 10px 50px 10px;
     }

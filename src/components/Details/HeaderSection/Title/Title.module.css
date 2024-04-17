@@ -46,8 +46,34 @@
     padding: 3px 8px;
 }
 
+@media screen and (max-width: 950px) {
+    .Title {
+        width: 60%;
+    }
+}
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 750px) {
+    .Title h1 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .Title h2 {
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .Title i {
+        font-size: 12px;
+    }
+
+    .Title>section>b {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 650px) {
     .Title {
         width: 65%;
         padding: 8px 5px 8px 10px
