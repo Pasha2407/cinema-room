@@ -1,5 +1,11 @@
 import { Suspense, lazy, useEffect, useState } from 'react';
-import { Routes, Route, NavLink, useLocation } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  NavLink,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import css from './App.module.css';
@@ -55,6 +61,13 @@ export const App = () => {
   if (location.pathname.startsWith('/serials')) {
     serialLock = true;
   }
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.pathname === '/') {
+      navigate('/recommended-movies');
+    }
+  }, [navigate, location.pathname]);
 
   return (
     <div className={css.Container}>
@@ -87,33 +100,33 @@ export const App = () => {
           >
             {t('header.inf')}
           </NavLink>
-          <section className={css.Language}>
-            <button
-              className={css.Ua}
-              style={{
-                backgroundColor: language === 'uk-UA' ? '#be4040' : 'unset',
-              }}
-              onClick={() => {
-                setLanguage('uk-UA');
-                setLanguage18('ua');
-              }}
-            >
-              UA
-            </button>
-            <button
-              className={css.En}
-              style={{
-                backgroundColor: language === 'en-US' ? '#be4040' : 'unset',
-              }}
-              onClick={() => {
-                setLanguage('en-US');
-                setLanguage18('en');
-              }}
-            >
-              EN
-            </button>
-          </section>
         </nav>
+        <div className={css.Language}>
+          <button
+            className={css.Ua}
+            style={{
+              backgroundColor: language === 'uk-UA' ? '#be4040' : 'unset',
+            }}
+            onClick={() => {
+              setLanguage('uk-UA');
+              setLanguage18('ua');
+            }}
+          >
+            UA
+          </button>
+          <button
+            className={css.En}
+            style={{
+              backgroundColor: language === 'en-US' ? '#be4040' : 'unset',
+            }}
+            onClick={() => {
+              setLanguage('en-US');
+              setLanguage18('en');
+            }}
+          >
+            EN
+          </button>
+        </div>
       </header>
       <main>
         <Suspense>
