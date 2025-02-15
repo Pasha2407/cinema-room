@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/cinema-room/static/css/main.8bce61b8.css",
-    "main.js": "/cinema-room/static/js/main.4f11431e.js",
+    "main.css": "/cinema-room/static/css/main.47d0d0f1.css",
+    "main.js": "/cinema-room/static/js/main.f4749425.js",
     "static/css/159.0cae2f4e.chunk.css": "/cinema-room/static/css/159.0cae2f4e.chunk.css",
     "static/js/159.bfb3b4a0.chunk.js": "/cinema-room/static/js/159.bfb3b4a0.chunk.js",
     "static/css/411.0cae2f4e.chunk.css": "/cinema-room/static/css/411.0cae2f4e.chunk.css",
@@ -21,13 +21,12 @@
     "reactPlayerPreview.js": "/cinema-room/static/js/reactPlayerPreview.f8c36fb6.chunk.js",
     "static/js/128.3770a1a3.chunk.js": "/cinema-room/static/js/128.3770a1a3.chunk.js",
     "static/js/241.1b2fb8ce.chunk.js": "/cinema-room/static/js/241.1b2fb8ce.chunk.js",
-    "static/media/fon.png": "/cinema-room/static/media/fon.25b0dee8ac2b002409da.png",
     "static/media/logo.png": "/cinema-room/static/media/logo.25b9016c3fde9b9ccc93.png",
     "static/media/noimage.jpg": "/cinema-room/static/media/noimage.d6863c531721152fea3b.jpg",
     "index.html": "/cinema-room/index.html",
     "static/media/getFetch.cjs": "/cinema-room/static/media/getFetch.40f37ddea2378391108f.cjs",
-    "main.8bce61b8.css.map": "/cinema-room/static/css/main.8bce61b8.css.map",
-    "main.4f11431e.js.map": "/cinema-room/static/js/main.4f11431e.js.map",
+    "main.47d0d0f1.css.map": "/cinema-room/static/css/main.47d0d0f1.css.map",
+    "main.f4749425.js.map": "/cinema-room/static/js/main.f4749425.js.map",
     "159.0cae2f4e.chunk.css.map": "/cinema-room/static/css/159.0cae2f4e.chunk.css.map",
     "159.bfb3b4a0.chunk.js.map": "/cinema-room/static/js/159.bfb3b4a0.chunk.js.map",
     "411.0cae2f4e.chunk.css.map": "/cinema-room/static/css/411.0cae2f4e.chunk.css.map",
@@ -49,7 +48,7 @@
     "241.1b2fb8ce.chunk.js.map": "/cinema-room/static/js/241.1b2fb8ce.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8bce61b8.css",
-    "static/js/main.4f11431e.js"
+    "static/css/main.47d0d0f1.css",
+    "static/js/main.f4749425.js"
   ]
 }
